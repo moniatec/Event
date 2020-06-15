@@ -1,0 +1,14 @@
+- / (splash )
+  - Splash
+- /home (home)
+  - Nav bar
+  - Main container(shows a list of events)
+  - This is the page where profiles "pop-up" (if the user is logged in)
+  - Links to the events
+- /login (log-in form)
+  - Session Form
+- /signup (sign-up form )
+  - Session Form
+- /events/eventId
+  - details about an event
+  - members of the event
