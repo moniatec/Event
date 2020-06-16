@@ -12,3 +12,4 @@
   - GET /events/:eventId => get a full description for a single event
   - Put /events/eventId => update details for an event by th host only.
   - GET /events/eventId/members => get all members for and event within eventId
+  - Delete /events/eventId => delete event with id == eventId

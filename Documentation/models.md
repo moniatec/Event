@@ -8,6 +8,7 @@
 | hashedPassword |  string   |     not null (binary) |
 | createdAt      | timestamp |              not null |
 | updatedAt      | timestamp |              not null |
+| avatarUrl      |   text    |              not null |
 
 ## **events**
 
