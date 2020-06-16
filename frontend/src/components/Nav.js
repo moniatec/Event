@@ -1,74 +1,3 @@
-// import React, { useEffect } from "react";
-// import AppBar from "@material-ui/core/AppBar";
-// import Badge from "@material-ui/core/Badge";
-// import Toolbar from "@material-ui/core/Toolbar";
-// import IconButton from "@material-ui/core/IconButton";
-// import MenuIcon from "@material-ui/icons/Menu";
-// import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-// import LogoutBtn from "./LogoutBtn";
-
-// import { fade, makeStyles } from "@material-ui/core/styles";
-// import { connect } from "react-redux";
-
-
-// const useStyles = makeStyles((theme) => ({
-//     root: {
-//         flexGrow: 1,
-//     },
-//     menuButton: {
-//         marginRight: theme.spacing(2),
-//     },
-//     title: {
-//         flexGrow: 1,
-//     },
-//     navbar: {
-//         backgroundImage: theme.gradientBackground,
-//     },
-
-
-// }));
-
-// function Nav(props) {
-//     const classes = useStyles();
-//     const [anchorEl, setAnchorEl] = React.useState(null);
-//     const open = Boolean(anchorEl);
-
-//     useEffect(() => {
-
-//     }, []);
-//     return (
-//         <React.Fragment>
-//             <AppBar position="fixed" className={classes.navbar}>
-//                 <Toolbar>
-
-//                     <h2 className={classes.title} >Event</h2>
-
-//                     <LogoutBtn token={props.token} />
-//                 </Toolbar>
-//             </AppBar>
-//         </React.Fragment>
-//     );
-// }
-
-// const mapStateToProps = (state) => {
-//     return {
-//         state
-//     };
-// };
-
-// export default connect(mapStateToProps)(Nav);
-
-
-
-
-
-
-
-
-
-
-
-
 
 import React from 'react';
 import { connect } from 'react-redux';
@@ -112,10 +41,15 @@ const NavBar = (props) => {
 
         <Grid container spacing={3}>
             <Grid item xs={10}>
-                <NavLink style={{ color: 'white' }} to="/">
+                <NavLink style={{ color: 'white' }} to="/home">
                     <Button color="inherit">Event</Button>
                 </NavLink>
 
+
+
+                <NavLink style={{ color: 'white' }} to="/create">
+                    <Button color="inherit">Create Event</Button>
+                </NavLink>
             </Grid>
             <Grid item xs={2}>
                 <NavLink style={{ color: 'white' }} to="/login">

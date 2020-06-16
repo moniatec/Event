@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
+import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register'
 import Nav from './components/Nav';
+import EventPage from './components/EventPage';
 
 import Theme from './Theme';
 // import Splash from './components/Splash'
@@ -20,25 +21,39 @@ function App(props) {
       <Theme>
         <BrowserRouter>
           <Nav props={props} />
+          <Route render={({ location }) => (
+            <TransitionGroup>
+              <CSSTransition
+                key={location.key}
+                timeout={300}
+                classNames='fade'
+              >
+                <Switch>
+                  <Route exact path="/home"
+                    component={Home}
+                  // token={props.token}
+                  />
 
-          <Switch>
-            {/* <AuthRoute exact path="/"
-                    component={Splash}
-                    currentUserId={props.currentUserId}
-                  /> */}
-
-            <AuthRoute
-              path="/login"
-              component={Login}
-              currentUserId={props.currentUserId}
-            />
-            <AuthRoute
-              path="/signup"
-              component={Register}
-              currentUserId={props.currentUserId}
-            />
-          </Switch>
-
+                  <AuthRoute
+                    exact
+                    path="/login"
+                    component={Login}
+                    token={props.token}
+                  />
+                  <AuthRoute
+                    exact
+                    path="/signup"
+                    component={Register}
+                    token={props.token}
+                  />
+                  <Route exact path="/events/:eventId"
+                    component={EventPage}
+                  // token={props.token}
+                  />
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+          )} />
         </BrowserRouter>
       </Theme>
     </>
@@ -47,7 +62,7 @@ function App(props) {
 
 const mapStateToProps = state => {
   return {
-    currentUserId: state.authentication.currentUserId,
+    token: state.authentication.token,
   };
 };
 
