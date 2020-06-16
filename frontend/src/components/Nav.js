@@ -127,7 +127,7 @@ const NavBar = (props) => {
         </Grid >
     ) : (
             <>
-                <NavLink style={{ color: 'white' }} to="/register">
+                <NavLink style={{ color: 'white' }} to="/signup">
                     <Button color="inherit">Register</Button>
                 </NavLink>
                 <NavLink style={{ color: 'white' }} to="/login">

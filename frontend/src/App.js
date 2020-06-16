@@ -33,7 +33,7 @@ function App(props) {
               currentUserId={props.currentUserId}
             />
             <AuthRoute
-              path="/register"
+              path="/signup"
               component={Register}
               currentUserId={props.currentUserId}
             />

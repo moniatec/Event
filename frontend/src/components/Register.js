@@ -22,14 +22,14 @@ class Register extends Component {
     async handleSubmit(e) {
         e.preventDefault();
         this.props.register(
-            this.state.userName,
+            this.state.username,
             this.state.email,
             this.state.password
         );
     }
 
     updateUserName = (e) => {
-        this.setState({ userName: e.target.value });
+        this.setState({ username: e.target.value });
     };
 
     updateEmail = (e) => {
