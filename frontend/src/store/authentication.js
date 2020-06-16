@@ -5,7 +5,7 @@ const SET_TOKEN = "EVENT/authentication/SET_TOKEN";
 const REMOVE_TOKEN = "EVENT/authentication/REMOVE_TOKEN";
 
 export const removeToken = (token) => ({ type: REMOVE_TOKEN });
-export const setToken = (token) => ({ type: SET_TOKEN, token });
+export const setToken = (token, currentUserId) => ({ type: SET_TOKEN, token, currentUserId });
 
 export const loadToken = () => async (dispatch) => {
     const token = window.localStorage.getItem(TOKEN_KEY);
@@ -22,9 +22,10 @@ export const register = (username, email, password) => async (dispatch) => {
     });
 
     if (res.ok) {
-        const { token } = await res.json();
+        const { token, currentUserId } = await res.json();
         window.localStorage.setItem(TOKEN_KEY, token);
-        dispatch(setToken(token));
+        window.localStorage.setItem("currentUserId", currentUserId);
+        dispatch(setToken(token, currentUserId));
     }
 };
 
@@ -36,14 +37,16 @@ export const login = (email, password) => async (dispatch) => {
     });
 
     if (res.ok) {
-        const { token } = await res.json();
+        const { token, currentUserId } = await res.json();
         window.localStorage.setItem(TOKEN_KEY, token);
+        window.localStorage.setItem("currentUserId", currentUserId);
         dispatch(setToken(token));
     }
 };
 
 export const logout = () => async (dispatch, getState) => {
     window.localStorage.removeItem(TOKEN_KEY);
+    window.localStorage.removeItem("currentUserId");
     dispatch(removeToken());
 };
 
@@ -53,6 +56,7 @@ export default function reducer(state = {}, action) {
             return {
                 ...state,
                 token: action.token,
+                currentUserId: action.currentUserId,
             };
         }
 

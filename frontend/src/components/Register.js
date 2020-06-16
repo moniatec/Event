@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { register } from "../store/authentication";
+import Link from "@material-ui/core/Link";
 // import Home from "./Home";
 import "../css/loginForm.css";
 
@@ -9,7 +10,7 @@ class Register extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userName: "",
+            username: "",
             email: "",
             password: "",
             authentication: null,
@@ -49,12 +50,12 @@ class Register extends Component {
                     <div className="form-wrapper">
                         <h1>Create Account</h1>
                         <form onSubmit={this.handleSubmit}>
-                            <div className="userName">
-                                <label htmlFor="userName">UserName</label>
+                            <div className="username">
+                                <label htmlFor="username">UserName</label>
                                 <input
                                     type="text"
                                     placeholder="Enter UserName"
-                                    value={this.state.userName}
+                                    value={this.state.username}
                                     onChange={this.updateUserName}
                                 />
                             </div>
@@ -78,7 +79,9 @@ class Register extends Component {
                             </div>
                             <div className="createAccount">
                                 <button type="submit">Create Account</button>
-                                <small>Already Have an Account?</small>
+                                <Link href="/login">
+                                    <small>Already Have an Account?</small>
+                                </Link>
                             </div>
                         </form>
                     </div>

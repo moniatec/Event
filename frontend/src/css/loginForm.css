@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #a3c6ce;
+    background-color: #ebbabd;
   }
   
   .form-wrapper {
@@ -87,7 +87,7 @@
   
   .createAccount button,
   .logIn button {
-    background-color: #6fb3c2;
+    background-color: #eca1a6;
     color: #fff;
     border: 2px solid #fff;
     width: 100%;
@@ -101,9 +101,9 @@
   
   .createAccount button:hover,
   .logIn button:hover {
-    color: #519e8a;
+    color: #eca1a6;
     background-color: #fff;
-    border: 2px solid #84bdca;
+    border: 2px solid #eca1a6;
   }
   
   .createAccount small,

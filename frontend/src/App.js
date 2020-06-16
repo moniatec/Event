@@ -1,50 +1,65 @@
-import React from "react";
-import { connect } from "react-redux";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-// import Splash from "./components/Splash";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import { loadToken } from "./store/authentication";
+import React from 'react';
+import { connect } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import Login from './components/Login';
+import Register from './components/Register'
+import Nav from './components/Nav';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loaded: false,
-    };
-  }
+import Theme from './Theme';
+// import Splash from './components/Splash'
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-  async componentDidMount() {
-    this.setState({ loaded: true });
-    this.props.loadToken();
-  }
+import { ProtectedRoute, AuthRoute } from "./authRoutes";
+import { CssBaseline, } from "@material-ui/core";
 
-  render() {
-    if (!this.state.loaded) {
-      return null;
-    }
-    return (
-      <BrowserRouter>
-        <Switch>
-          {/* <Route exact={true} path="/" component={Splash} /> */}
-          <Route path="/login" component={Login} />
-          <Route path="/signup" component={Register} />
+function App(props) {
+  return (
+    <>
+      <CssBaseline />
+      <Theme>
+        <BrowserRouter>
+          <Nav props={props} />
 
-        </Switch>
-      </BrowserRouter>
-    );
-  }
+          <Switch>
+            {/* <AuthRoute exact path="/"
+                    component={Splash}
+                    currentUserId={props.currentUserId}
+                  /> */}
+
+            <AuthRoute
+              path="/login"
+              component={Login}
+              currentUserId={props.currentUserId}
+            />
+            <AuthRoute
+              path="/register"
+              component={Register}
+              currentUserId={props.currentUserId}
+            />
+          </Switch>
+
+        </BrowserRouter>
+      </Theme>
+    </>
+  );
 }
 
-const mapStateToProps = (state) => {
-  return {};
-};
-
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = state => {
   return {
-    loadToken: () => dispatch(loadToken()),
+    currentUserId: state.authentication.currentUserId,
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return {
+
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(
+  App
+);

@@ -3,15 +3,16 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../store/authentication";
 import "../css/loginForm.css";
+import Link from "@material-ui/core/Link";
 // import Home from "./Home";
 
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "",
-            email: "",
-            password: "",
+            username: "user",
+            email: "user@user.com",
+            password: "123",
             authentication: null,
             currentUserId: null,
         };
@@ -49,7 +50,7 @@ class Login extends Component {
                                 <label htmlFor="username">UserName</label>
                                 <input
                                     type="text"
-                                    placeholder="Username"
+                                    placeholder="username"
                                     value={this.state.username}
                                     onChange={this.updateUserName}
                                 />
@@ -74,7 +75,9 @@ class Login extends Component {
                             </div>
                             <div className="logIn">
                                 <button type="submit">Log In</button>
-                                <small>Create An Acount</small>
+                                <Link href="/signup">
+                                    <small>Create An Acount</small>
+                                </Link>
                             </div>
                         </form>
                     </div>
