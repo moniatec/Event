@@ -31,15 +31,10 @@ const Home = (props) => {
                 {
                     props.events.map((event) => (
                         <Grid item spacing={3}>
-                            <EventCard //pass product
+                            <EventCard
                                 key={event.id}
                                 event={event}
-                            // title={event.id}
-                            // id={event.id}
-                            // eventName={event.eventName}
-                            // image={event.photoUrl}
-                            // price={event.price}
-                            // description={event.description}
+
                             />
                         </Grid>
                     ))
