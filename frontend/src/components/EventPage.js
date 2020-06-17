@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import CardMedia from '@material-ui/core/CardMedia';
 import { getOneEvent } from "../store/homeEvents";
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -13,8 +14,9 @@ const useStyles = makeStyles((theme) => ({
         '& > *': {
             marginTop: 50,
             margin: 'auto',
-            width: 1000,
+            width: 1200,
             height: 600,
+
         },
         padding: theme.spacing(2),
     },
@@ -26,15 +28,17 @@ const useStyles = makeStyles((theme) => ({
     //     margin: 'auto',
     //     maxWidth: 500,
     // },
-    image: {
-        width: 128,
-        height: 128,
-    },
+    // image: {
+    //     width: 128,
+    //     height: 128,
+    // },
     img: {
         margin: 'auto',
         display: 'block',
-        maxWidth: '100%',
-        maxHeight: '100%',
+        // maxWidth: '100%',
+        // maxHeight: '100%',
+        width: 800,
+        height: 600,
     },
 }));
 
@@ -49,57 +53,79 @@ const EventPage = (props) => {
         console.log(props)
 
     }, [])
-    console.log(props)
-    return (
-        <div className={classes.root}>
+    console.log(props.event)
+    if (props.event) {
+        const event1 = props.event.event
+        console.log(event1)
+        return (
+            <div className={classes.root}>
 
-            <Paper elevation={3} >
-                <div className={classes.root1}>
+                <Paper elevation={3} >
+                    <div className={classes.root1}>
 
-                    <Grid container spacing={2}>
-                        <Grid item>
-                            <ButtonBase className={classes.image}>
-                                {/* <img className={classes.img} alt="complex"  > {props.resEvent}</img> */}
-                                <div event={props.event}>hi </div>
-                            </ButtonBase>
-                        </Grid>
-                        <Grid item xs={12} sm container>
-                            <Grid item xs container direction="column" spacing={2}>
-                                <Grid item xs>
-                                    <Typography gutterBottom variant="subtitle1">
-                                        Standard license
-                </Typography>
-                                    <Typography variant="body2" gutterBottom>
-                                        Full resolution 1920x1080 • JPEG
-                </Typography>
-                                    <Typography variant="body2" color="textSecondary">
-                                        ID: 1030114
-                </Typography>
-                                </Grid>
-                                <Grid item>
-                                    <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                                        Remove
-                </Typography>
-                                </Grid>
-                            </Grid>
+                        <Grid container spacing={2}>
+
                             <Grid item>
-                                <Typography variant="subtitle1">$19.00</Typography>
+                                <img
+                                    component="img"
+                                    alt="Contemplative Reptile"
+
+                                    className={classes.img}
+                                    src={event1.photoUrl}
+                                    title="Contemplative Reptile"
+                                />
+                            </Grid>
+                            <Grid item xs={12} sm container>
+                                <Grid item xs container direction="column" spacing={2}>
+                                    <Grid item xs >
+                                        <Typography gutterBottom variant="h5" component="h2"  >
+                                            {event1.eventName}
+                                        </Typography>
+                                        <Typography variant="body2" color="textSecondary">
+                                            HOSTED BY {event1.host.username}
+                                        </Typography>
+                                        <Typography variant="body2" gutterBottom>
+                                            Time: {event1.time}
+                                        </Typography>
+                                        <Typography variant="body2" gutterBottom>
+                                            Location: {event1.location}
+                                        </Typography>
+
+                                        <Typography variant="body2" gutterBottom>
+                                            {event1.description}
+                                        </Typography>
+
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="body2" style={{ cursor: 'pointer' }}>
+                                            Remove
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                                {/* <Grid item>
+                                    <Typography variant="subtitle1">$19.00</Typography>
+                                </Grid> */}
                             </Grid>
                         </Grid>
-                    </Grid>
 
-                </div>
-            </Paper>
-        </div>
-    );
+                    </div>
+                </Paper>
+            </div>
+        );
+    } else {
+        return (
+            <h1>Loading</h1>
+        )
+    }
 }
 
 
 const mapStateToProps = state => {
     console.log(state)
-    return {
-        event: state.homeEvents.resEvent
-    };
+    if (state.homeEvents.resEvent)
+        return {
+            event: state.homeEvents.resEvent
+        };
 
 };
 
