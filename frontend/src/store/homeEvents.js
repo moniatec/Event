@@ -33,10 +33,10 @@ export const getOneEvent = (eventId) => async (dispatch, getState) => {
             Authorization: `Bearer ${token}`,
         },
     });
-    // console.log(res)
+    console.log(res)
     if (res.ok) {
         const resEvent = await res.json();
-        // console.log(resEvent.event)
+        console.log(resEvent.event)
         dispatch(getEvent(resEvent))
         console.log(resEvent.event)
     }
