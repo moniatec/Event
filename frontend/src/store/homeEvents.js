@@ -1,9 +1,11 @@
 import { apiBaseUrl } from "../config";
 const HOME_EVENTS = "EVENT/homeEvents/HOME_EVENTS";
 const EVENT = "EVENT/homeEvents/EVENT";
+const JOIN = "EVENT/homeEvents/JOIN";
 
+export const sendJoin = (userId, eventId) => ({ type: JOIN, userId, eventId });
 export const homeEvents = (list) => ({ type: HOME_EVENTS, list });
-export const getEvent = (resEvent) => ({ type: EVENT, resEvent });
+export const getEvent = (resEvent, resMember) => ({ type: EVENT, resEvent, resMember });
 export const getHomeEvents = () => async (dispatch, getState) => {
     const {
         authentication: { token },
@@ -33,12 +35,37 @@ export const getOneEvent = (eventId) => async (dispatch, getState) => {
             Authorization: `Bearer ${token}`,
         },
     });
-    console.log(res)
-    if (res.ok) {
+
+    const res2 = await fetch(`${apiBaseUrl}/events/${eventId}/members`, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+    console.log(res2)
+    if (res.ok && res2.ok) {
         const resEvent = await res.json();
+        const resMember = await res2.json();
         console.log(resEvent.event)
-        dispatch(getEvent(resEvent))
+        dispatch(getEvent(resEvent, resMember))
         console.log(resEvent.event)
+    }
+}
+
+export const sendJoinReq = (userId, eventId) => async dispatch => {
+    const res = await fetch(`${apiBaseUrl}/events/${eventId}/join`, {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            userId: userId,
+
+        })
+    });
+    console.log(userId)
+    if (res.ok) {
+        console.log(res)
+
+
+        dispatch(sendJoin(userId, eventId));
     }
 }
 
@@ -52,10 +79,27 @@ export default function reducer(state = { list: [] }, action) {
         }
         case EVENT: {
 
-            return {
-                ...state,
-                resEvent: action.resEvent
+            // return {
+            //     ...state,
+            //     resEvent: action.resEvent,
+            //     resMember: action.resMember
+            // }
+            const newState = Object.assign({}, state)
+            newState.resEvent = {
+                event: action.resEvent.event,
+                members: action.resMember.members
             }
+            return newState
+        }
+        case JOIN: {
+
+
+            const newState = Object.assign({}, state)
+            newState.resEvent = {
+                ...state.resEvent,
+                members: parseInt(action.userId)
+            }
+            return newState
         }
         default:
             return state;

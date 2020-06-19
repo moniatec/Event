@@ -53,9 +53,10 @@ const EventPage = (props) => {
         console.log(props)
 
     }, [])
-    console.log(props.event)
+    console.log(props)
     if (props.event) {
         const event1 = props.event.event
+        const members = props.event.members
         console.log(event1)
         return (
             <div className={classes.root}>
@@ -90,6 +91,18 @@ const EventPage = (props) => {
                                         <Typography variant="body2" gutterBottom>
                                             Location: {event1.location}
                                         </Typography>
+                                        {/* <Grid>
+
+                                            {members.map(member => (
+                                                <Grid item spacing={3}
+
+                                                    key={member.id}
+                                                    
+                                                    userId={member.userId}>
+                                                </Grid>
+
+                                            ))}
+                                        </Grid> */}
 
                                         <Typography variant="body2" gutterBottom>
                                             {event1.description}
@@ -110,7 +123,7 @@ const EventPage = (props) => {
 
                     </div>
                 </Paper>
-            </div>
+            </div >
         );
     } else {
         return (
