@@ -44,9 +44,9 @@ const NavBar = (props) => {
                 <NavLink style={{ color: 'white' }} to="/home">
                     <Button color="inherit">Event</Button>
                 </NavLink>
-
-
-
+                <NavLink style={{ color: 'white' }} to="/my_events">
+                    <Button color="inherit">MyEvents</Button>
+                </NavLink>
                 <NavLink style={{ color: 'white' }} to="/create">
                     <Button color="inherit">Create Event</Button>
                 </NavLink>
