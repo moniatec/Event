@@ -7,6 +7,7 @@ import Register from './components/Register'
 import Nav from './components/Nav';
 import EventPage from './components/EventPage';
 import CreateEvent from './components/CreateEvent'
+import Upload from './components/Upload'
 import Theme from './Theme';
 // import Splash from './components/Splash'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -52,6 +53,10 @@ function App(props) {
                   />
                   <Route exact path="/create"
                     component={CreateEvent}
+
+                  />
+                  <Route exact path="/upload"
+                    component={Upload}
 
                   />
                 </Switch>
