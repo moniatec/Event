@@ -2,10 +2,13 @@ import { apiBaseUrl } from "../config";
 const HOME_EVENTS = "EVENT/homeEvents/HOME_EVENTS";
 const EVENT = "EVENT/homeEvents/EVENT";
 const JOIN = "EVENT/homeEvents/JOIN";
+const SET_EVENT = "EVENT/homeEvents/SET_EVENT";
 
 export const sendJoin = (userId, eventId) => ({ type: JOIN, userId, eventId });
 export const homeEvents = (list) => ({ type: HOME_EVENTS, list });
 export const getEvent = (resEvent, resMember) => ({ type: EVENT, resEvent, resMember });
+export const setEvent = (event) => ({ type: SET_EVENT, event });
+
 export const getHomeEvents = () => async (dispatch, getState) => {
     const {
         authentication: { token },
@@ -69,6 +72,20 @@ export const sendJoinReq = (userId, eventId) => async dispatch => {
     }
 }
 
+export const createEvent = (eventName, time, description, location, photoUrl, hostId) => async (dispatch) => {
+    const res = await fetch(`${apiBaseUrl}/events`, {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ eventName, time, description, location, photoUrl, hostId }),
+    });
+
+    if (res.ok) {
+        const { event } = await res.json();
+
+        dispatch(setEvent(event));
+    }
+};
+
 export default function reducer(state = { list: [] }, action) {
     switch (action.type) {
         case HOME_EVENTS: {
@@ -100,6 +117,16 @@ export default function reducer(state = { list: [] }, action) {
                 members: parseInt(action.userId)
             }
             return newState
+        }
+        case SET_EVENT: {
+            return {
+                ...state,
+                list: [
+                    ...state.list,
+                    action.event
+                ]
+
+            };
         }
         default:
             return state;

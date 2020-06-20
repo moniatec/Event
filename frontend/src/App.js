@@ -6,7 +6,7 @@ import Login from './components/Login';
 import Register from './components/Register'
 import Nav from './components/Nav';
 import EventPage from './components/EventPage';
-
+import CreateEvent from './components/CreateEvent'
 import Theme from './Theme';
 // import Splash from './components/Splash'
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -49,6 +49,10 @@ function App(props) {
                   <Route exact path="/events/:eventId"
                     component={EventPage}
                   // token={props.token}
+                  />
+                  <Route exact path="/create"
+                    component={CreateEvent}
+                    currentUserId={props.currentUserId}
                   />
                 </Switch>
               </CSSTransition>
