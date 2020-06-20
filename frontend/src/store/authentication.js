@@ -4,7 +4,7 @@ const TOKEN_KEY = "EVENT/authentication/token";
 const SET_TOKEN = "EVENT/authentication/SET_TOKEN";
 const REMOVE_TOKEN = "EVENT/authentication/REMOVE_TOKEN";
 
-export const removeToken = (token) => ({ type: REMOVE_TOKEN });
+export const removeToken = () => ({ type: REMOVE_TOKEN });
 export const setToken = (token, currentUserId) => ({ type: SET_TOKEN, token, currentUserId });
 
 export const loadToken = () => async (dispatch) => {

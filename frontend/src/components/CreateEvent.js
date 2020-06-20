@@ -16,9 +16,9 @@ class CreateEvent extends Component {
             description: "",
             location: "",
             photoUrl: "",
-            hostId: 1
+            // hostId: 1
         };
-        console.log(this.hostId)
+        // console.log(this.hostId)
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -30,7 +30,7 @@ class CreateEvent extends Component {
             this.state.description,
             this.state.location,
             this.state.photoUrl,
-            this.state.hostId,
+            // this.state.hostId,
         );
     }
 
@@ -130,8 +130,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createEvent: (eventName, time, description, location, hostId, photoUrl) =>
-            dispatch(createEvent(eventName, time, description, location, hostId, photoUrl)),
+        createEvent: (eventName, time, description, location, photoUrl) =>
+            dispatch(createEvent(eventName, time, description, location, photoUrl)),
     };
 };
 

@@ -86,7 +86,7 @@ const NavBar = (props) => {
 
 const mapStateToProps = state => {
     return {
-        // currentUserId: state.authentication.currentUserId,
+        currentUserId: state.authentication.currentUserId,
         token: state.authentication.token
     };
 };

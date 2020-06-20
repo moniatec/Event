@@ -52,7 +52,7 @@ function App(props) {
                   />
                   <Route exact path="/create"
                     component={CreateEvent}
-                    currentUserId={props.currentUserId}
+
                   />
                 </Switch>
               </CSSTransition>
