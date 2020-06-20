@@ -64,6 +64,11 @@
   }
   
   .username,
+  .eventName,
+  .time,
+  .location,
+  .photoUrl,
+  .description,
   .email,
   .password {
     display: flex;
@@ -72,12 +77,18 @@
   }
   
   .username,
+  .eventName,
+  .time,
+  .location,
+  .photoUrl,
+  .description,
   .email,
   .password {
     width: 100%;
   }
   
   .createAccount,
+  .createEvent,
   .logIn {
     width: 100%;
     display: flex;
@@ -86,6 +97,7 @@
   }
   
   .createAccount button,
+  .createEvent button,
   .logIn button {
     background-color: #eca1a6;
     color: #fff;
@@ -100,6 +112,7 @@
   }
   
   .createAccount button:hover,
+  .createEvent button:hover,
   .logIn button:hover {
     color: #eca1a6;
     background-color: #fff;
@@ -107,6 +120,7 @@
   }
   
   .createAccount small,
+  
   .logIn small {
     color: #999;
     font-weight: lighter;

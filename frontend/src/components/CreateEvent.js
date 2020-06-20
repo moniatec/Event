@@ -101,13 +101,16 @@ class CreateEvent extends Component {
                                 />
                             </div>
                             <div className="photoUrl">
-                                <label htmlFor="photoUrl">photoUrl</label>
-                                <input
+                                {/* <label htmlFor="photoUrl">photoUrl</label> */}
+                                {/* <input
                                     type="photoUrl"
                                     placeholder="Enter photoUrl"
                                     value={this.state.photoUrl}
                                     onChange={this.updatePhoto}
-                                />
+                                /> */}
+                                <Link href="/upload">
+                                    <big>Upload an image for your event here</big>
+                                </Link>
                             </div>
                             <div className="createEvent">
                                 <button type="submit">Create Event</button>
