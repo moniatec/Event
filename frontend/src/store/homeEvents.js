@@ -3,11 +3,15 @@ const HOME_EVENTS = "EVENT/homeEvents/HOME_EVENTS";
 const EVENT = "EVENT/homeEvents/EVENT";
 const JOIN = "EVENT/homeEvents/JOIN";
 const SET_EVENT = "EVENT/homeEvents/SET_EVENT";
+const DEL_EVENT = "EVENT/homeEvents/DEL_EVENT";
+const UPDATE_EVENT = "EVENT/homeEvents/UPDATE_EVENT";
 
 export const sendJoin = (userId, eventId) => ({ type: JOIN, userId, eventId });
 export const homeEvents = (list) => ({ type: HOME_EVENTS, list });
 export const getEvent = (resEvent, resMember) => ({ type: EVENT, resEvent, resMember });
 export const setEvent = (event) => ({ type: SET_EVENT, event });
+export const deleteEvent = (eventId) => ({ type: DEL_EVENT, eventId, });
+export const updateEvent = (eventObj, eventId) => ({ type: UPDATE_EVENT, eventObj, eventId })
 
 export const getHomeEvents = () => async (dispatch, getState) => {
     const {
@@ -92,6 +96,50 @@ export const createEvent = (eventName, time, description, location, photoUrl) =>
     }
 };
 
+export const deleteEventReq = (eventId) => async (dispatch, getState) => {
+    const {
+        authentication: { token, currentUserId },
+    } = getState();
+    try {
+        const res = await fetch(`${apiBaseUrl}/events/${eventId}`, {
+            method: "DELETE",
+            headers: {
+                "x-access-token": `${token}`,
+                "Content-Type": "application/json"
+            },
+        });
+        if (!res.ok) throw res;
+        dispatch(deleteEvent(eventId));
+        window.location.href = window.location.href;
+        return
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+export const updateEventReq = (eventId, description, token) => async (dispatch) => {
+    try {
+        const body = JSON.stringify({ eventId, description, token })
+        const res = await fetch(`${apiBaseUrl}/events/${eventId}`, {
+            method: "PUT",
+            body,
+            headers: {
+                "x-access-token": `${token}`,
+                "Content-Type": "application/json"
+            },
+        });
+        if (!res.ok) throw res;
+        const eventObj = await res.json();
+
+
+        dispatch(updateEvent(eventObj, eventId));
+
+        return
+    } catch (err) {
+        console.error(err);
+    }
+};
+
 export default function reducer(state = { list: [] }, action) {
     switch (action.type) {
         case HOME_EVENTS: {
@@ -133,6 +181,15 @@ export default function reducer(state = { list: [] }, action) {
                 ]
 
             };
+        }
+        case UPDATE_EVENT: {
+            // const newState = Object.assign({}, state);
+            // newState.events[action.description] = action.eventObj;
+            // return newState;
+            return {
+                ...state,
+                event: action.eventObj,
+            }
         }
         default:
             return state;

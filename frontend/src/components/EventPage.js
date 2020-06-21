@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -6,7 +6,9 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import CardMedia from '@material-ui/core/CardMedia';
-import { getOneEvent } from "../store/homeEvents";
+import { Button, TextField } from '@material-ui/core';
+import { getOneEvent, deleteEventReq, updateEventReq } from "../store/homeEvents";
+
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -42,8 +44,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
+
 const EventPage = (props) => {
     console.log(props)
+    const [description, setDescription] = useState('')
     const classes = useStyles();
     React.useEffect(() => {
         let id = window.location.href.split("/")[4];
@@ -53,6 +58,20 @@ const EventPage = (props) => {
         console.log(props)
 
     }, [])
+
+    const handleDelete = () => {
+        let eventId = window.location.href.split("/")[4];
+        props.deleteEvent(eventId)
+    }
+
+    const updateEvent = e => {
+        e.preventDefault();
+        let eventId = window.location.href.split("/")[4];
+        props.updateEventReq(eventId, description, props.token)
+    }
+
+    const updateValue = cb => e => cb(e.target.value);
+
     console.log(props)
     if (props.event) {
         const event1 = props.event.event
@@ -109,15 +128,33 @@ const EventPage = (props) => {
                                         </Typography>
 
                                     </Grid>
-                                    <Grid item>
-                                        <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                                            Remove
-                                        </Typography>
+                                    <Grid>
+
+                                        {event1.hostId === props.currentUserId ?
+                                            <>
+                                                <Grid item>
+                                                    <Button color="inherit" onClick={handleDelete}>Delete</Button>
+                                                </Grid>
+                                                <Grid item>
+                                                    <div>Description:</div>
+                                                    <TextField
+                                                        variant="outlined"
+                                                        type="caption"
+                                                        onChange={updateValue(setDescription)}
+                                                        className={classes.bioUpdate}
+                                                    // defaultValue={props.profileBio}
+                                                    />
+                                                    <Button color="inherit" onClick={updateEvent}>Edit</Button>
+                                                </Grid>
+
+                                            </>
+                                            :
+                                            <div></div>
+                                        }
+
                                     </Grid>
                                 </Grid>
-                                {/* <Grid item>
-                                    <Typography variant="subtitle1">$19.00</Typography>
-                                </Grid> */}
+
                             </Grid>
                         </Grid>
 
@@ -137,14 +174,20 @@ const mapStateToProps = state => {
     console.log(state)
     if (state.homeEvents.resEvent)
         return {
-            event: state.homeEvents.resEvent
+            token: state.authentication.token,
+            currentUserId: state.authentication.currentUserId,
+            event: state.homeEvents.resEvent,
+
         };
 
 };
 
 const mapDispatchToProps = dispatch => {
     return {
+
         getOneEvent: (...args) => dispatch(getOneEvent(...args)),
+        deleteEvent: (...args) => dispatch(deleteEventReq(...args)),
+        updateEventReq: (...args) => dispatch(updateEventReq(...args)),
     };
 };
 
