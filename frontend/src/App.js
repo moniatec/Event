@@ -17,10 +17,10 @@ import { ProtectedRoute, AuthRoute } from "./authRoutes";
 import { CssBaseline, } from "@material-ui/core";
 
 function App(props) {
-  // React.useEffect(() => {
-  //   props.loadToken();
+  React.useEffect(() => {
+    props.loadToken();
 
-  // }, [])
+  }, [])
   return (
     <>
       <CssBaseline />
@@ -38,6 +38,7 @@ function App(props) {
                   <Route exact path="/home"
                     component={Home}
                     token={props.token}
+                    currentUserId={props.currentUserId}
                   />
 
                   <AuthRoute
@@ -55,17 +56,24 @@ function App(props) {
                   <Route exact path="/events/:eventId"
                     component={EventPage}
                     token={props.token}
+                    currentUserId={props.currentUserId}
                   />
                   <Route exact path="/create"
                     component={CreateEvent}
+                    token={props.token}
+                    currentUserId={props.currentUserId}
 
                   />
                   <Route exact path="/upload"
                     component={Upload}
+                    token={props.token}
+                    currentUserId={props.currentUserId}
 
                   />
                   <Route exact path="/my_events"
                     component={MyEvents}
+                    token={props.token}
+                    currentUserId={props.currentUserId}
 
                   />
                 </Switch>
@@ -80,8 +88,8 @@ function App(props) {
 
 const mapStateToProps = state => {
   return {
-    token: state.authentication.token,
-    currentUserId: state.authentication.currentUserId,
+    // token: state.authentication.token,
+    // currentUserId: state.authentication.currentUserId,
   };
 };
 

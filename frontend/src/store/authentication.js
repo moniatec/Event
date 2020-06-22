@@ -11,9 +11,10 @@ export const getEvents = (list) => ({ type: MY_EVENTS, list });
 
 export const loadToken = () => async (dispatch) => {
     const token = window.localStorage.getItem(TOKEN_KEY);
-    const currentUserId = window.localStorage.getItem(currentUserId);
+
     if (token) {
-        dispatch(setToken(token, currentUserId));
+        // const currentUserId = window.localStorage.getItem(currentUserId);
+        dispatch(setToken(token));
     }
 };
 
@@ -57,7 +58,8 @@ export const getMyEvents = () => async (dispatch, getState) => {
     const {
         authentication: { token, currentUserId },
     } = getState();
-    const userId = currentUserId
+    // const userId = currentUserId
+    const userId = window.localStorage.getItem("currentUserId");
     const res = await fetch(`${apiBaseUrl}/users/${userId}/events`, {
         headers: {
             Authorization: `Bearer ${token}`,
