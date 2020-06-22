@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import { getMyEvents } from "../store/authentication";
 import EventCard from "./EventCard";
+import EventPage from "./EventPage";
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -13,12 +14,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 const MyEvents = (props) => {
     const classes = useStyles();
-    console.log(props)
+    console.log(props.events)
     React.useEffect(() => {
         props.getMyEvents();
 
     }, [])
-    if (props.events) {
+    if (props.events.events) {
         return (
             <div className={classes.root}>
                 < Grid
@@ -29,13 +30,14 @@ const MyEvents = (props) => {
                     alignItems="flex-start"
                 >
                     {
-                        props.events.map((event) => (
+                        props.events.events.map((event) => (
                             <Grid item spacing={3}>
                                 <EventCard
                                     key={event.id}
                                     event={event}
 
                                 />
+
                             </Grid>
                         ))
                     }
@@ -55,6 +57,8 @@ const MyEvents = (props) => {
 const mapStateToProps = state => {
     console.log(state)
     return {
+        token: state.authentication.token,
+        currentUserId: state.authentication.currentUserId,
         events: state.authentication.list
     };
 };

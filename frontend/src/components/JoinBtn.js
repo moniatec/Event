@@ -14,13 +14,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const JoinBtn = (props) => {
-    console.log(props)
+    // console.log(props)
     const classes = useStyles();
-    // const [followed, setFollowed] = React.useState("not following");
-    // let userId = props.currentUserId;
+
     React.useEffect(() => {
         let userId = parseInt(window.localStorage.getItem("currentUserId"));
-        // props.getFollowings(userId);
+
     }, []);
 
     const handleJoin = async () => {
@@ -41,29 +40,22 @@ const JoinBtn = (props) => {
     //     // setFollowed("not following");
     // }
 
-    // return (followed === "not following" ?
+
     if (props) {
         return (
-            // props.followings ?
-            // (props.followings.includes(parseInt(window.location.href.split("/")[4])) ?
-            // (followedId ?
-            // (testFollow ?
+
             <div className={classes.root}>
                 {/* <Button variant="contained" color="primary" onClick={handleUnfollow}>
                         UnFollow
           </Button> */}
-                <Button size="small" color="primary" onClick={handleJoin}>
+                <Button
+                    size="small"
+                    color="primary"
+                    onClick={handleJoin}>
                     Join
                 </Button>
             </div>
-            // :
-            //             <div className={classes.root}>
-            //                 <Button variant="contained" color="primary" onClick={handleFollow}>
-            //                     Cancel
-            //   </Button>
-            //             </div>
-            // ) :
-            // <CircularProgress />
+
 
         )
     } else {

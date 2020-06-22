@@ -27,6 +27,8 @@ export const getHomeEvents = () => async (dispatch, getState) => {
     if (res.ok) {
         const list = await res.json();
         // console.log(list)
+        // window.location.reload();
+
         dispatch(homeEvents(list.events))
 
     }
@@ -59,20 +61,24 @@ export const getOneEvent = (eventId) => async (dispatch, getState) => {
 }
 
 export const sendJoinReq = (userId, eventId) => async dispatch => {
-    const res = await fetch(`${apiBaseUrl}/events/${eventId}/join`, {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            userId: userId,
+    try {
+        const res = await fetch(`${apiBaseUrl}/events/${eventId}/join`, {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                userId: userId,
 
-        })
-    });
-    console.log(userId)
-    if (res.ok) {
-        console.log(res)
+            })
+        });
+        console.log(userId)
+        if (res.ok) {
+            console.log(res)
 
 
-        dispatch(sendJoin(userId, eventId));
+            dispatch(sendJoin(userId, eventId));
+        }
+    } catch (err) {
+        return
     }
 }
 
@@ -91,7 +97,7 @@ export const createEvent = (eventName, time, description, location, photoUrl) =>
 
     if (res.ok) {
         const { event } = await res.json();
-
+        window.location.href = window.location.href;
         dispatch(setEvent(event));
     }
 };
@@ -110,6 +116,7 @@ export const deleteEventReq = (eventId) => async (dispatch, getState) => {
         });
         if (!res.ok) throw res;
         dispatch(deleteEvent(eventId));
+
         window.location.href = window.location.href;
         return
     } catch (err) {
@@ -133,7 +140,7 @@ export const updateEventReq = (eventId, description, token) => async (dispatch) 
 
 
         dispatch(updateEvent(eventObj, eventId));
-
+        window.location.href = window.location.href;
         return
     } catch (err) {
         console.error(err);
@@ -183,9 +190,7 @@ export default function reducer(state = { list: [] }, action) {
             };
         }
         case UPDATE_EVENT: {
-            // const newState = Object.assign({}, state);
-            // newState.events[action.description] = action.eventObj;
-            // return newState;
+
             return {
                 ...state,
                 event: action.eventObj,

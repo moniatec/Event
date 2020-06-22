@@ -1,5 +1,5 @@
 import { apiBaseUrl } from "../config";
-
+import { getOneEvent } from './homeEvents'
 const TOKEN_KEY = "EVENT/authentication/token";
 const SET_TOKEN = "EVENT/authentication/SET_TOKEN";
 const REMOVE_TOKEN = "EVENT/authentication/REMOVE_TOKEN";
@@ -11,8 +11,9 @@ export const getEvents = (list) => ({ type: MY_EVENTS, list });
 
 export const loadToken = () => async (dispatch) => {
     const token = window.localStorage.getItem(TOKEN_KEY);
+    const currentUserId = window.localStorage.getItem(currentUserId);
     if (token) {
-        dispatch(setToken(token));
+        dispatch(setToken(token, currentUserId));
     }
 };
 
@@ -64,7 +65,10 @@ export const getMyEvents = () => async (dispatch, getState) => {
     });
     if (res.ok) {
         const list = await res.json();
-
+        // console.log(list.events)
+        // const eventId = Object.values(list.events[0])
+        // console.log(Object.values(list.events[0]))
+        // dispatch(getOneEvent(eventId))
         dispatch(getEvents(list.events));
 
     }

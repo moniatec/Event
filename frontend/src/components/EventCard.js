@@ -12,7 +12,12 @@ import JoinBtn from './JoinBtn'
 const useStyles = makeStyles({
     root: {
         maxWidth: 345,
+        height: 450
     },
+    actions: {
+        height: 350,
+        marginBottom: 30
+    }
 });
 
 const EventCard = (props) => {
@@ -20,7 +25,7 @@ const EventCard = (props) => {
     console.log(props)
     return (
         <Card className={classes.root}>
-            <CardActionArea>
+            <CardActionArea className={classes.actions}>
                 <CardMedia
                     component="img"
                     alt="Contemplative Reptile"
@@ -40,12 +45,11 @@ const EventCard = (props) => {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions>
+            <CardActions >
 
-                {/* <Button size="small" color="primary">
-                    Join
-                </Button> */}
-                <JoinBtn eventId={props.event.id} />
+                <JoinBtn
+                    eventId={props.event.id}
+                />
 
                 <NavLink style={{ color: 'white' }} to={`/events/${props.event.id}`}>
                     <Button size="small" color="primary">

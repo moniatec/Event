@@ -30,41 +30,9 @@ export const updateImg = (newImg) => async (dispatch) => {
 }
 
 
-// export const post = (caption, imgUrl, token) => async (dispatch) => {
-//     try {
-//         const body = JSON.stringify({ caption, imgUrl, token })
-//         const res = await fetch(`${apiBaseUrl}/posts/`, {
-//             method: "POST",
-//             body,
-//             headers: {
-//                 "x-access-token": `${token}`,
-//                 "Content-Type": "application/json"
-//             },
-//         });
-//         if (!res.ok) throw res;
-//         return
-//     } catch (err) {
-//         console.error(err);
-//     }
-// };
 
-// export const deletePostReq = (imageId, token) => async (dispatch) => {
-//     try {
-//         const res = await fetch(`${apiBaseUrl}/posts/${imageId}`, {
-//             method: "DELETE",
-//             headers: {
-//                 "x-access-token": `${token}`,
-//                 "Content-Type": "application/json"
-//             },
-//         });
-//         if (!res.ok) throw res;
-//         dispatch(deletePost(imageId));
-//         window.location.href = window.location.href;
-//         return
-//     } catch (err) {
-//         console.error(err)
-//     }
-// }
+
+
 
 // REDUCER
 export default function reducer(state = {}, action) {

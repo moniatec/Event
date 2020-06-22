@@ -127,6 +127,8 @@ class CreateEvent extends Component {
 const mapStateToProps = (state) => {
     return {
         // token: state.authentication.token,
+        token: state.authentication.token,
+        currentUserId: state.authentication.currentUserId,
         event: state.homeEvents.event
     };
 };

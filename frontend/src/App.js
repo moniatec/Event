@@ -10,19 +10,23 @@ import CreateEvent from './components/CreateEvent'
 import Upload from './components/Upload'
 import MyEvents from './components/MyEvents'
 import Theme from './Theme';
-// import Splash from './components/Splash'
+import { loadToken } from "./store/authentication";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import { ProtectedRoute, AuthRoute } from "./authRoutes";
 import { CssBaseline, } from "@material-ui/core";
 
 function App(props) {
+  // React.useEffect(() => {
+  //   props.loadToken();
+
+  // }, [])
   return (
     <>
       <CssBaseline />
       <Theme>
         <BrowserRouter>
-          <Nav props={props} />
+          <Nav props={props} location={props.location} />
           <Route render={({ location }) => (
             <TransitionGroup>
               <CSSTransition
@@ -33,7 +37,7 @@ function App(props) {
                 <Switch>
                   <Route exact path="/home"
                     component={Home}
-                  // token={props.token}
+                    token={props.token}
                   />
 
                   <AuthRoute
@@ -50,7 +54,7 @@ function App(props) {
                   />
                   <Route exact path="/events/:eventId"
                     component={EventPage}
-                  // token={props.token}
+                    token={props.token}
                   />
                   <Route exact path="/create"
                     component={CreateEvent}
@@ -77,12 +81,13 @@ function App(props) {
 const mapStateToProps = state => {
   return {
     token: state.authentication.token,
+    currentUserId: state.authentication.currentUserId,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-
+    loadToken: () => dispatch(loadToken()),
   };
 };
 
