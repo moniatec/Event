@@ -6,6 +6,8 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import { updateImg } from '../store/image'
 import '../index.css';
+const { apiBaseUrl, cloudinaryUrl, cloudinaryPreset, } = require("../config");
+
 const useStyles = makeStyles((theme) => ({
     // container: {
     //   margin: 'auto',
@@ -54,14 +56,32 @@ const useStyles = makeStyles((theme) => ({
 
 const Upload = (props) => {
     const classes = useStyles();
-    // const [caption, setCaption] = useState('')
-
+    const [loading, setLoading] = useState(false)
+    const [image, setImage] = useState("")
+    console.log(props)
     const updateValue = cb => e => cb(e.target.value);
-
-    const handleNewImage = e => {
-        const newImg = e.target.files[0];
-        props.updateImg(newImg);
+    const uploadImage = async e => {
+        const files = e.target.files
+        const data = new FormData()
+        data.append('file', files[0])
+        data.append('upload_preset', cloudinaryPreset);
+        setLoading(true)
+        const res = await fetch(`${cloudinaryUrl}/image/upload`, {
+            method: "POST",
+            body: data,
+        })
+        const file = await res.json()
+        console.log(file)
+        setImage(file.secure_url)
+        setLoading(false)
     }
+    // const handleNewImage = e => {
+    //     const newImg = e.target.files[0];
+    //     props.updateImg(newImg);
+    //     setLoading(true)
+
+
+    // }
 
     //   const postImg = e => {
     //     e.preventDefault();
@@ -73,7 +93,8 @@ const Upload = (props) => {
         <Container className={classes.container}>
             <div className={classes.post} >
                 <InputLabel htmlFor="image-upload" style={{ margin: '20px', marginTop: '100px' }} >Select Image</InputLabel>
-                <Input id="image-upload" type="file" label="Image" style={{ display: 'none', width: '500px', margin: '20px' }} onChange={handleNewImage} className={classes.img} />
+                {/* <Input id="image-upload" type="file" label="Image" style={{ display: 'none', width: '500px', margin: '20px' }} onChange={handleNewImage} className={classes.img} /> */}
+                <Input type="file" name="file" placeholder="upload here" onChange={uploadImage} className={classes.img} />
             </div>
             <Paper elevation={3} className={classes.paper} >
                 {/* <div>Image Preview:</div> */}
@@ -86,15 +107,15 @@ const Upload = (props) => {
 
 const mapStateToProps = state => {
     return {
-        // token: state.user.token,
-        previewImgUrl: state.image.previewImgUrl
+        token: state.authentication.token,
+        // previewImgUrl: state.image.previewImgUrl
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         // post: (...args) => dispatch(post(...args)),
-        updateImg: (newImg) => dispatch(updateImg(newImg)),
+        // updateImg: (newImg) => dispatch(updateImg(newImg)),
     };
 };
 

@@ -75,7 +75,7 @@ const EventPage = (props) => {
     console.log(props)
     if (props.event) {
         const event1 = props.event.event
-        const members = props.event.members
+        const members1 = props.event.members
         console.log(event1)
         return (
             <div className={classes.root}>
@@ -105,32 +105,34 @@ const EventPage = (props) => {
                                             HOSTED BY {event1.host.username}
                                         </Typography>
                                         <Typography variant="body2" gutterBottom>
-                                            Time: {event1.time}
+                                            Time: {Date(event1.time)}
                                         </Typography>
                                         <Typography variant="body2" gutterBottom>
                                             Location: {event1.location}
                                         </Typography>
-                                        {/* <Grid>
-
-                                            {members.map(member => (
-                                                <Grid item spacing={3}
-
-                                                    key={member.id}
-                                                    
-                                                    userId={member.userId}>
-                                                </Grid>
-
-                                            ))}
-                                        </Grid> */}
-
                                         <Typography variant="body2" gutterBottom>
                                             {event1.description}
                                         </Typography>
+                                        <Grid>
+                                            Members:
+                                            {members1.members.map(member => (
+                                            <Grid item spacing={3}
+
+                                                key={member.id}
+
+                                                username={member.username}>
+                                                {member.username}
+                                            </Grid>
+
+                                        ))}
+                                        </Grid>
+
+
 
                                     </Grid>
                                     <Grid>
 
-                                        {event1.hostId === props.currentUserId ?
+                                        {event1.hostId === parseInt(props.currentUserId) ?
                                             <>
                                                 <Grid item>
                                                     <Button color="inherit" onClick={handleDelete}>Delete</Button>

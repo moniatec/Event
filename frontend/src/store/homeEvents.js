@@ -83,12 +83,13 @@ export const sendJoinReq = (userId, eventId) => async dispatch => {
 }
 
 export const createEvent = (eventName, time, description, location, photoUrl) => async (dispatch, getState) => {
-    // const currentUserId = window.localStorage.getItem(currentUserId);
+
     // const hostId = currentUserId
     const {
         authentication: { token, currentUserId },
     } = getState();
-    const hostId = currentUserId
+    const hostId = window.localStorage.getItem(currentUserId);
+
     const res = await fetch(`${apiBaseUrl}/events`, {
         method: "post",
         headers: { "Content-Type": "application/json" },

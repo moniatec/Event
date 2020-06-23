@@ -15,14 +15,16 @@ const setImgUrl = (previewImgUrl) => (
 export const updateImg = (newImg) => async (dispatch) => {
     try {
         const data = new FormData();
-        data.append('upload_preset', cloudinaryPreset);
+
         data.append('file', newImg);
+        data.append('upload_preset', cloudinaryPreset);
         const res = await fetch(`${cloudinaryUrl}/image/upload`, {
             method: "POST",
             body: data,
         });
         if (!res.ok) throw res;
         const imgObj = await res.json()
+        console.log(imgObj)
         dispatch(setImgUrl(imgObj.secure_url))
     } catch (err) {
         console.error(err);

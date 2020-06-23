@@ -88,8 +88,8 @@ function App(props) {
 
 const mapStateToProps = state => {
   return {
-    // token: state.authentication.token,
-    // currentUserId: state.authentication.currentUserId,
+    token: state.authentication.token,
+    currentUserId: state.authentication.currentUserId,
   };
 };
 

@@ -11,10 +11,10 @@ export const getEvents = (list) => ({ type: MY_EVENTS, list });
 
 export const loadToken = () => async (dispatch) => {
     const token = window.localStorage.getItem(TOKEN_KEY);
-
+    const currentUserId = window.localStorage.getItem("currentUserId");
     if (token) {
         // const currentUserId = window.localStorage.getItem(currentUserId);
-        dispatch(setToken(token));
+        dispatch(setToken(token, currentUserId));
     }
 };
 
