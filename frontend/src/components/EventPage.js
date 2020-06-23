@@ -143,7 +143,7 @@ const EventPage = (props) => {
                                                         variant="outlined"
                                                         type="caption"
                                                         onChange={updateValue(setDescription)}
-                                                        className={classes.bioUpdate}
+                                                    // className={classes.bioUpdate}
                                                     // defaultValue={props.profileBio}
                                                     />
                                                     <Button color="inherit" onClick={updateEvent}>Edit</Button>

@@ -5,11 +5,13 @@ const JOIN = "EVENT/homeEvents/JOIN";
 const SET_EVENT = "EVENT/homeEvents/SET_EVENT";
 const DEL_EVENT = "EVENT/homeEvents/DEL_EVENT";
 const UPDATE_EVENT = "EVENT/homeEvents/UPDATE_EVENT";
+const GET_SEARCH_EVENT = "EVENT/homeEvents/GET_SEARCH_EVENT";
 
 export const sendJoin = (userId, eventId) => ({ type: JOIN, userId, eventId });
 export const homeEvents = (list) => ({ type: HOME_EVENTS, list });
 export const getEvent = (resEvent, resMember) => ({ type: EVENT, resEvent, resMember });
 export const setEvent = (event) => ({ type: SET_EVENT, event });
+export const getSearchEvent = (list1) => ({ type: GET_SEARCH_EVENT, list1 });
 export const deleteEvent = (eventId) => ({ type: DEL_EVENT, eventId, });
 export const updateEvent = (eventObj, eventId) => ({ type: UPDATE_EVENT, eventObj, eventId })
 
@@ -54,9 +56,9 @@ export const getOneEvent = (eventId) => async (dispatch, getState) => {
     if (res.ok && res2.ok) {
         const resEvent = await res.json();
         const resMember = await res2.json();
-        console.log(resEvent.event)
+        // console.log(resEvent.event)
         dispatch(getEvent(resEvent, resMember))
-        console.log(resEvent.event)
+        // console.log(resEvent.event)
     }
 }
 
@@ -72,7 +74,7 @@ export const sendJoinReq = (userId, eventId) => async dispatch => {
         });
         console.log(userId)
         if (res.ok) {
-            console.log(res)
+            // console.log(res)
 
 
             dispatch(sendJoin(userId, eventId));
@@ -88,8 +90,8 @@ export const createEvent = (eventName, time, description, location, photoUrl) =>
     const {
         authentication: { token, currentUserId },
     } = getState();
-    const hostId = window.localStorage.getItem(currentUserId);
-
+    const hostId = window.localStorage.getItem("currentUserId");
+    console.log(hostId)
     const res = await fetch(`${apiBaseUrl}/events`, {
         method: "post",
         headers: { "Content-Type": "application/json" },
@@ -148,8 +150,46 @@ export const updateEventReq = (eventId, description, token) => async (dispatch) 
     }
 };
 
-export default function reducer(state = { list: [] }, action) {
+
+export const searchEvent = (eventSearch) => async (dispatch, getState) => {
+    try {
+        console.log(eventSearch)
+
+        const {
+            authentication: { token, currentUserId },
+        } = getState();
+
+        const res = await fetch(`${apiBaseUrl}/events/search`, {
+            method: "post",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ eventSearch }),
+        });
+
+        if (res.ok) {
+            console.log('hi')
+            const list1 = await res.json();
+            console.log(list1)
+            // window.location.href = window.location.href;
+            dispatch(getSearchEvent(list1.events));
+        }
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+
+export default function reducer(state = { list: [], list1: [] }, action) {
     switch (action.type) {
+        case GET_SEARCH_EVENT: {
+            // const newState = Object.assign({}, state)
+            // newState.list1 = action.list1
+            // return newState
+            return {
+                ...state,
+                list1: action.list1,
+            }
+
+        }
         case HOME_EVENTS: {
             return {
                 ...state,
@@ -157,12 +197,6 @@ export default function reducer(state = { list: [] }, action) {
             }
         }
         case EVENT: {
-
-            // return {
-            //     ...state,
-            //     resEvent: action.resEvent,
-            //     resMember: action.resMember
-            // }
             const newState = Object.assign({}, state)
             newState.resEvent = {
                 event: action.resEvent.event,
@@ -197,6 +231,7 @@ export default function reducer(state = { list: [] }, action) {
                 event: action.eventObj,
             }
         }
+
         default:
             return state;
     }

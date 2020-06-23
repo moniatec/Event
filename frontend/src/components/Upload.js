@@ -14,23 +14,11 @@ const useStyles = makeStyles((theme) => ({
     //   maxWidth: 500,
     //   maxHeight: 500,
     // },
-    // img: {
-    //   maxWidth: 500,
-    //   maxHeight: 500,
-    // },
-    post: {
-        margin: 'auto',
-        maxWidth: 500,
-        maxHeight: 500,
+    img: {
+        maxWidth: 200,
+        maxHeight: 200,
     },
-    caption: {
-        marginTop: 20,
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        width: 500,
-        // height: 500,
 
-    },
     paper: {
         width: 500,
         height: 500,
@@ -38,18 +26,8 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'space-around',
 
     },
-    captionBtn: {
-        margin: 'auto',
-        width: 100,
-        // height: 500,
 
-    },
-    captionText: {
-        margin: 'auto',
-        width: 400,
-        // height: 500,
 
-    },
 
 
 }));
@@ -72,33 +50,32 @@ const Upload = (props) => {
         })
         const file = await res.json()
         console.log(file)
-        setImage(file.secure_url)
+        setImage(file.url)
+        return (file.secure_url)
         setLoading(false)
     }
-    // const handleNewImage = e => {
-    //     const newImg = e.target.files[0];
-    //     props.updateImg(newImg);
-    //     setLoading(true)
+    const handleNewImage = async (e) => {
+        const newImg = e.target.files[0];
+        // props.updateImg(newImg);
+        const url = await uploadImage(e);
+        props.updatePhoto(url)
+        setLoading(true)
 
 
-    // }
+    }
 
-    //   const postImg = e => {
-    //     e.preventDefault();
-    //     props.post(caption, props.previewImgUrl, props.token)
-    //     props.history.push('/')
-    //   }
+    console.log(props)
 
     return (
         <Container className={classes.container}>
             <div className={classes.post} >
-                <InputLabel htmlFor="image-upload" style={{ margin: '20px', marginTop: '100px' }} >Select Image</InputLabel>
-                {/* <Input id="image-upload" type="file" label="Image" style={{ display: 'none', width: '500px', margin: '20px' }} onChange={handleNewImage} className={classes.img} /> */}
-                <Input type="file" name="file" placeholder="upload here" onChange={uploadImage} className={classes.img} />
+                <InputLabel htmlFor="image-upload" style={{ margin: '20px' }} >Select Image</InputLabel>
+                <Input id="image-upload" type="file" label="Image" style={{ display: 'none', width: '200px', margin: '20px' }} onChange={handleNewImage} className={classes.img} />
+                {/* <Input type="file" name="file" placeholder="upload here" onChange={uploadImage} className={classes.img} /> */}
             </div>
             <Paper elevation={3} className={classes.paper} >
                 {/* <div>Image Preview:</div> */}
-                <img src={props.previewImgUrl} alt='preview' className={"imgUpload"} />
+                <img src={image} alt='preview' className={"imgUpload"} />
             </Paper>
 
         </Container>
@@ -108,14 +85,14 @@ const Upload = (props) => {
 const mapStateToProps = state => {
     return {
         token: state.authentication.token,
-        // previewImgUrl: state.image.previewImgUrl
+        previewImgUrl: state.image.previewImgUrl
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         // post: (...args) => dispatch(post(...args)),
-        // updateImg: (newImg) => dispatch(updateImg(newImg)),
+        updateImg: (newImg) => dispatch(updateImg(newImg)),
     };
 };
 

@@ -5,6 +5,7 @@ import { createEvent } from "../store/homeEvents";
 import Link from "@material-ui/core/Link";
 // import Home from "./Home";
 import "../css/loginForm.css";
+import Upload from './Upload'
 
 class CreateEvent extends Component {
     constructor(props) {
@@ -50,8 +51,8 @@ class CreateEvent extends Component {
         this.setState({ description: e.target.value });
     };
 
-    updatePhoto = (e) => {
-        this.setState({ photoUrl: e.target.value });
+    updatePhoto = (url) => {
+        this.setState({ photoUrl: url });
     };
 
     render() {
@@ -61,7 +62,7 @@ class CreateEvent extends Component {
         return (
             <main className="centered middled">
                 <div className="wrapper">
-                    <div className="form-wrapper">
+                    <div className="form-wrapper" style={{ marginTop: '150px' }}>
                         <h1>Create An Event</h1>
                         <form onSubmit={this.handleSubmit}>
                             <div className="eventName">
@@ -101,16 +102,19 @@ class CreateEvent extends Component {
                                 />
                             </div>
                             <div className="photoUrl">
-                                {/* <label htmlFor="photoUrl">photoUrl</label> */}
+                                <label htmlFor="photoUrl">photoUrl</label>
                                 {/* <input
                                     type="photoUrl"
                                     placeholder="Enter photoUrl"
                                     value={this.state.photoUrl}
                                     onChange={this.updatePhoto}
                                 /> */}
-                                <Link href="/upload">
+                                {/* <Link href="/upload">
                                     <big>Upload an image for your event here</big>
-                                </Link>
+                                </Link> */}
+                                <Upload
+                                    updatePhoto={this.updatePhoto} />
+
                             </div>
                             <div className="createEvent">
                                 <button type="submit">Create Event</button>

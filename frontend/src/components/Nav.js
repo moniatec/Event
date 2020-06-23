@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import { logout } from "../store/authentication";
-
+import SearchEvent from './SearchEvent'
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -50,7 +50,17 @@ const NavBar = (props) => {
                 <NavLink style={{ color: 'white' }} to="/create">
                     <Button color="inherit">Create Event</Button>
                 </NavLink>
+                {/* <SearchEvent /> */}
+
+
+
             </Grid>
+
+
+            {/* <Grid item xs={10}> */}
+            {/* <Grid> */}
+            {/* <SearchEvent /> */}
+            {/* </Grid> */}
             <Grid item xs={2}>
                 <NavLink style={{ color: 'white' }} to="/login">
                     <div className={classes.logout} style={{ color: 'white' }}>
@@ -58,6 +68,8 @@ const NavBar = (props) => {
                     </div>
                 </NavLink>
             </Grid>
+            {/* </Grid> */}
+
         </Grid >
     ) : (
             <>

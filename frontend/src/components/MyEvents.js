@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const MyEvents = (props) => {
     const classes = useStyles();
-    console.log(props.events)
+    // console.log(props.events)
     React.useEffect(() => {
         props.getMyEvents();
 
@@ -55,7 +55,7 @@ const MyEvents = (props) => {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
+    // console.log(state)
     return {
         token: state.authentication.token,
         currentUserId: state.authentication.currentUserId,
