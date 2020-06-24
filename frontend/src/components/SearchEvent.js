@@ -16,6 +16,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import { DebounceInput } from 'react-debounce-input';
 import { searchEvent } from '../store/homeEvents'
 import EventCard from "./EventCard";
 const useStyles = makeStyles((theme) => ({
@@ -80,6 +81,13 @@ const useStyles = makeStyles((theme) => ({
             display: 'none',
         },
     },
+    sear: {
+        marginTop: 20,
+        marginLeft: 600,
+        width: 400,
+        marginBottom: 50
+    }
+
 }));
 
 const SearchEvent = (props) => {
@@ -105,19 +113,36 @@ const SearchEvent = (props) => {
 
     return (
         <>
-            <div className={classes.search}>
-                <div className={classes.searchIcon}>
+            {/* <div className={classes.search}> */}
+            <div>
+                {/* <div className={classes.searchIcon}>
                     <SearchIcon />
-                </div>
-                <InputBase
+                </div> */}
+                <DebounceInput
+                    minLength={2}
+                    debounceTimeout={300}
+
+
                     placeholder="Search…"
-                    classes={{
-                        root: classes.inputRoot,
-                        input: classes.inputInput,
-                    }}
+                    // classes={{
+                    //     root: classes.inputRoot,
+                    //     input: classes.inputInput,
+                    // }}
+                    className={classes.sear}
+
                     inputProps={{ 'aria-label': 'search' }}
                     onChange={handleSearch}
                 />
+
+                {/* <InputBase
+                        placeholder="Search…"
+                        classes={{
+                            root: classes.inputRoot,
+                            input: classes.inputInput,
+                        }}
+                        inputProps={{ 'aria-label': 'search' }}
+                        onChange={handleSearch} />
+                </InputBase> */}
             </div>
             {props.events ?
                 <div className={classes.root}>

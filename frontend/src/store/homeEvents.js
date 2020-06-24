@@ -171,6 +171,7 @@ export const searchEvent = (eventSearch) => async (dispatch, getState) => {
             console.log(list1)
             // window.location.href = window.location.href;
             dispatch(getSearchEvent(list1.events));
+
         }
     } catch (err) {
         console.error(err);

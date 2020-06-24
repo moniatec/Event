@@ -23,6 +23,12 @@ const useStyles = makeStyles((theme) => ({
     title: {
         flexGrow: 1,
     },
+    search: {
+        marginLeft: 0,
+        position: 'relative',
+        marginRight: theme.spacing(2),
+        width: '100%',
+    },
     logout: {
         marginLeft: 80,
         // justifyItems: 'end',
@@ -50,7 +56,10 @@ const NavBar = (props) => {
                 <NavLink style={{ color: 'white' }} to="/create">
                     <Button color="inherit">Create Event</Button>
                 </NavLink>
-                {/* <SearchEvent /> */}
+                <NavLink style={{ color: 'white' }} to="/search">
+                    <Button color="inherit">Search</Button>
+                </NavLink>
+                {/* <SearchEvent className={classes.search} /> */}
 
 
 
