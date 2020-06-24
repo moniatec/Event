@@ -11,12 +11,12 @@ import Typography from '@material-ui/core/Typography';
 import JoinBtn from './JoinBtn'
 const useStyles = makeStyles({
     root: {
-        maxWidth: 345,
-        height: 450
+        width: 400,
+        height: 550
     },
     actions: {
         height: 350,
-        marginBottom: 30
+        marginBottom: 150
     }
 });
 
@@ -29,7 +29,7 @@ const EventCard = (props) => {
                 <CardMedia
                     component="img"
                     alt="Contemplative Reptile"
-                    height="200"
+                    height="280"
                     image={props.event.photoUrl}
                     title="Contemplative Reptile"
                 />
