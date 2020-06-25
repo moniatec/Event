@@ -19,6 +19,8 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import { DebounceInput } from 'react-debounce-input';
 import { searchEvent } from '../store/homeEvents'
 import EventCard from "./EventCard";
+import Pagination from './Pagination';
+
 const useStyles = makeStyles((theme) => ({
     grow: {
         flexGrow: 1,
@@ -93,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
 const SearchEvent = (props) => {
     const classes = useStyles();
     console.log(props)
-    // const [event, setEvent] = useState('')
+
 
 
     const handleSearch = (e) => {
@@ -101,48 +103,41 @@ const SearchEvent = (props) => {
         console.log(eventSearch)
         console.log(props)
         props.searchEvent(eventSearch);
-        // setEvent(e.target.value)
-        console.log(eventSearch)
+
 
     }
-    // React.useEffect(() => {
-    //     // const eventSearch = e.target.value;
-    //     props.searchEvent();
 
-    // }, [])
+    const [currentPage, setCurrentPage] = useState(1);
+    const [eventsPerPage] = useState(6);
+    const events = props.events
+
+    // Get current posts
+    const indexOfLastEvent = currentPage * eventsPerPage;
+    const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
+    const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
+
+    // Change page
+    const paginate = pageNumber => setCurrentPage(pageNumber);
 
     return (
         <>
-            {/* <div className={classes.search}> */}
+
             <div>
-                {/* <div className={classes.searchIcon}>
-                    <SearchIcon />
-                </div> */}
+
                 <DebounceInput
                     minLength={2}
                     debounceTimeout={300}
 
 
                     placeholder="Search…"
-                    // classes={{
-                    //     root: classes.inputRoot,
-                    //     input: classes.inputInput,
-                    // }}
+
                     className={classes.sear}
 
                     inputProps={{ 'aria-label': 'search' }}
                     onChange={handleSearch}
                 />
 
-                {/* <InputBase
-                        placeholder="Search…"
-                        classes={{
-                            root: classes.inputRoot,
-                            input: classes.inputInput,
-                        }}
-                        inputProps={{ 'aria-label': 'search' }}
-                        onChange={handleSearch} />
-                </InputBase> */}
+
             </div>
             {props.events ?
                 <div className={classes.root}>
@@ -154,7 +149,7 @@ const SearchEvent = (props) => {
                         alignItems="flex-start"
                     >
                         {
-                            props.events.map((event) => (
+                            currentEvents.map((event) => (
                                 <Grid item spacing={3}>
                                     <EventCard
                                         key={event.id}
@@ -166,6 +161,11 @@ const SearchEvent = (props) => {
                             ))
                         }
                     </Grid >
+                    <Pagination
+                        eventsPerPage={eventsPerPage}
+                        totalEvents={events.length}
+                        paginate={paginate}
+                    />
                 </div>
                 :
                 <div>loading</div>
