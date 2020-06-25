@@ -37,12 +37,12 @@ function App(props) {
                 classNames='fade'
               >
                 <Switch>
-                  <Route exact path="/home"
+                  {/* <Route exact path="/home"
                     component={Home}
                     token={props.token}
                     currentUserId={props.currentUserId}
-                  />
-                  <Route exact path="/pg"
+                  /> */}
+                  <Route exact path="/home"
                     component={HomePagination}
                     token={props.token}
                     currentUserId={props.currentUserId}

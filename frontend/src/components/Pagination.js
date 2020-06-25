@@ -12,7 +12,7 @@ const Pagination = ({ eventsPerPage, totalEvents, paginate }) => {
             <ul className='pagination'>
                 {pageNumbers.map(number => (
                     <li key={number} className='page-item'>
-                        <a onClick={() => paginate(number)} to='/pg' className='page-link'>
+                        <a onClick={() => paginate(number)} to='/home' className='page-link'>
                             {number}
                         </a>
                     </li>

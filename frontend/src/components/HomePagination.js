@@ -19,7 +19,7 @@ const HomePagination = (props) => {
 
     }, [])
     const [currentPage, setCurrentPage] = useState(1);
-    const [eventsPerPage] = useState(5);
+    const [eventsPerPage] = useState(6);
     const events = props.events
 
     // Get current posts

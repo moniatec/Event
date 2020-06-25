@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import { getMyEvents } from "../store/authentication";
 import EventCard from "./EventCard";
 import EventPage from "./EventPage";
+import Pagination from './Pagination';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -19,7 +20,23 @@ const MyEvents = (props) => {
         props.getMyEvents();
 
     }, [])
+    const [currentPage, setCurrentPage] = useState(1);
+    const [eventsPerPage] = useState(6);
+    const events = props.events.events
+
+    // Get current posts
+    const indexOfLastEvent = currentPage * eventsPerPage;
+    const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
+
+
+    // Change page
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+
     if (props.events.events) {
+        const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
+
+
+
         return (
             <div className={classes.root}>
                 < Grid
@@ -30,7 +47,7 @@ const MyEvents = (props) => {
                     alignItems="flex-start"
                 >
                     {
-                        props.events.events.map((event) => (
+                        currentEvents.map((event) => (
                             <Grid item spacing={3}>
                                 <EventCard
                                     key={event.id}
@@ -42,6 +59,11 @@ const MyEvents = (props) => {
                         ))
                     }
                 </Grid >
+                <Pagination
+                    eventsPerPage={eventsPerPage}
+                    totalEvents={events.length}
+                    paginate={paginate}
+                />
             </div>
 
         );
