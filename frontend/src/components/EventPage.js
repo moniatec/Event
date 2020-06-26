@@ -98,34 +98,25 @@ const EventPage = (props) => {
                             <Grid item xs={12} sm container>
                                 <Grid item xs container direction="column" spacing={2}>
                                     <Grid item xs >
-                                        <Typography gutterBottom variant="h5" component="h2"  >
+                                        <Typography gutterBottom variant="h5" component="h2"   >
                                             {event1.eventName}
                                         </Typography>
-                                        <Typography variant="body2" color="textSecondary">
-                                            HOSTED BY {event1.host.username}
+                                        <Typography variant="body2" color="textSecondary" style={{ marginBottom: '30px', }}>
+                                            Hosted By {event1.host.username}
                                         </Typography>
                                         <Typography variant="body2" gutterBottom>
                                             Time: {Date(event1.time)}
                                         </Typography>
-                                        <Typography variant="body2" gutterBottom>
+                                        <Typography variant="body2" gutterBottom style={{ marginBottom: '50px', }}>
                                             Location: {event1.location}
                                         </Typography>
                                         <Typography variant="body2" gutterBottom>
+                                            Description:
+                                        </Typography>
+                                        <Typography variant="body2" color="textSecondary" style={{ marginBottom: '50px', }} >
                                             {event1.description}
                                         </Typography>
-                                        <Grid>
-                                            Members:
-                                            {members1.members.map(member => (
-                                            <Grid item spacing={3}
 
-                                                key={member.id}
-
-                                                username={member.username}>
-                                                {member.username}
-                                            </Grid>
-
-                                        ))}
-                                        </Grid>
 
 
 
@@ -134,20 +125,34 @@ const EventPage = (props) => {
 
                                         {event1.hostId === parseInt(props.currentUserId) ?
                                             <>
-                                                <Grid item>
-                                                    <Button color="inherit" onClick={handleDelete}>Delete</Button>
+                                                <Grid>
+                                                    Members:
+                                            {members1.members.map(member => (
+                                                    <Grid item spacing={3}
+
+                                                        key={member.id}
+
+                                                        username={member.username}>
+                                                        {member.username}
+                                                    </Grid>
+
+                                                ))}
                                                 </Grid>
                                                 <Grid item>
-                                                    <div>Description:</div>
+                                                    <Button variant="contained" onClick={handleDelete}>Delete</Button>
+                                                </Grid >
+                                                <Grid item>
+                                                    <div >Description:</div>
                                                     <TextField
+                                                        style={{ marginBottom: '50px', }}
                                                         variant="outlined"
                                                         type="caption"
                                                         onChange={updateValue(setDescription)}
                                                     // className={classes.bioUpdate}
                                                     // defaultValue={props.profileBio}
                                                     />
-                                                    <Button color="inherit" onClick={updateEvent}>Edit</Button>
-                                                </Grid>
+                                                    <Button variant="contained" onClick={updateEvent}>Edit</Button>
+                                                </Grid >
 
                                             </>
                                             :
