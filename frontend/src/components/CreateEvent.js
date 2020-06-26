@@ -3,9 +3,11 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { createEvent } from "../store/homeEvents";
 import Link from "@material-ui/core/Link";
+import Grid from '@material-ui/core/Grid';
 // import Home from "./Home";
 import "../css/loginForm.css";
-import Upload from './Upload'
+import Upload from './Upload';
+import Paper from '@material-ui/core/Paper';
 
 class CreateEvent extends Component {
     constructor(props) {
@@ -62,66 +64,75 @@ class CreateEvent extends Component {
         return (
             <main className="centered middled">
                 <div className="wrapper">
-                    <div className="form-wrapper" style={{ marginTop: '150px' }}>
+                    <Paper elevation={3} style={{
+                        // padding: theme.spacing(2),
+                        margin: 'auto',
+                        maxWidth: 1000,
+                        height: 500
+                    }}>
+                        {/* <div className="form-wrapper" style={{ marginTop: '150px' }}> */}
                         <h1>Create An Event</h1>
                         <form onSubmit={this.handleSubmit}>
-                            <div className="eventName">
-                                <label htmlFor="eventName">EventName</label>
-                                <input
-                                    type="text"
-                                    placeholder="Enter eventName"
-                                    value={this.state.eventName}
-                                    onChange={this.updateEventName}
-                                />
-                            </div>
-                            <div className="time">
-                                <label htmlFor="time">Time</label>
-                                <input
-                                    type="text"
-                                    placeholder="Enter time"
-                                    value={this.state.time}
-                                    onChange={this.updateTime}
-                                />
-                            </div>
-                            <div className="location">
-                                <label htmlFor="location">Location</label>
-                                <input
-                                    type="location"
-                                    placeholder="Enter location"
-                                    value={this.state.location}
-                                    onChange={this.updateLocation}
-                                />
-                            </div>
-                            <div className="description">
-                                <label htmlFor="description">Description</label>
-                                <input
-                                    type="description"
-                                    placeholder="Enter description"
-                                    value={this.state.description}
-                                    onChange={this.updateDescription}
-                                />
-                            </div>
-                            <div className="photoUrl">
-                                <label htmlFor="photoUrl">photoUrl</label>
-                                {/* <input
-                                    type="photoUrl"
-                                    placeholder="Enter photoUrl"
-                                    value={this.state.photoUrl}
-                                    onChange={this.updatePhoto}
-                                /> */}
-                                {/* <Link href="/upload">
-                                    <big>Upload an image for your event here</big>
-                                </Link> */}
-                                <Upload
-                                    updatePhoto={this.updatePhoto} />
+                            <Grid container spacing={2}>
+                                <Grid item style={{
+                                    // padding: theme.spacing(2),
+                                    marginLeft: 60,
+                                    marginTop: 40,
+                                }}>
+                                    <div className="eventName">
+                                        <label htmlFor="eventName">EventName</label>
+                                        <input
+                                            type="text"
+                                            placeholder="Enter eventName"
+                                            value={this.state.eventName}
+                                            onChange={this.updateEventName}
+                                        />
+                                    </div>
+                                    <div className="time">
+                                        <label htmlFor="time">Time</label>
+                                        <input
+                                            type="text"
+                                            placeholder="Enter time"
+                                            value={this.state.time}
+                                            onChange={this.updateTime}
+                                        />
+                                    </div>
+                                    <div className="location">
+                                        <label htmlFor="location">Location</label>
+                                        <input
+                                            type="location"
+                                            placeholder="Enter location"
+                                            value={this.state.location}
+                                            onChange={this.updateLocation}
+                                        />
+                                    </div>
+                                    <div className="description">
+                                        <label htmlFor="description">Description</label>
+                                        <input
+                                            type="description"
+                                            placeholder="Enter description"
+                                            value={this.state.description}
+                                            onChange={this.updateDescription}
+                                        />
+                                    </div>
+                                </Grid>
+                                <Grid item xs={12} sm container>
+                                    <div className="photoUrl">
+                                        {/* <label htmlFor="photoUrl">photoUrl</label> */}
 
-                            </div>
-                            <div className="createEvent">
-                                <button type="submit">Create Event</button>
+                                        <Upload
+                                            updatePhoto={this.updatePhoto} />
 
-                            </div>
+                                    </div>
+                                </Grid>
+                                <div className="createEvent">
+                                    <button type="submit">Create Event</button>
+
+                                </div>
+                            </Grid>
                         </form>
-                    </div>
+                        {/* </div> */}
+                    </Paper>
                 </div>
             </main>
         );

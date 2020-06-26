@@ -86,9 +86,19 @@
   .password {
     width: 100%;
   }
+
+
+  .createEvent {
+    width: 50%;
+    margin: auto;
+    
+    /* display: center;
+    flex-direction: column;
+    align-items: center; */
+  }
   
   .createAccount,
-  .createEvent,
+  /* .createEvent, */
   .logIn {
     width: 100%;
     display: flex;

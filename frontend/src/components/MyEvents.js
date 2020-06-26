@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import { getMyEvents } from "../store/authentication";
 import EventCard from "./EventCard";
 import EventPage from "./EventPage";
-import Pagination from './Pagination';
+import PaginationTest from './PaginationTest';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -59,7 +59,7 @@ const MyEvents = (props) => {
                         ))
                     }
                 </Grid >
-                <Pagination
+                <PaginationTest
                     eventsPerPage={eventsPerPage}
                     totalEvents={events.length}
                     paginate={paginate}

@@ -19,7 +19,7 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import { DebounceInput } from 'react-debounce-input';
 import { searchEvent } from '../store/homeEvents'
 import EventCard from "./EventCard";
-import Pagination from './Pagination';
+import PaginationTest from './PaginationTest';
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -161,7 +161,7 @@ const SearchEvent = (props) => {
                             ))
                         }
                     </Grid >
-                    <Pagination
+                    <PaginationTest
                         eventsPerPage={eventsPerPage}
                         totalEvents={events.length}
                         paginate={paginate}

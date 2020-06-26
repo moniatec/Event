@@ -15,16 +15,21 @@ const useStyles = makeStyles((theme) => ({
     //   maxHeight: 500,
     // },
     img: {
-        maxWidth: 200,
-        maxHeight: 200,
+        maxWidth: 100,
+        maxHeight: 100,
     },
 
     paper: {
-        width: 500,
-        height: 500,
+        width: 240,
+        height: 240,
         margin: 'auto',
         justifyContent: 'space-around',
 
+    },
+
+    imgUpload: {
+        width: 240,
+        height: 240,
     },
 
 
@@ -69,13 +74,16 @@ const Upload = (props) => {
     return (
         <Container className={classes.container}>
             <div className={classes.post} >
-                <InputLabel htmlFor="image-upload" style={{ margin: '20px' }} >Select Image</InputLabel>
-                <Input id="image-upload" type="file" label="Image" style={{ display: 'none', width: '200px', margin: '20px' }} onChange={handleNewImage} className={classes.img} />
+                <InputLabel htmlFor="image-upload" style={{
+                    margin: '20px', marginBottom: '10px', marginLeft: '80px', marginTop: '50px', fontFamily: 'apple-system', color: '#111',
+                    fontWeight: 'lighter',
+                }} >Select Image</InputLabel>
+                <Input id="image-upload" type="file" label="Image" style={{ display: 'none', width: '100px', margin: '20px', }} onChange={handleNewImage} className={classes.img} />
                 {/* <Input type="file" name="file" placeholder="upload here" onChange={uploadImage} className={classes.img} /> */}
             </div>
             <Paper elevation={3} className={classes.paper} >
                 {/* <div>Image Preview:</div> */}
-                <img src={image} alt='preview' className={"imgUpload"} />
+                <img src={image} className={classes.imgUpload} />
             </Paper>
 
         </Container>
