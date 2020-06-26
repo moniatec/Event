@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from './components/Home';
+// import Home from './components/Home';
 import HomePagination from './components/HomePagination';
 import Login from './components/Login';
 import Register from './components/Register'
@@ -9,7 +9,7 @@ import Nav from './components/Nav';
 import SearchEvent from './components/SearchEvent';
 import EventPage from './components/EventPage';
 import CreateEvent from './components/CreateEvent'
-import Upload from './components/Upload'
+
 import MyEvents from './components/MyEvents'
 import Theme from './Theme';
 import { loadToken } from "./store/authentication";
@@ -71,12 +71,6 @@ function App(props) {
                     currentUserId={props.currentUserId}
 
                   />
-                  {/* <Route exact path="/upload"
-                    component={Upload}
-                    token={props.token}
-                    currentUserId={props.currentUserId}
-
-                  /> */}
                   <Route exact path="/my_events"
                     component={MyEvents}
                     token={props.token}

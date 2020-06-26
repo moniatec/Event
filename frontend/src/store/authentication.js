@@ -1,5 +1,4 @@
 import { apiBaseUrl } from "../config";
-import { getOneEvent } from './homeEvents'
 const TOKEN_KEY = "EVENT/authentication/token";
 const SET_TOKEN = "EVENT/authentication/SET_TOKEN";
 const REMOVE_TOKEN = "EVENT/authentication/REMOVE_TOKEN";

@@ -4,8 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import CardMedia from '@material-ui/core/CardMedia';
 import { Button, TextField } from '@material-ui/core';
 import { getOneEvent, deleteEventReq, updateEventReq } from "../store/homeEvents";
 
@@ -25,15 +23,7 @@ const useStyles = makeStyles((theme) => ({
     root1: {
         flexGrow: 1,
     },
-    // paper: {
-    //     padding: theme.spacing(2),
-    //     margin: 'auto',
-    //     maxWidth: 500,
-    // },
-    // image: {
-    //     width: 128,
-    //     height: 128,
-    // },
+
     img: {
         margin: 'auto',
         display: 'block',
@@ -148,8 +138,7 @@ const EventPage = (props) => {
                                                         variant="outlined"
                                                         type="caption"
                                                         onChange={updateValue(setDescription)}
-                                                    // className={classes.bioUpdate}
-                                                    // defaultValue={props.profileBio}
+
                                                     />
                                                     <Button variant="contained" onClick={updateEvent}>Edit</Button>
                                                 </Grid >

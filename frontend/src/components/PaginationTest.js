@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import { Pagination } from '@material-ui/lab';
+
 
 const PaginationTest = ({ eventsPerPage, totalEvents, paginate }) => {
     const pageNumbers = [];

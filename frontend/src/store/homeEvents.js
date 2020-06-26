@@ -86,12 +86,8 @@ export const sendJoinReq = (userId, eventId) => async dispatch => {
 
 export const createEvent = (eventName, time, description, location, photoUrl) => async (dispatch, getState) => {
 
-    // const hostId = currentUserId
-    const {
-        authentication: { token, currentUserId },
-    } = getState();
     const hostId = window.localStorage.getItem("currentUserId");
-    console.log(hostId)
+    // console.log(hostId)
     const res = await fetch(`${apiBaseUrl}/events`, {
         method: "post",
         headers: { "Content-Type": "application/json" },
@@ -154,10 +150,6 @@ export const updateEventReq = (eventId, description, token) => async (dispatch) 
 export const searchEvent = (eventSearch) => async (dispatch, getState) => {
     try {
         console.log(eventSearch)
-
-        const {
-            authentication: { token, currentUserId },
-        } = getState();
 
         const res = await fetch(`${apiBaseUrl}/events/search`, {
             method: "post",

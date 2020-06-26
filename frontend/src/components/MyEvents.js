@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import { getMyEvents } from "../store/authentication";
 import EventCard from "./EventCard";
-import EventPage from "./EventPage";
 import PaginationTest from './PaginationTest';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -24,7 +23,7 @@ const MyEvents = (props) => {
     const [eventsPerPage] = useState(6);
     const events = props.events.events
 
-    // Get current posts
+    // Get current events
     const indexOfLastEvent = currentPage * eventsPerPage;
     const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
 

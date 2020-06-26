@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import { getHomeEvents } from "../store/homeEvents";
@@ -22,7 +22,7 @@ const HomePagination = (props) => {
     const [eventsPerPage] = useState(6);
     const events = props.events
 
-    // Get current posts
+    // Get current events
     const indexOfLastEvent = currentPage * eventsPerPage;
     const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
     const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);

@@ -5,12 +5,12 @@ import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-// import Typography from '@material-ui/core/Typography';
+
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import { logout } from "../store/authentication";
-import SearchEvent from './SearchEvent'
+
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -31,8 +31,7 @@ const useStyles = makeStyles((theme) => ({
     },
     logout: {
         marginLeft: 80,
-        // justifyItems: 'end',
-        // alignItems: 'end'
+
     }
 }));
 
@@ -66,10 +65,7 @@ const NavBar = (props) => {
             </Grid>
 
 
-            {/* <Grid item xs={10}> */}
-            {/* <Grid> */}
-            {/* <SearchEvent /> */}
-            {/* </Grid> */}
+
             <Grid item xs={2}>
                 <NavLink style={{ color: 'white' }} to="/login">
                     <div className={classes.logout} style={{ color: 'white' }}>

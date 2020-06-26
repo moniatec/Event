@@ -1,4 +1,4 @@
-const { apiBaseUrl, cloudinaryUrl, cloudinaryPreset, } = require("../config");
+const { cloudinaryUrl, cloudinaryPreset, } = require("../config");
 
 // ACTIONS
 const SET_IMG = 'EVENT/upload/SET_IMG';
