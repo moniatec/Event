@@ -7,6 +7,7 @@ import "../css/loginForm.css";
 import Upload from './Upload';
 import Paper from '@material-ui/core/Paper';
 
+
 class CreateEvent extends Component {
     constructor(props) {
         super(props);
@@ -127,12 +128,13 @@ class CreateEvent extends Component {
                                     <button type="submit">Create Event</button>
 
                                 </div>
+
                             </Grid>
                         </form>
                         {/* </div> */}
                     </Paper>
                 </div>
-            </main>
+            </main >
         );
     }
 }

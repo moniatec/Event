@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { Button, TextField } from '@material-ui/core';
+import { NavLink } from 'react-router-dom';
 import { getOneEvent, deleteEventReq, updateEventReq } from "../store/homeEvents";
 
 const useStyles = makeStyles((theme) => ({
@@ -129,7 +130,9 @@ const EventPage = (props) => {
                                                 ))}
                                                 </Grid>
                                                 <Grid item>
-                                                    <Button variant="contained" onClick={handleDelete}>Delete</Button>
+                                                    <NavLink style={{ color: 'white' }} to="/home">
+                                                        <Button variant="contained" onClick={handleDelete}>Delete</Button>
+                                                    </NavLink>
                                                 </Grid >
                                                 <Grid item>
                                                     <div >Description:</div>
