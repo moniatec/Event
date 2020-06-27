@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { Button, TextField } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import { getOneEvent, deleteEventReq, updateEventReq } from "../store/homeEvents";
-
+import MemberModal from './MemberModal'
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -116,7 +116,10 @@ const EventPage = (props) => {
 
                                         {event1.hostId === parseInt(props.currentUserId) ?
                                             <>
-                                                <Grid>
+                                                <MemberModal
+                                                    members={members1.members}
+                                                />
+                                                {/* <Grid>
                                                     Members:
                                             {members1.members.map(member => (
                                                     <Grid item spacing={3}
@@ -128,7 +131,7 @@ const EventPage = (props) => {
                                                     </Grid>
 
                                                 ))}
-                                                </Grid>
+                                                </Grid> */}
                                                 <Grid item>
                                                     <NavLink style={{ color: 'white' }} to="/home">
                                                         <Button variant="contained" onClick={handleDelete}>Delete</Button>
