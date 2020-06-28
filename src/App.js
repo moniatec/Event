@@ -6,6 +6,7 @@ import HomePagination from './components/HomePagination';
 import Login from './components/Login';
 import Register from './components/Register'
 import Nav from './components/Nav';
+import Splash from './components/Splash';
 import SearchEvent from './components/SearchEvent';
 import EventPage from './components/EventPage';
 import CreateEvent from './components/CreateEvent'
@@ -37,11 +38,11 @@ function App(props) {
                 classNames='fade'
               >
                 <Switch>
-                  {/* <Route exact path="/home"
-                    component={Home}
-                    token={props.token}
-                    currentUserId={props.currentUserId}
-                  /> */}
+                  <Route exact path="/"
+                    component={Splash}
+                  // token={props.token}
+                  // currentUserId={props.currentUserId}
+                  />
                   <Route exact path="/home"
                     component={HomePagination}
                     token={props.token}

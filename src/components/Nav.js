@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-
+import Link from "@material-ui/core/Link";
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
@@ -46,14 +46,14 @@ const NavBar = (props) => {
 
         <Grid container spacing={3}>
             <Grid item xs={10}>
-                <NavLink style={{ color: 'white' }} to="/home">
-                    <Button color="inherit">Event</Button>
+                <NavLink style={{ color: 'white', }} to="/home">
+                    <Button color="inherit">Event-App</Button>
                 </NavLink>
-                <NavLink style={{ color: 'white' }} to="/my_events">
+                <NavLink style={{ color: 'white', marginLeft: '50px' }} to="/my_events">
                     <Button color="inherit">MyEvents</Button>
                 </NavLink>
                 <NavLink style={{ color: 'white' }} to="/create">
-                    <Button color="inherit">Create Event</Button>
+                    <Button color="inherit">Host an Event</Button>
                 </NavLink>
                 <NavLink style={{ color: 'white' }} to="/search">
                     <Button color="inherit">Search</Button>
@@ -84,6 +84,18 @@ const NavBar = (props) => {
                 <NavLink style={{ color: 'white' }} to="/login">
                     <Button color="inherit">Login</Button>
                 </NavLink>
+
+                <Link
+                    style={{ color: 'white', marginRight: '20px', marginLeft: '1100px' }}
+                    color="inherit"
+                    href="https://github.com/moniatec"
+                    target="_blank"
+                >
+                    CONTACT
+                </Link>
+                <Link style={{ color: 'white', marginRight: '20px' }} href="https://github.com/moniatec/Event" target="_blank">
+                    ABOUT
+                </Link>
             </>
         )
 

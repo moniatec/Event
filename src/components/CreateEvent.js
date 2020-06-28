@@ -70,7 +70,7 @@ class CreateEvent extends Component {
                         height: 500
                     }}>
                         {/* <div className="form-wrapper" style={{ marginTop: '150px' }}> */}
-                        <h1>Create An Event</h1>
+                        <h1>Host An Event</h1>
                         <form onSubmit={this.handleSubmit}>
                             <Grid container spacing={2}>
                                 <Grid item style={{
@@ -125,7 +125,7 @@ class CreateEvent extends Component {
                                     </div>
                                 </Grid>
                                 <div className="createEvent">
-                                    <button type="submit">Create Event</button>
+                                    <button type="submit">Submit</button>
 
                                 </div>
 

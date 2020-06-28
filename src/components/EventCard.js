@@ -30,6 +30,7 @@ const EventCard = (props) => {
                     component="img"
                     alt="Contemplative Reptile"
                     height="280"
+                    maxWidth="100%"
                     image={props.event.photoUrl}
                     title="Contemplative Reptile"
                 />
