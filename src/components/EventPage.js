@@ -8,6 +8,8 @@ import { Button, TextField } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import { getOneEvent, deleteEventReq, updateEventReq } from "../store/homeEvents";
 import MemberModal from './MemberModal'
+import EditModal from './EditModal'
+
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -132,21 +134,23 @@ const EventPage = (props) => {
 
                                                 ))}
                                                 </Grid> */}
+
+                                                {/* <EditModal props={props} /> */}
                                                 <Grid item>
-                                                    <NavLink style={{ color: 'white' }} to="/home">
-                                                        <Button variant="contained" onClick={handleDelete}>Delete</Button>
-                                                    </NavLink>
-                                                </Grid >
-                                                <Grid item>
-                                                    <div >Description:</div>
+                                                    <div style={{ marginLeft: '30px' }} >Description:</div>
                                                     <TextField
-                                                        style={{ marginBottom: '50px', }}
+                                                        style={{ marginBottom: '20px', marginLeft: '30px' }}
                                                         variant="outlined"
                                                         type="caption"
                                                         onChange={updateValue(setDescription)}
 
                                                     />
-                                                    <Button variant="contained" onClick={updateEvent}>Edit</Button>
+                                                    <Button variant="contained" onClick={updateEvent} style={{ marginTop: '10px', marginLeft: '10px' }}>Edit</Button>
+                                                </Grid >
+                                                <Grid item>
+                                                    <NavLink style={{ color: 'white' }} to="/home">
+                                                        <Button variant="contained" onClick={handleDelete} style={{ marginBottom: '50px', marginLeft: '120px' }}>Delete Event</Button>
+                                                    </NavLink>
                                                 </Grid >
 
                                             </>
