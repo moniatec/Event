@@ -137,9 +137,9 @@ const EventPage = (props) => {
 
                                                 {/* <EditModal props={props} /> */}
                                                 <Grid item>
-                                                    <div style={{ marginLeft: '30px' }} >Description:</div>
+                                                    <div style={{ marginLeft: '100px' }} >Description:</div>
                                                     <TextField
-                                                        style={{ marginBottom: '20px', marginLeft: '30px' }}
+                                                        style={{ marginBottom: '20px', marginLeft: '100px', width: '100px' }}
                                                         variant="outlined"
                                                         type="caption"
                                                         onChange={updateValue(setDescription)}
@@ -149,7 +149,7 @@ const EventPage = (props) => {
                                                 </Grid >
                                                 <Grid item>
                                                     <NavLink style={{ color: 'white' }} to="/home">
-                                                        <Button variant="contained" onClick={handleDelete} style={{ marginBottom: '50px', marginLeft: '120px' }}>Delete Event</Button>
+                                                        <Button variant="contained" onClick={handleDelete} style={{ marginBottom: '50px', marginLeft: '120px' }}>Cancel Event</Button>
                                                     </NavLink>
                                                 </Grid >
 
