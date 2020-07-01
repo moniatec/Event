@@ -18,9 +18,7 @@ class CreateEvent extends Component {
             description: "",
             location: "",
             photoUrl: "",
-            // hostId: 1
         };
-        // console.log(this.hostId)
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -32,7 +30,7 @@ class CreateEvent extends Component {
             this.state.description,
             this.state.location,
             this.state.photoUrl,
-            // this.state.hostId,
+
         );
     }
 
@@ -57,9 +55,7 @@ class CreateEvent extends Component {
     };
 
     render() {
-        // if (this.props.token) {
-        //     return <Redirect to="/home" />;
-        // }
+
         return (
             <main className="centered middled">
                 <div className="wrapper">
@@ -69,12 +65,12 @@ class CreateEvent extends Component {
                         maxWidth: 1000,
                         height: 500
                     }}>
-                        {/* <div className="form-wrapper" style={{ marginTop: '150px' }}> */}
+
                         <h1>Host Your Awesome Event Here</h1>
                         <form onSubmit={this.handleSubmit}>
                             <Grid container spacing={2}>
                                 <Grid item style={{
-                                    // padding: theme.spacing(2),
+
                                     marginLeft: 60,
                                     marginTop: 40,
                                 }}>
@@ -117,7 +113,7 @@ class CreateEvent extends Component {
                                 </Grid>
                                 <Grid item xs={12} sm container>
                                     <div className="photoUrl">
-                                        {/* <label htmlFor="photoUrl">photoUrl</label> */}
+
 
                                         <Upload
                                             updatePhoto={this.updatePhoto} />
@@ -141,7 +137,7 @@ class CreateEvent extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        // token: state.authentication.token,
+
         token: state.authentication.token,
         currentUserId: state.authentication.currentUserId,
         event: state.homeEvents.event

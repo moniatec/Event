@@ -40,8 +40,6 @@ function App(props) {
                 <Switch>
                   <Route exact path="/"
                     component={Splash}
-                  // token={props.token}
-                  // currentUserId={props.currentUserId}
                   />
                   <Route exact path="/home"
                     component={HomePagination}

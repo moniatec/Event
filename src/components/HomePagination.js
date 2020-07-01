@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const HomePagination = (props) => {
     const classes = useStyles();
-    // console.log(props)
+
     React.useEffect(() => {
         props.getHomeEvents();
 
@@ -64,7 +64,7 @@ const HomePagination = (props) => {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
+
     return {
         token: state.authentication.token,
         currentUserId: state.authentication.currentUserId,

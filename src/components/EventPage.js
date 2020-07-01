@@ -8,7 +8,7 @@ import { Button, TextField } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import { getOneEvent, deleteEventReq, updateEventReq } from "../store/homeEvents";
 import MemberModal from './MemberModal'
-import EditModal from './EditModal'
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,15 +40,14 @@ const useStyles = makeStyles((theme) => ({
 
 
 const EventPage = (props) => {
-    console.log(props)
+
     const [description, setDescription] = useState('')
     const classes = useStyles();
     React.useEffect(() => {
         let id = window.location.href.split("/")[4];
-        // console.log(id)
+
         props.getOneEvent(id);
 
-        console.log(props)
 
     }, [])
 
@@ -65,11 +64,10 @@ const EventPage = (props) => {
 
     const updateValue = cb => e => cb(e.target.value);
 
-    console.log(props)
     if (props.event) {
         const event1 = props.event.event
         const members1 = props.event.members
-        console.log(event1)
+
         return (
             <div className={classes.root}>
 
@@ -121,21 +119,7 @@ const EventPage = (props) => {
                                                 <MemberModal
                                                     members={members1.members}
                                                 />
-                                                {/* <Grid>
-                                                    Members:
-                                            {members1.members.map(member => (
-                                                    <Grid item spacing={3}
 
-                                                        key={member.id}
-
-                                                        username={member.username}>
-                                                        {member.username}
-                                                    </Grid>
-
-                                                ))}
-                                                </Grid> */}
-
-                                                {/* <EditModal props={props} /> */}
                                                 <Grid item>
                                                     <div style={{ marginLeft: '100px' }} >Description:</div>
                                                     <TextField
@@ -177,7 +161,7 @@ const EventPage = (props) => {
 
 
 const mapStateToProps = state => {
-    console.log(state)
+
     if (state.homeEvents.resEvent)
         return {
             token: state.authentication.token,

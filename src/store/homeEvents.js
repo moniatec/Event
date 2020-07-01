@@ -28,8 +28,6 @@ export const getHomeEvents = () => async (dispatch, getState) => {
 
     if (res.ok) {
         const list = await res.json();
-        // console.log(list)
-        // window.location.reload();
 
         dispatch(homeEvents(list.events))
 
@@ -52,13 +50,13 @@ export const getOneEvent = (eventId) => async (dispatch, getState) => {
             Authorization: `Bearer ${token}`,
         },
     });
-    console.log(res2)
+
     if (res.ok && res2.ok) {
         const resEvent = await res.json();
         const resMember = await res2.json();
-        // console.log(resEvent.event)
+
         dispatch(getEvent(resEvent, resMember))
-        // console.log(resEvent.event)
+
     }
 }
 
@@ -72,9 +70,8 @@ export const sendJoinReq = (userId, eventId) => async dispatch => {
 
             })
         });
-        console.log(userId)
+
         if (res.ok) {
-            // console.log(res)
 
 
             dispatch(sendJoin(userId, eventId));
@@ -87,7 +84,6 @@ export const sendJoinReq = (userId, eventId) => async dispatch => {
 export const createEvent = (eventName, time, description, location, photoUrl) => async (dispatch, getState) => {
 
     const hostId = window.localStorage.getItem("currentUserId");
-    // console.log(hostId)
     const res = await fetch(`${apiBaseUrl}/events`, {
         method: "post",
         headers: { "Content-Type": "application/json" },
@@ -97,7 +93,9 @@ export const createEvent = (eventName, time, description, location, photoUrl) =>
     if (res.ok) {
         const { event } = await res.json();
         window.location.href = window.location.href;
+
         dispatch(setEvent(event));
+
     }
 };
 
@@ -158,10 +156,9 @@ export const searchEvent = (eventSearch) => async (dispatch, getState) => {
         });
 
         if (res.ok) {
-            console.log('hi')
+
             const list1 = await res.json();
-            console.log(list1)
-            // window.location.href = window.location.href;
+
             dispatch(getSearchEvent(list1.events));
 
         }
@@ -174,9 +171,7 @@ export const searchEvent = (eventSearch) => async (dispatch, getState) => {
 export default function reducer(state = { list: [], list1: [] }, action) {
     switch (action.type) {
         case GET_SEARCH_EVENT: {
-            // const newState = Object.assign({}, state)
-            // newState.list1 = action.list1
-            // return newState
+
             return {
                 ...state,
                 list1: action.list1,

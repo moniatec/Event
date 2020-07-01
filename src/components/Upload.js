@@ -41,7 +41,6 @@ const Upload = (props) => {
     const classes = useStyles();
 
     const [image, setImage] = useState("")
-    console.log(props)
 
     const uploadImage = async e => {
         const files = e.target.files
@@ -54,22 +53,19 @@ const Upload = (props) => {
             body: data,
         })
         const file = await res.json()
-        console.log(file)
+
         setImage(file.url)
         return (file.secure_url)
 
     }
     const handleNewImage = async (e) => {
-        // const newImg = e.target.files[0];
-        // props.updateImg(newImg);
+
         const url = await uploadImage(e);
         props.updatePhoto(url)
 
 
 
     }
-
-    console.log(props)
 
     return (
         <Container className={classes.container}>
@@ -99,7 +95,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        // post: (...args) => dispatch(post(...args)),
+
         updateImg: (newImg) => dispatch(updateImg(newImg)),
     };
 };

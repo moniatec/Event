@@ -22,7 +22,6 @@ const useStyles = makeStyles({
 
 const EventCard = (props) => {
     const classes = useStyles();
-    console.log(props)
     return (
         <Card className={classes.root}>
             <CardActionArea className={classes.actions}>

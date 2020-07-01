@@ -80,17 +80,10 @@ const useStyles = makeStyles((theme) => ({
 
 const SearchEvent = (props) => {
     const classes = useStyles();
-    console.log(props)
-
-
 
     const handleSearch = (e) => {
         const eventSearch = e.target.value;
-        console.log(eventSearch)
-        console.log(props)
         props.searchEvent(eventSearch);
-
-
     }
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -173,7 +166,6 @@ const SearchEvent = (props) => {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
 
     return {
         token: state.authentication.token,

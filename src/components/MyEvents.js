@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 const MyEvents = (props) => {
     const classes = useStyles();
-    // console.log(props.events)
     React.useEffect(() => {
         props.getMyEvents();
 
@@ -33,9 +32,6 @@ const MyEvents = (props) => {
 
     if (props.events.events) {
         const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
-
-
-
         return (
             <div className={classes.root}>
                 < Grid
@@ -76,7 +72,6 @@ const MyEvents = (props) => {
 }
 
 const mapStateToProps = state => {
-    // console.log(state)
     return {
         token: state.authentication.token,
         currentUserId: state.authentication.currentUserId,

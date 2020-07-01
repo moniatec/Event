@@ -42,9 +42,6 @@ export default function MemberModal(props) {
 
     return (
         <div>
-            {/* <IconButton onClick={handleOpen}>
-                <VisibilityIcon />
-            </IconButton> */}
             <Button variant="contained" onClick={handleOpen} style={{ marginLeft: '80px', marginBottom: '20px' }}>Check event members</Button>
             <Modal
                 aria-labelledby="transition-modal-title"
@@ -73,10 +70,7 @@ export default function MemberModal(props) {
 
                         ))}
                         </Grid>
-                        {/* <CardMedia
-                            className={classes.media}
-                            image={props.image}
-                        ></CardMedia> */}
+
                     </div>
                 </Fade>
             </Modal>

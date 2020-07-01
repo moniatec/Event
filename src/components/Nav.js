@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme) => ({
 
 const NavBar = (props) => {
     const classes = useStyles();
-    console.log(props)
     const logOut = () => {
         props.logout();
     }
@@ -58,7 +57,6 @@ const NavBar = (props) => {
                 <NavLink style={{ color: 'white' }} to="/search">
                     <Button color="inherit">Search</Button>
                 </NavLink>
-                {/* <SearchEvent className={classes.search} /> */}
 
 
 
@@ -73,7 +71,7 @@ const NavBar = (props) => {
                     </div>
                 </NavLink>
             </Grid>
-            {/* </Grid> */}
+
 
         </Grid >
     ) : (

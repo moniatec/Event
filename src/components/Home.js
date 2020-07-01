@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Home = (props) => {
     const classes = useStyles();
-    // console.log(props)
+
     React.useEffect(() => {
         props.getHomeEvents();
 
@@ -47,7 +47,7 @@ const Home = (props) => {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
+
     return {
         token: state.authentication.token,
         currentUserId: state.authentication.currentUserId,

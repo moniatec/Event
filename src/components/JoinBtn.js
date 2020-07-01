@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const JoinBtn = (props) => {
-    // console.log(props)
     const classes = useStyles();
 
     React.useEffect(() => {
@@ -24,13 +23,8 @@ const JoinBtn = (props) => {
 
     const handleJoin = async () => {
         let eventId = props.eventId
-        console.log(eventId)
-
         let userId = window.localStorage.getItem("currentUserId");
-        console.log(userId)
         props.sendJoinReq(userId, eventId);
-
-        console.log(props)
     }
 
 

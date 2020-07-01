@@ -12,7 +12,7 @@ export const loadToken = () => async (dispatch) => {
     const token = window.localStorage.getItem(TOKEN_KEY);
     const currentUserId = window.localStorage.getItem("currentUserId");
     if (token) {
-        // const currentUserId = window.localStorage.getItem(currentUserId);
+
         dispatch(setToken(token, currentUserId));
     }
 };
@@ -57,7 +57,7 @@ export const getMyEvents = () => async (dispatch, getState) => {
     const {
         authentication: { token, currentUserId },
     } = getState();
-    // const userId = currentUserId
+
     const userId = window.localStorage.getItem("currentUserId");
     const res = await fetch(`${apiBaseUrl}/users/${userId}/events`, {
         headers: {
@@ -66,10 +66,6 @@ export const getMyEvents = () => async (dispatch, getState) => {
     });
     if (res.ok) {
         const list = await res.json();
-        // console.log(list.events)
-        // const eventId = Object.values(list.events[0])
-        // console.log(Object.values(list.events[0]))
-        // dispatch(getOneEvent(eventId))
         dispatch(getEvents(list.events));
 
     }
@@ -94,16 +90,9 @@ export default function reducer(state = { list: [] }, action) {
         case MY_EVENTS: {
             return {
                 ...state,
-                // events: [
-                //     ...state.events,
-                //     action.events
-                // ]
                 list: action.list
 
             };
-            // const newState = { ...state };
-            // delete newState.token;
-            // return newState;
         }
 
         default:
