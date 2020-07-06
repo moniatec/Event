@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import { logout } from "../store/authentication";
-
+import '../index.css';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
