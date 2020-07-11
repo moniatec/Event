@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
 const JoinBtn = (props) => {
     const classes = useStyles();
-
+    const [disableBtn, setDisableBtn] = useState(false);
     React.useEffect(() => {
         let userId = parseInt(window.localStorage.getItem("currentUserId"));
 
@@ -25,6 +25,7 @@ const JoinBtn = (props) => {
         let eventId = props.eventId
         let userId = window.localStorage.getItem("currentUserId");
         props.sendJoinReq(userId, eventId);
+        setDisableBtn(true);
     }
 
 
@@ -38,7 +39,8 @@ const JoinBtn = (props) => {
                 <Button
                     size="small"
                     color="primary"
-                    onClick={handleJoin}>
+                    onClick={handleJoin}
+                    disabled={disableBtn}>
                     Join
                 </Button>
             </div>
