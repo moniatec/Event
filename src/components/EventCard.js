@@ -9,8 +9,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import JoinBtn from './JoinBtn'
+import '../index.css';
 const useStyles = makeStyles({
-    root: {
+    card: {
         width: 400,
         height: 550
     },
@@ -24,7 +25,7 @@ const EventCard = (props) => {
     const classes = useStyles();
     // console.log(props)
     return (
-        <Card className={classes.root}>
+        <Card className={classes.card}>
             <CardActionArea className={classes.actions}>
                 <CardMedia
                     component="img"

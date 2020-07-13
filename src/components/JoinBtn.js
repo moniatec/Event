@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { sendJoinReq } from "../store/homeEvents";
-
+import '../index.css';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    root1: {
         '& > *': {
             margin: theme.spacing(1),
         },
@@ -34,7 +34,7 @@ const JoinBtn = (props) => {
     if (props) {
         return (
 
-            <div className={classes.root}>
+            <div className={classes.root1}>
 
                 <Button
                     size="small"

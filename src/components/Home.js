@@ -4,9 +4,10 @@ import Grid from '@material-ui/core/Grid';
 import { getHomeEvents } from "../store/homeEvents";
 import EventCard from "./EventCard";
 import { makeStyles } from '@material-ui/core/styles';
+import '../index.css';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    root1: {
         marginTop: 100
     },
 
@@ -20,7 +21,7 @@ const Home = (props) => {
     }, [])
 
     return (
-        <div className={classes.root}>
+        <div className={classes.root1}>
             < Grid
                 container
                 spacing={10}

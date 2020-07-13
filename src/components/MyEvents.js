@@ -5,9 +5,10 @@ import { getMyEvents } from "../store/authentication";
 import EventCard from "./EventCard";
 import PaginationTest from './PaginationTest';
 import { makeStyles } from '@material-ui/core/styles';
+import '../index.css';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    root1: {
         marginTop: 100
     },
 
@@ -33,7 +34,7 @@ const MyEvents = (props) => {
     if (props.events.events) {
         const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
         return (
-            <div className={classes.root}>
+            <div className={classes.root1}>
                 < Grid
                     container
                     spacing={10}

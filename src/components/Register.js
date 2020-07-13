@@ -5,6 +5,7 @@ import { register } from "../store/authentication";
 import Link from "@material-ui/core/Link";
 // import Home from "./Home";
 import "../css/loginForm.css";
+import '../index.css';
 
 class Register extends Component {
     constructor(props) {

@@ -6,7 +6,7 @@ import '../index.css';
 
 import { connect } from "react-redux";
 const useStyles = makeStyles({
-    root: {
+    root1: {
         width: "100%",
         // maxWidth: 500,
         marginTop: 100,
@@ -48,7 +48,7 @@ const Splash = () => {
             alignItems="flex-start"
         >
             <Grid item spacing={3} justify="center">
-                <div className={classes.root}>
+                <div className={classes.root1}>
                     <Typography
                         className={classes.title1}
                         variant="h3"

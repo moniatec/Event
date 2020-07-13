@@ -11,8 +11,10 @@ import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import { logout } from "../store/authentication";
 import '../index.css';
+
+
 const useStyles = makeStyles((theme) => ({
-    root: {
+    root1: {
         flexGrow: 1,
         backgroundImage: theme.gradientBackground,
         marginBottom: 64
@@ -99,8 +101,8 @@ const NavBar = (props) => {
 
 
     return (
-        <div className={classes.root}>
-            <AppBar position="fixed" className={classes.root}>
+        <div className={classes.root1}>
+            <AppBar position="fixed" className={classes.root1}>
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                     </IconButton>

@@ -6,6 +6,7 @@ import { DebounceInput } from 'react-debounce-input';
 import { searchEvent } from '../store/homeEvents'
 import EventCard from "./EventCard";
 import PaginationTest from './PaginationTest';
+import '../index.css';
 
 const useStyles = makeStyles((theme) => ({
     grow: {

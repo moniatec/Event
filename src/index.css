@@ -1,8 +1,24 @@
 /* TODO Add site wide styles */
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
     body {
       width: 100%; 
 
   }
-  }
+  } */
+
+@media (max-width: 600px) {
+  body {
+    width: 100%; 
+
+}
+    .paperEvent{
+      width: 600;
+      height: 1200
+    }
+    .sear{
+      margin:'auto';
+
+    }
+}
+

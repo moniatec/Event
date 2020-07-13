@@ -8,10 +8,10 @@ import { Button, TextField } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import { getOneEvent, deleteEventReq, updateEventReq } from "../store/homeEvents";
 import MemberModal from './MemberModal'
-
+import '../index.css';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    paperEvent: {
         display: 'flex',
         flexWrap: 'wrap',
         '& > *': {
@@ -69,7 +69,7 @@ const EventPage = (props) => {
         const members1 = props.event.members
 
         return (
-            <div className={classes.root}>
+            <div className={classes.paperEvent}>
 
                 <Paper elevation={3} >
                     <div className={classes.root1}>

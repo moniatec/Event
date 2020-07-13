@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import { updateImg } from '../store/image'
 import '../index.css';
+
 const { cloudinaryUrl, cloudinaryPreset, } = require("../config");
 
 const useStyles = makeStyles((theme) => ({

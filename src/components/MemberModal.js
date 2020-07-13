@@ -8,6 +8,7 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import IconButton from "@material-ui/core/IconButton";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from '@material-ui/core/Button';
+import '../index.css';
 
 const useStyles = makeStyles((theme) => ({
     modal: {

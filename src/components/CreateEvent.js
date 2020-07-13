@@ -6,7 +6,9 @@ import Grid from '@material-ui/core/Grid';
 import "../css/loginForm.css";
 import Upload from './Upload';
 import Paper from '@material-ui/core/Paper';
-
+import '../index.css';
+import EventPage from './EventPage';
+import Calendar from "react-calendar";
 
 class CreateEvent extends Component {
     constructor(props) {
@@ -21,6 +23,8 @@ class CreateEvent extends Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+
 
     async handleSubmit(e) {
         e.preventDefault();
@@ -40,6 +44,8 @@ class CreateEvent extends Component {
 
     updateTime = (e) => {
         this.setState({ time: e.target.value });
+
+
     };
 
     updateLocation = (e) => {
@@ -55,7 +61,11 @@ class CreateEvent extends Component {
     };
 
     render() {
-
+        console.log(this.props.createEvent)
+        if (this.props.event) {
+            return <Redirect to="/home" />;
+        }
+        const test = this.props.createEvent.event
         return (
             <main className="centered middled">
                 <div className="wrapper">
@@ -91,6 +101,8 @@ class CreateEvent extends Component {
                                             value={this.state.time}
                                             onChange={this.updateTime}
                                         />
+                                        {/* <Calendar showWeekNumbers
+                                            onChange={this.updateTime} value={this.state.time} /> */}
                                     </div>
                                     <div className="location">
                                         <label htmlFor="location">Location</label>
@@ -122,6 +134,12 @@ class CreateEvent extends Component {
                                 </Grid>
                                 <div className="createEvent">
                                     <button type="submit">Submit</button>
+                                    {/* <div>{test ? (
+                                        <EventPage />
+                                    ) : (
+                                            <div></div>
+                                        )}
+                                    </div> */}
 
                                 </div>
 
