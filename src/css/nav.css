@@ -4,7 +4,7 @@
 
 .mobile-nav-overlay {
     align-items: center;
-    background-color: #8A64C7;
+    /* background-color: #8A64C7; */
     display: flex;
     flex-flow: column;
     justify-content: space-around;
@@ -20,7 +20,7 @@
     left: 16px;
 }
 
-@media only screen and (min-width: 961px) {
+@media only screen and (min-width: 800px) {
     #navbar-items {
         display: flex;
     }

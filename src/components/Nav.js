@@ -145,12 +145,7 @@ const NavBar = (props) => {
                 className="mobile-nav-overlay"
                 style={{ height: "20%", visibility: "hidden" }}
             >
-                <NavLink
-                    style={{ color: "white" }}
-                    to="/"
-                >
-                    <Button color="inherit">Event-App</Button>
-                </NavLink>
+
                 <NavLink style={{ color: "white" }} to="/signup" onClick={toggleNav}>
                     <Button color="inherit">Register</Button>
                 </NavLink>
@@ -171,7 +166,7 @@ const NavBar = (props) => {
                     </IconButton>
                     <NavLink
                         style={{ color: "white" }}
-                        to="/"
+                        to="/home"
                         className="mobile-home-btn"
                     >
                         <Button color="inherit">Event-App</Button>

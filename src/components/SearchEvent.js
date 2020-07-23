@@ -6,7 +6,7 @@ import { DebounceInput } from 'react-debounce-input';
 import { searchEvent } from '../store/homeEvents'
 import EventCard from "./EventCard";
 import PaginationTest from './PaginationTest';
-import '../index.css';
+import '../css/search.css';
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -21,30 +21,22 @@ const useStyles = makeStyles((theme) => ({
             display: 'block',
         },
     },
-    search: {
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.15),
-        '&:hover': {
-            backgroundColor: fade(theme.palette.common.white, 0.25),
-        },
-        marginRight: theme.spacing(2),
-        marginLeft: 0,
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(3),
-            width: 'auto',
-        },
-    },
-    searchIcon: {
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+    // search: {
+    //     position: 'relative',
+    //     borderRadius: theme.shape.borderRadius,
+    //     backgroundColor: fade(theme.palette.common.white, 0.15),
+    //     '&:hover': {
+    //         backgroundColor: fade(theme.palette.common.white, 0.25),
+    //     },
+    //     marginRight: theme.spacing(2),
+    //     marginLeft: 0,
+    //     width: '100%',
+    //     [theme.breakpoints.up('sm')]: {
+    //         marginLeft: theme.spacing(3),
+    //         width: 'auto',
+    //     },
+    // },
+
     inputRoot: {
         color: 'inherit',
     },
@@ -58,22 +50,14 @@ const useStyles = makeStyles((theme) => ({
             width: '20ch',
         },
     },
-    sectionDesktop: {
-        display: 'none',
-        [theme.breakpoints.up('md')]: {
-            display: 'flex',
-        },
-    },
-    sectionMobile: {
-        display: 'flex',
-        [theme.breakpoints.up('md')]: {
-            display: 'none',
-        },
-    },
+
+
     sear: {
+
         marginTop: 20,
-        marginLeft: 600,
-        width: 400,
+        marginLeft: 500,
+        // justifySelf: "center",
+        width: 600,
         marginBottom: 50
     }
 
@@ -102,16 +86,17 @@ const SearchEvent = (props) => {
     return (
         <>
 
-            <div>
+            <div >
 
                 <DebounceInput
                     minLength={2}
                     debounceTimeout={300}
 
-
+                    id="sear-mobile"
                     placeholder="Search…"
 
                     className={classes.sear}
+
 
                     inputProps={{ 'aria-label': 'search' }}
                     onChange={handleSearch}
