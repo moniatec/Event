@@ -5,6 +5,8 @@ Check us out here: [Event App](https://cool-events.herokuapp.com/)
 
 Backend for app here: [Event-App-Backend](https://github.com/moniatec/EventBack)
 
+![](/Documentation/images/cool-event.png)
+
 ## Documentation links
 - [Feature List](https://github.com/moniatec/Event/blob/master/Documentation/feature-list/README.md)
 - [Front End Routes](https://github.com/moniatec/Event/blob/master/Documentation/frontendRoutes.md)
