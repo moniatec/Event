@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
-import { getHomeEvents } from "../store/homeEvents";
+import { getHomeEvents, getMembersForJoin } from "../store/homeEvents";
 import EventCard from "./EventCard";
 import { makeStyles } from '@material-ui/core/styles';
 import '../index.css';
@@ -13,11 +13,13 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 const Home = (props) => {
+    console.log(props)
     const classes = useStyles();
 
     React.useEffect(() => {
         props.getHomeEvents();
-
+        let userId = window.localStorage.getItem("currentUserId");
+        props.getMembersForJoin(userId);
     }, [])
 
     return (
@@ -52,13 +54,15 @@ const mapStateToProps = state => {
     return {
         token: state.authentication.token,
         currentUserId: state.authentication.currentUserId,
-        events: state.homeEvents.list
+        events: state.homeEvents.list,
+        members: state.homeEvents.resMember,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         getHomeEvents: () => dispatch(getHomeEvents()),
+        getMembersForJoin: (...args) => dispatch(getMembersForJoin(...args)),
     };
 };
 

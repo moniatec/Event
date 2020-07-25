@@ -24,7 +24,7 @@ const useStyles = makeStyles({
 
 const EventCard = (props) => {
     const classes = useStyles();
-    // console.log(props)
+    console.log(props)
     return (
         <Card className={classes.card}>
             <CardActionArea className={classes.actions}>
@@ -53,6 +53,7 @@ const EventCard = (props) => {
 
                 <JoinBtn
                     eventId={props.event.id}
+                    eventsJoin={props.eventsJoin}
                 />
 
                 <NavLink style={{ color: 'white' }} to={`/events/${props.event.id}`}>

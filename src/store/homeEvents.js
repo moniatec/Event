@@ -1,6 +1,7 @@
 import { apiBaseUrl } from "../config";
 const HOME_EVENTS = "EVENT/homeEvents/HOME_EVENTS";
 const EVENT = "EVENT/homeEvents/EVENT";
+const EVENT_MEMBERS = "EVENT/homeEvents/EVENT_MEMBERS";
 const JOIN = "EVENT/homeEvents/JOIN";
 const SET_EVENT = "EVENT/homeEvents/SET_EVENT";
 const DEL_EVENT = "EVENT/homeEvents/DEL_EVENT";
@@ -10,6 +11,7 @@ const GET_SEARCH_EVENT = "EVENT/homeEvents/GET_SEARCH_EVENT";
 export const sendJoin = (userId, eventId) => ({ type: JOIN, userId, eventId });
 export const homeEvents = (list) => ({ type: HOME_EVENTS, list });
 export const getEvent = (resEvent, resMember) => ({ type: EVENT, resEvent, resMember });
+export const getMembers = (list2) => ({ type: EVENT_MEMBERS, list2 });
 export const setEvent = (event) => ({ type: SET_EVENT, event });
 export const getSearchEvent = (list1) => ({ type: GET_SEARCH_EVENT, list1 });
 export const deleteEvent = (eventId) => ({ type: DEL_EVENT, eventId, });
@@ -56,6 +58,27 @@ export const getOneEvent = (eventId) => async (dispatch, getState) => {
         const resMember = await res2.json();
 
         dispatch(getEvent(resEvent, resMember))
+
+    }
+}
+
+
+export const getMembersForJoin = (userId) => async (dispatch, getState) => {
+    const {
+        authentication: { token },
+    } = getState();
+
+    const res = await fetch(`${apiBaseUrl}/events/${userId}/join/members`, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+
+    if (res.ok) {
+
+        const list2 = await res.json();
+
+        dispatch(getMembers(list2.members))
 
     }
 }
@@ -168,7 +191,7 @@ export const searchEvent = (eventSearch) => async (dispatch, getState) => {
 };
 
 
-export default function reducer(state = { list: [], list1: [] }, action) {
+export default function reducer(state = { list: [], list1: [], list2: [] }, action) {
     switch (action.type) {
         case GET_SEARCH_EVENT: {
 
@@ -191,6 +214,14 @@ export default function reducer(state = { list: [], list1: [] }, action) {
                 members: action.resMember.members
             }
             return newState
+        }
+        case EVENT_MEMBERS: {
+
+            return {
+                ...state,
+                list2: action.list2
+            }
+
         }
         case JOIN: {
 
