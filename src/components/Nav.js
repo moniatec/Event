@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
     },
     logout: {
-        marginLeft: 80,
+        // marginLeft: 80,
         width: "min-content",
     }
 }));
@@ -143,7 +143,10 @@ const NavBar = (props) => {
     ) : (
             <div
                 className="mobile-nav-overlay"
-                style={{ height: "20%", visibility: "hidden" }}
+                style={{
+                    height: "20%",
+                    visibility: "hidden"
+                }}
             >
 
                 <NavLink style={{ color: "white" }} to="/signup" onClick={toggleNav}>
@@ -152,6 +155,19 @@ const NavBar = (props) => {
                 <NavLink style={{ color: "white" }} to="/login" onClick={toggleNav}>
                     <Button color="inherit">Login</Button>
                 </NavLink>
+                <Link
+                    style={{ color: 'white' }}
+                    color="inherit"
+                    href="https://github.com/moniatec"
+                    target="_blank"
+                    onClick={toggleNav}
+
+                >
+                    CONTACT
+                </Link>
+                <Link style={{ color: 'white' }} href="https://github.com/moniatec/Event" target="_blank" onClick={toggleNav}>
+                    ABOUT
+                </Link>
             </div>
         );
 
@@ -160,21 +176,23 @@ const NavBar = (props) => {
     return (
         <div className={classes.root1}>
             <AppBar position="fixed" className={classes.root1}>
-                <Toolbar>
+                <Toolbar
+                // style={{ justifyContent: "center" }}
+                >
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" id="mobile-menu-icon">
                         {/* <MenuIcon onClick={toggleNav} /> */}
                     </IconButton>
-                    <NavLink
+                    {/* <NavLink
                         style={{ color: "white" }}
                         to="/home"
                         className="mobile-home-btn"
                     >
                         <Button color="inherit">Event-App</Button>
-                    </NavLink>
+                    </NavLink> */}
                     {navigation}
                 </Toolbar>
             </AppBar>
-            {mobileNavigation}
+            {/* {mobileNavigation} */}
         </div>
     );
 }

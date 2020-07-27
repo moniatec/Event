@@ -55,10 +55,14 @@ const useStyles = makeStyles((theme) => ({
     sear: {
 
         marginTop: 20,
-        marginLeft: 500,
-        // justifySelf: "center",
-        width: 600,
+        marginLeft: 'auto',
+
+        width: '100%',
         marginBottom: 50
+        // display: 'none',
+        // [theme.breakpoints.up('sm')]: {
+        //     display: 'block',
+        // },
     }
 
 }));
