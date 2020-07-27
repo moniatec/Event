@@ -9,6 +9,13 @@ import Paper from '@material-ui/core/Paper';
 import '../index.css';
 import EventPage from './EventPage';
 import Calendar from "react-calendar";
+import DateFnsUtils from '@date-io/date-fns';
+import {
+    MuiPickersUtilsProvider,
+    KeyboardTimePicker,
+    KeyboardDatePicker,
+} from '@material-ui/pickers';
+import 'date-fns';
 
 class CreateEvent extends Component {
     constructor(props) {
@@ -17,6 +24,7 @@ class CreateEvent extends Component {
         this.state = {
             eventName: "",
             time: "",
+            // time: new Date(),
             description: "",
             location: "",
             photoUrl: "",
@@ -42,9 +50,9 @@ class CreateEvent extends Component {
         this.setState({ eventName: e.target.value });
     };
 
-    updateTime = (e) => {
-        this.setState({ time: e.target.value });
-
+    updateTime = (date) => {
+        // this.setState({ time: e.target.value });
+        this.setState({ time: date });
 
     };
 
@@ -95,14 +103,28 @@ class CreateEvent extends Component {
                                     </div>
                                     <div className="time">
                                         <label htmlFor="time">Time</label>
-                                        <input
+                                        {/* <input
                                             type="text"
                                             placeholder="Enter time"
                                             value={this.state.time}
                                             onChange={this.updateTime}
-                                        />
-                                        {/* <Calendar showWeekNumbers
-                                            onChange={this.updateTime} value={this.state.time} /> */}
+                                        /> */}
+                                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                            <KeyboardDatePicker
+                                                disableToolbar
+                                                variant="inline"
+                                                format="MM/dd/yyyy"
+                                                // margin="normal"
+                                                id="date-picker-inline"
+
+                                                value={this.state.time}
+                                                onChange={this.updateTime}
+                                                KeyboardButtonProps={{
+                                                    'aria-label': 'change date',
+                                                }}
+                                            />
+                                        </MuiPickersUtilsProvider>
+
                                     </div>
                                     <div className="location">
                                         <label htmlFor="location">Location</label>
