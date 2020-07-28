@@ -38,7 +38,7 @@ const HomePagination = (props) => {
 
     // Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
-    console.log(props)
+    // console.log(pageNumber)
 
     return (
         <div className={classes.root1}>

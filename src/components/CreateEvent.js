@@ -28,6 +28,7 @@ class CreateEvent extends Component {
             description: "",
             location: "",
             photoUrl: "",
+            event: null
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }

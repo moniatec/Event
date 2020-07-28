@@ -57,9 +57,9 @@ const NavBar = (props) => {
     const logOut = () => {
 
         const navMenu = document.querySelector(".mobile-nav-overlay");
-        if (navMenu.style.visibility === "visible") {
-            toggleNav();
-        }
+        // if (navMenu.style.visibility === "visible") {
+        //     toggleNav();
+        // }
         props.logout();
     }
 
@@ -182,13 +182,13 @@ const NavBar = (props) => {
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" id="mobile-menu-icon">
                         {/* <MenuIcon onClick={toggleNav} /> */}
                     </IconButton>
-                    {/* <NavLink
+                    <NavLink
                         style={{ color: "white" }}
                         to="/home"
                         className="mobile-home-btn"
                     >
                         <Button color="inherit">Event-App</Button>
-                    </NavLink> */}
+                    </NavLink>
                     {navigation}
                 </Toolbar>
             </AppBar>
