@@ -80,6 +80,11 @@ class Register extends Component {
                             </div>
                             <div className="createAccount">
                                 <button type="submit">Create Account</button>
+                                {this.props.errorMessage ?
+                                    <h3 className="logError">Error: Something went wrong. Please try again.</h3>
+                                    :
+                                    <></>
+                                }
                                 <Link href="/login">
                                     <small>Already Have an Account?</small>
                                 </Link>
@@ -93,9 +98,16 @@ class Register extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {
-        token: state.authentication.token,
-    };
+    if (state && state.authentication && state.authentication.error && state.authentication.error.register) {
+        return {
+            token: state.authentication.token,
+            errorMessage: state.authentication.error.register,
+        };
+    } else {
+        return {
+            token: state.authentication.token,
+        };
+    }
 };
 
 const mapDispatchToProps = (dispatch) => {

@@ -36,6 +36,10 @@ export const register = (username, email, password) => async (dispatch) => {
         window.localStorage.setItem(TOKEN_KEY, token);
         window.localStorage.setItem("currentUserId", currentUserId);
         dispatch(setToken(token, currentUserId));
+    } else if (res.status === 400) {
+        const { message } = await res.json();
+        const messageType = "register";
+        dispatch(errorMessage(messageType, message));
     }
 };
 
@@ -103,7 +107,13 @@ export default function reducer(state = { list: [] }, action) {
         case REMOVE_TOKEN: {
             const newState = { ...state };
             delete newState.token;
-            delete state.currentUserId;
+            delete newState.currentUserId;
+            delete newState.list;
+            delete newState.error;
+            delete newState.list1;
+            delete newState.list2;
+            delete newState.resEvent;
+            delete newState.event;
             return newState;
         }
         case MY_EVENTS: {
