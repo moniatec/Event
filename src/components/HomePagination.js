@@ -17,6 +17,7 @@ const HomePagination = (props) => {
     const classes = useStyles();
     // const [disableBtn, setDisableBtn] = useState(false);
     React.useEffect(() => {
+
         props.getHomeEvents();
         let userId = window.localStorage.getItem("currentUserId");
         props.getMembersForJoin(userId);
@@ -73,7 +74,7 @@ const HomePagination = (props) => {
 }
 
 const mapStateToProps = state => {
-
+    console.log(state)
     return {
         token: state.authentication.token,
         currentUserId: state.authentication.currentUserId,

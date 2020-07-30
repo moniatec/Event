@@ -102,6 +102,7 @@ const mapStateToProps = (state) => {
     } else {
         return {
             token: state.authentication.token,
+            currentUserId: state.authentication.currentUserId,
         };
     }
 };
