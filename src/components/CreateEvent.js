@@ -75,6 +75,7 @@ class CreateEvent extends Component {
             return <Redirect to="/home" />;
         }
         const test = this.props.createEvent.event
+        console.log(test)
         return (
             <main className="centered middled">
                 <div className="wrapper">
@@ -157,12 +158,12 @@ class CreateEvent extends Component {
                                 </Grid>
                                 <div className="createEvent">
                                     <button type="submit">Submit</button>
-                                    {/* <div>{test ? (
+                                    <div>{test ? (
                                         <EventPage />
                                     ) : (
                                             <div></div>
                                         )}
-                                    </div> */}
+                                    </div>
 
                                 </div>
 

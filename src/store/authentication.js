@@ -3,6 +3,7 @@ const TOKEN_KEY = "EVENT/authentication/token";
 const SET_TOKEN = "EVENT/authentication/SET_TOKEN";
 const REMOVE_TOKEN = "EVENT/authentication/REMOVE_TOKEN";
 const MY_EVENTS = "EVENT/authentication/MY_EVENTS";
+const ERROR_MESSAGE = "EVENT/authentication/ERROR_MESSAGE";
 
 export const removeToken = () => ({ type: REMOVE_TOKEN });
 export const setToken = (token, currentUserId) => ({ type: SET_TOKEN, token, currentUserId });
@@ -16,6 +17,12 @@ export const loadToken = () => async (dispatch) => {
         dispatch(setToken(token, currentUserId));
     }
 };
+
+export const errorMessage = (messageType, message) => ({
+    type: ERROR_MESSAGE,
+    messageType,
+    message,
+});
 
 export const register = (username, email, password) => async (dispatch) => {
     const res = await fetch(`${apiBaseUrl}/users`, {
@@ -44,6 +51,10 @@ export const login = (email, password) => async (dispatch) => {
         window.localStorage.setItem(TOKEN_KEY, token);
         window.localStorage.setItem("currentUserId", currentUserId);
         dispatch(setToken(token, currentUserId));
+    } else if (res.status === 401) {
+        const { message } = await res.json();
+        const messageType = "login";
+        dispatch(errorMessage(messageType, message));
     }
 };
 
@@ -82,9 +93,17 @@ export default function reducer(state = { list: [] }, action) {
             };
         }
 
+        case ERROR_MESSAGE: {
+            const newState = Object.assign({}, state);
+            const { messageType, message } = action;
+            newState["error"] = { [messageType]: message };
+            return newState;
+        }
+
         case REMOVE_TOKEN: {
             const newState = { ...state };
             delete newState.token;
+            delete state.currentUserId;
             return newState;
         }
         case MY_EVENTS: {

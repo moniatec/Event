@@ -76,6 +76,11 @@ class Login extends Component {
                             </div>
                             <div className="logIn">
                                 <button type="submit">Log In</button>
+                                {this.props.errorMessage ?
+                                    <h3 className="logError">Error: Invalid login credentials</h3>
+                                    :
+                                    <></>
+                                }
                                 <Link href="/signup">
                                     <small>Create An Acount</small>
                                 </Link>
@@ -89,9 +94,16 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {
-        token: state.authentication.token,
-    };
+    if (state && state.authentication && state.authentication.error && state.authentication.error.login) {
+        return {
+            token: state.authentication.token,
+            errorMessage: state.authentication.error.login,
+        };
+    } else {
+        return {
+            token: state.authentication.token,
+        };
+    }
 };
 
 const mapDispatchToProps = (dispatch) => {
