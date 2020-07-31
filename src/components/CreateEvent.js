@@ -23,8 +23,8 @@ class CreateEvent extends Component {
         console.log(props)
         this.state = {
             eventName: "",
-            time: "",
-            // time: new Date(),
+            // time: "",
+            time: new Date(),
             description: "",
             location: "",
             photoUrl: "",
