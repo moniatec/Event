@@ -177,7 +177,7 @@ class CreateEvent extends Component {
                                 {/* needs to style it by itself so the disabled attribute wokrs as needed */}
                                 <div className="createEvent">
                                     {this.state.submitEnabled ?
-                                        <button type="submit" >Submit</button>
+                                        <button type="submit" className="createEventBtn" >Submit</button>
                                         :
                                         <button type="submit" disabled >Submit</button>
                                     }

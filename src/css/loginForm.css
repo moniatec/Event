@@ -111,9 +111,30 @@
     flex-direction: column;
     align-items: center;
   }
+
+  
+  .createEvent button
+   {
+    /* background-color: #eca1a6; */
+    /* color: #fff; */
+    /* border: 2px solid #fff; */
+    border: 2px solid #eca1a6;
+    width: 100%;
+    margin-top: 1em;
+    padding: 8px 0px;
+    font-size: 1em;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    margin-bottom: 0.25em;
+    /* margin-bottom: 10px ; */
+  }
+
+  .createEventBtn{
+    background-color: #eca1a6;
+  }
   
   .createAccount button,
-  .createEvent button,
+  /* .createEventBtn button, */
   .logIn button {
     background-color: #eca1a6;
     color: #fff;
@@ -129,7 +150,7 @@
   }
   
   .createAccount button:hover,
-  .createEvent button:hover,
+  .createEventBtn button:hover,
   .logIn button:hover {
     color: #eca1a6;
     background-color: #fff;
