@@ -28,12 +28,26 @@ class CreateEvent extends Component {
             description: "",
             location: "",
             photoUrl: "",
-            event: null
+            event: null,
+            submitEnabled: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    checkSubmitButton = () => {
+        if (this.state.eventName.length > 0 && this.state.location.length > 0
+            && this.state.description.length > 0 && this.state.photoUrl.length > 0) {
+            // this.submitEnabled = true;
 
+            this.setState({ submitEnabled: true });
+            console.log(this.state.submitEnabled)
+        } else {
+            // this.submitEnabled = false;
+
+            this.setState({ submitEnabled: false });
+            console.log(this.state.submitEnabled)
+        }
+    }
 
     async handleSubmit(e) {
         e.preventDefault();
@@ -49,24 +63,28 @@ class CreateEvent extends Component {
 
     updateEventName = (e) => {
         this.setState({ eventName: e.target.value });
+        this.checkSubmitButton()
     };
 
     updateTime = (date) => {
         // this.setState({ time: e.target.value });
         this.setState({ time: date });
-
+        this.checkSubmitButton()
     };
 
     updateLocation = (e) => {
         this.setState({ location: e.target.value });
+        this.checkSubmitButton()
     };
 
     updateDescription = (e) => {
         this.setState({ description: e.target.value });
+        this.checkSubmitButton()
     };
 
     updatePhoto = (url) => {
         this.setState({ photoUrl: url });
+        this.checkSubmitButton()
     };
 
     render() {
@@ -74,8 +92,8 @@ class CreateEvent extends Component {
         if (this.props.event) {
             return <Redirect to="/home" />;
         }
-        const test = this.props.createEvent.event
-        console.log(test)
+        // const test = this.props.createEvent.event
+        // console.log(test)
         return (
             <main className="centered middled">
                 <div className="wrapper">
@@ -156,14 +174,14 @@ class CreateEvent extends Component {
 
                                     </div>
                                 </Grid>
+                                {/* needs to style it by itself so the disabled attribute wokrs as needed */}
                                 <div className="createEvent">
-                                    <button type="submit">Submit</button>
-                                    <div>{test ? (
-                                        <EventPage />
-                                    ) : (
-                                            <div></div>
-                                        )}
-                                    </div>
+                                    {this.state.submitEnabled ?
+                                        <button type="submit" >Submit</button>
+                                        :
+                                        <button type="submit" disabled >Submit</button>
+                                    }
+
 
                                 </div>
 

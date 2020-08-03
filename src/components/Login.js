@@ -75,7 +75,7 @@ class Login extends Component {
                                 />
                             </div>
                             <div className="logIn">
-                                <button type="submit">Log In</button>
+                                <button type="submit" >Log In</button>
                                 {this.props.errorMessage ?
                                     <h3 className="logError">Error: Invalid login credentials</h3>
                                     :
