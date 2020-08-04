@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import '../index.css';
+// import '../index.css';
+import '../css/splash.css';
 
 import { connect } from "react-redux";
 const useStyles = makeStyles({
@@ -10,6 +11,10 @@ const useStyles = makeStyles({
         width: "100%",
         // maxWidth: 500,
         marginTop: 100,
+        marginLeft: 60,
+        display: 'flex',
+        // justifyContent: space - around,
+        // margin: 5 % 10 % 0 10%,
     },
     container: {
         marginTop: 300,
@@ -18,13 +23,15 @@ const useStyles = makeStyles({
         marginLeft: 200,
     },
     title1: {
-        marginLeft: 500,
+        marginLeft: 50,
+
     },
     art: {
         color: "#eca1a6",
     },
     title2: {
-        marginLeft: 400,
+
+        marginTop: 100,
     },
     // title3: {
     //     marginLeft: 200,
@@ -49,21 +56,36 @@ const Splash = () => {
         >
             <Grid item spacing={3} justify="center">
                 <div className={classes.root1}>
-                    <Typography
-                        className={classes.title1}
-                        variant="h3"
-                        component="h3"
-                        gutterBottom
-                    >
-                        Welcome to <b className={classes.art}> Event-App </b>
-                    </Typography>
-                    <Typography className={classes.title2} variant="h3" gutterBottom>
-                        <p>Want check our awesome events,</p>
-                    </Typography>
-                    <Typography className={classes.title3} variant="h3" gutterBottom>
-                        <p style={{ marginLeft: '600px' }}>Join events you like,</p>
-                        <p style={{ marginLeft: '400px' }}>And even host your own events!</p>
-                    </Typography>
+                    <img
+                        className='splash-image'
+                        src={"images/splash_event.jpg"}
+                        style={{
+                            margin: "20 auto",
+                            borderRadius: "5px",
+                            maxWidth: "100%",
+                        }}
+                    />
+                    <div className={classes.title1}>
+                        <Typography
+                            // className={classes.title1}
+                            variant="h3"
+                            component="h3"
+                            gutterBottom
+                        >
+                            Welcome to <b className={classes.art}> Event-App </b>
+                        </Typography>
+                        <Typography
+                            className={classes.title2}
+                            variant="h4" gutterBottom>
+                            <p>Want check our awesome events,</p>
+                        </Typography>
+                        <Typography
+                            // className={classes.title3} 
+                            variant="h4" gutterBottom>
+                            <p>Join events you like,</p>
+                            <p >And even host your own events!</p>
+                        </Typography>
+                    </div>
                 </div>
             </Grid>
 

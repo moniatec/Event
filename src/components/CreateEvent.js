@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { createEvent } from "../store/homeEvents";
+import { createEvent, getOneEvent } from "../store/homeEvents";
 import Grid from '@material-ui/core/Grid';
 import "../css/loginForm.css";
+import { NavLink } from 'react-router-dom';
 import Upload from './Upload';
 import Paper from '@material-ui/core/Paper';
 import '../index.css';
@@ -59,6 +60,8 @@ class CreateEvent extends Component {
             this.state.photoUrl,
 
         );
+        console.log(this.props)
+        // this.props.getOneEvent(this.props.event.id);
     }
 
     updateEventName = (e) => {
@@ -88,7 +91,7 @@ class CreateEvent extends Component {
     };
 
     render() {
-        console.log(this.props.createEvent)
+        console.log(this.props)
         if (this.props.event) {
             return <Redirect to="/home" />;
         }
@@ -98,7 +101,7 @@ class CreateEvent extends Component {
             <main className="centered middled">
                 <div className="wrapper">
                     <Paper elevation={3} style={{
-                        // padding: theme.spacing(2),
+
                         margin: 'auto',
                         maxWidth: 1000,
                         height: 500
@@ -123,18 +126,13 @@ class CreateEvent extends Component {
                                     </div>
                                     <div className="time">
                                         <label htmlFor="time">Time</label>
-                                        {/* <input
-                                            type="text"
-                                            placeholder="Enter time"
-                                            value={this.state.time}
-                                            onChange={this.updateTime}
-                                        /> */}
+
                                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                             <KeyboardDatePicker
                                                 disableToolbar
                                                 variant="inline"
                                                 format="MM/dd/yyyy"
-                                                // margin="normal"
+
                                                 id="date-picker-inline"
 
                                                 value={this.state.time}
@@ -174,10 +172,12 @@ class CreateEvent extends Component {
 
                                     </div>
                                 </Grid>
-                                {/* needs to style it by itself so the disabled attribute wokrs as needed */}
+
                                 <div className="createEvent">
                                     {this.state.submitEnabled ?
+                                        // <NavLink style={{ color: 'white' }} to={`/events/${this.props.event.id}`}>
                                         <button type="submit" className="createEventBtn" >Submit</button>
+                                        // </NavLink>
                                         :
                                         <button type="submit" disabled >Submit</button>
                                     }
@@ -187,7 +187,7 @@ class CreateEvent extends Component {
 
                             </Grid>
                         </form>
-                        {/* </div> */}
+
                     </Paper>
                 </div>
             </main >
@@ -208,6 +208,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         createEvent: (eventName, time, description, location, photoUrl) =>
             dispatch(createEvent(eventName, time, description, location, photoUrl)),
+        // getOneEvent: (...args) => dispatch(getOneEvent(...args)),
     };
 };
 
