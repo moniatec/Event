@@ -60,7 +60,8 @@ class CreateEvent extends Component {
             this.state.photoUrl,
 
         );
-        console.log(this.props)
+        console.log(this.state)
+        this.setState({ event: this.state.setEvent });
         // this.props.getOneEvent(this.props.event.id);
     }
 
@@ -91,111 +92,123 @@ class CreateEvent extends Component {
     };
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
+        console.log(this.state)
         if (this.props.event) {
-            return <Redirect to="/home" />;
+            return <Redirect to={`/events/${this.state.event.id}`} />;
         }
-        // const test = this.props.createEvent.event
-        // console.log(test)
+        const test = this.props.setEvent
+        console.log(test)
         return (
-            <main className="centered middled">
-                <div className="wrapper">
-                    <Paper elevation={3} style={{
+            <div>
+                {this.props.setEvent ?
 
-                        margin: 'auto',
-                        maxWidth: 1000,
-                        height: 500
-                    }}>
+                    <EventPage
+                        props={this.props}
+                    />
+                    :
+                    <main className="centered middled">
+                        <div className="wrapper">
+                            <Paper elevation={3} style={{
 
-                        <h1>Host Your Awesome Event Here</h1>
-                        <form onSubmit={this.handleSubmit}>
-                            <Grid container spacing={2}>
-                                <Grid item style={{
+                                margin: 'auto',
+                                maxWidth: 1000,
+                                height: 500
+                            }}>
 
-                                    marginLeft: 60,
-                                    marginTop: 40,
-                                }}>
-                                    <div className="eventName">
-                                        <label htmlFor="eventName">EventName</label>
-                                        <input
-                                            type="text"
-                                            placeholder="Enter eventName"
-                                            value={this.state.eventName}
-                                            onChange={this.updateEventName}
-                                        />
-                                    </div>
-                                    <div className="time">
-                                        <label htmlFor="time">Time</label>
+                                <h1>Host Your Awesome Event Here</h1>
+                                <form onSubmit={this.handleSubmit}>
+                                    <Grid container spacing={2}>
+                                        <Grid item style={{
 
-                                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                                            <KeyboardDatePicker
-                                                disableToolbar
-                                                variant="inline"
-                                                format="MM/dd/yyyy"
+                                            marginLeft: 60,
+                                            marginTop: 40,
+                                        }}>
+                                            <div className="eventName">
+                                                <label htmlFor="eventName">EventName</label>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Enter eventName"
+                                                    value={this.state.eventName}
+                                                    onChange={this.updateEventName}
+                                                />
+                                            </div>
+                                            <div className="time">
+                                                <label htmlFor="time">Time</label>
 
-                                                id="date-picker-inline"
+                                                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                                                    <KeyboardDatePicker
+                                                        disableToolbar
+                                                        variant="inline"
+                                                        format="MM/dd/yyyy"
 
-                                                value={this.state.time}
-                                                onChange={this.updateTime}
-                                                KeyboardButtonProps={{
-                                                    'aria-label': 'change date',
-                                                }}
-                                            />
-                                        </MuiPickersUtilsProvider>
+                                                        id="date-picker-inline"
 
-                                    </div>
-                                    <div className="location">
-                                        <label htmlFor="location">Location</label>
-                                        <input
-                                            type="location"
-                                            placeholder="Enter location"
-                                            value={this.state.location}
-                                            onChange={this.updateLocation}
-                                        />
-                                    </div>
-                                    <div className="description">
-                                        <label htmlFor="description">Description</label>
-                                        <input
-                                            type="description"
-                                            placeholder="Enter description"
-                                            value={this.state.description}
-                                            onChange={this.updateDescription}
-                                        />
-                                    </div>
-                                </Grid>
-                                <Grid item xs={12} sm container>
-                                    <div className="photoUrl">
+                                                        value={this.state.time}
+                                                        onChange={this.updateTime}
+                                                        KeyboardButtonProps={{
+                                                            'aria-label': 'change date',
+                                                        }}
+                                                    />
+                                                </MuiPickersUtilsProvider>
 
-
-                                        <Upload
-                                            updatePhoto={this.updatePhoto} />
-
-                                    </div>
-                                </Grid>
-
-                                <div className="createEvent">
-                                    {this.state.submitEnabled ?
-                                        // <NavLink style={{ color: 'white' }} to={`/events/${this.props.event.id}`}>
-                                        <button type="submit" className="createEventBtn" >Submit</button>
-                                        // </NavLink>
-                                        :
-                                        <button type="submit" disabled >Submit</button>
-                                    }
+                                            </div>
+                                            <div className="location">
+                                                <label htmlFor="location">Location</label>
+                                                <input
+                                                    type="location"
+                                                    placeholder="Enter location"
+                                                    value={this.state.location}
+                                                    onChange={this.updateLocation}
+                                                />
+                                            </div>
+                                            <div className="description">
+                                                <label htmlFor="description">Description</label>
+                                                <input
+                                                    type="description"
+                                                    placeholder="Enter description"
+                                                    value={this.state.description}
+                                                    onChange={this.updateDescription}
+                                                />
+                                            </div>
+                                        </Grid>
+                                        <Grid item xs={12} sm container>
+                                            <div className="photoUrl">
 
 
-                                </div>
+                                                <Upload
+                                                    updatePhoto={this.updatePhoto} />
 
-                            </Grid>
-                        </form>
+                                            </div>
+                                        </Grid>
 
-                    </Paper>
-                </div>
-            </main >
+                                        <div className="createEvent">
+                                            {this.state.submitEnabled ?
+                                                // <NavLink style={{ color: 'white' }} to={`/events/${this.props.event.id}`}>
+                                                <button type="submit" className="createEventBtn" >Submit</button>
+                                                // </NavLink>
+                                                :
+                                                <button type="submit" disabled >Submit</button>
+                                            }
+
+
+                                        </div>
+
+                                    </Grid>
+                                </form>
+
+                            </Paper>
+                        </div>
+                    </main >
+                }
+            </div>
         );
     }
 }
 
 const mapStateToProps = (state) => {
+    // console.log(this.props)
+    console.log(state)
     return {
 
         token: state.authentication.token,

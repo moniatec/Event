@@ -239,8 +239,8 @@ export default function reducer(state = { list: [], list1: [], list2: [] }, acti
                 list: [
                     ...state.list,
                     action.event
-                ]
-
+                ],
+                setEvent: action.event
             };
         }
         case UPDATE_EVENT: {

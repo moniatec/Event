@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // import Home from './components/Home';
-import HomePagination from './components/HomePagination';
+import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register'
 import Nav from './components/Nav';
@@ -42,7 +42,7 @@ function App(props) {
                     component={Splash}
                   />
                   <Route exact path="/home"
-                    component={HomePagination}
+                    component={Home}
                     token={props.token}
                     currentUserId={props.currentUserId}
                   />
