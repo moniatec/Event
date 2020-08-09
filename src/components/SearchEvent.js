@@ -21,21 +21,7 @@ const useStyles = makeStyles((theme) => ({
             display: 'block',
         },
     },
-    // search: {
-    //     position: 'relative',
-    //     borderRadius: theme.shape.borderRadius,
-    //     backgroundColor: fade(theme.palette.common.white, 0.15),
-    //     '&:hover': {
-    //         backgroundColor: fade(theme.palette.common.white, 0.25),
-    //     },
-    //     marginRight: theme.spacing(2),
-    //     marginLeft: 0,
-    //     width: '100%',
-    //     [theme.breakpoints.up('sm')]: {
-    //         marginLeft: theme.spacing(3),
-    //         width: 'auto',
-    //     },
-    // },
+
 
     inputRoot: {
         color: 'inherit',
@@ -59,10 +45,7 @@ const useStyles = makeStyles((theme) => ({
 
         width: '100%',
         marginBottom: 50
-        // display: 'none',
-        // [theme.breakpoints.up('sm')]: {
-        //     display: 'block',
-        // },
+
     }
 
 }));
@@ -139,16 +122,6 @@ const SearchEvent = (props) => {
                 :
                 <div>loading</div>
             }
-
-
-
-
-
-
-
-
-
-
         </>
 
     );

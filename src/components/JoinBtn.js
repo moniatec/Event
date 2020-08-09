@@ -14,12 +14,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const JoinBtn = (props) => {
-    console.log(props)
+
     const classes = useStyles();
     const [disableBtn, setDisableBtn] = useState(false);
-    // let eventId = props.eventId
+
     let userId = window.localStorage.getItem("currentUserId");
-    // props.getMembersForJoin(userId);
+
     let eventsJoin = props.eventsJoin
     let eventId = props.eventId
     React.useEffect(() => {
@@ -35,8 +35,7 @@ const JoinBtn = (props) => {
 
 
     const handleJoin = async () => {
-        // let eventId = props.eventId
-        // let userId = window.localStorage.getItem("currentUserId");
+
         props.sendJoinReq(userId, eventId);
         setDisableBtn(true);
     }
@@ -79,7 +78,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         sendJoinReq: (...args) => dispatch(sendJoinReq(...args)),
-        // getMembersForJoin: (...args) => dispatch(getMembersForJoin(...args)),
+
 
     };
 };

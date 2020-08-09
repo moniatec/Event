@@ -24,7 +24,6 @@ class CreateEvent extends Component {
         console.log(props)
         this.state = {
             eventName: "",
-            // time: "",
             time: new Date(),
             description: "",
             location: "",
@@ -38,15 +37,13 @@ class CreateEvent extends Component {
     checkSubmitButton = () => {
         if (this.state.eventName.length > 0 && this.state.location.length > 0
             && this.state.description.length > 0 && this.state.photoUrl.length > 0) {
-            // this.submitEnabled = true;
 
             this.setState({ submitEnabled: true });
-            console.log(this.state.submitEnabled)
+
         } else {
-            // this.submitEnabled = false;
 
             this.setState({ submitEnabled: false });
-            console.log(this.state.submitEnabled)
+
         }
     }
 
@@ -60,9 +57,9 @@ class CreateEvent extends Component {
             this.state.photoUrl,
 
         );
-        console.log(this.state)
+
         this.setState({ event: this.state.setEvent });
-        // this.props.getOneEvent(this.props.event.id);
+
     }
 
     updateEventName = (e) => {
@@ -71,7 +68,6 @@ class CreateEvent extends Component {
     };
 
     updateTime = (date) => {
-        // this.setState({ time: e.target.value });
         this.setState({ time: date });
         this.checkSubmitButton()
     };
@@ -92,8 +88,7 @@ class CreateEvent extends Component {
     };
 
     render() {
-        // console.log(this.props)
-        console.log(this.state)
+
         if (this.props.event) {
             return <Redirect to={`/events/${this.state.event.id}`} />;
         }
@@ -207,7 +202,7 @@ class CreateEvent extends Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log(this.props)
+
     console.log(state)
     return {
 
@@ -221,7 +216,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         createEvent: (eventName, time, description, location, photoUrl) =>
             dispatch(createEvent(eventName, time, description, location, photoUrl)),
-        // getOneEvent: (...args) => dispatch(getOneEvent(...args)),
+
     };
 };
 

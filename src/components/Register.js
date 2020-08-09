@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { register } from "../store/authentication";
 import Link from "@material-ui/core/Link";
-// import Home from "./Home";
 import "../css/loginForm.css";
 import '../index.css';
 

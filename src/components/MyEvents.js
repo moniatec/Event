@@ -18,14 +18,12 @@ const MyEvents = (props) => {
 
     const classes = useStyles();
     React.useEffect(() => {
-        console.log('here')
-        console.log(props)
         props.getMyEvents();
         let userId = window.localStorage.getItem("currentUserId");
         props.getMembersForJoin(userId);
 
     }, [])
-    // console.log(props)
+
     const [currentPage, setCurrentPage] = useState(1);
     const [eventsPerPage] = useState(6);
     const events = props.events.events

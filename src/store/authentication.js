@@ -111,11 +111,8 @@ export default function reducer(state = { list: [] }, action) {
             delete newState.currentUserId;
             delete newState.list;
             delete newState.error;
-            // delete newState.list;
-            // delete newState.list1;
             delete newState.list2;
             delete newState.resEvent;
-            // delete newState.event;
             return newState;
         }
         case MY_EVENTS: {

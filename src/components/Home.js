@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Home = (props) => {
     const classes = useStyles();
-    // const [disableBtn, setDisableBtn] = useState(false);
     React.useEffect(() => {
 
         props.getHomeEvents();
@@ -27,11 +26,7 @@ const Home = (props) => {
     const [eventsPerPage] = useState(6);
     const events = props.events
     const eventsJoin = props.members
-    // for (let i = 0; i < events.length; i++) {
-    //     if (eventsJoin.indexOf(events[i].id) !== -1) {
-    //         setDisableBtn(true);
-    //     }
-    // }
+
     // Get current events
     const indexOfLastEvent = currentPage * eventsPerPage;
     const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
@@ -39,7 +34,6 @@ const Home = (props) => {
 
     // Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
-    // console.log(pageNumber)
 
     return (
         <div className={classes.root1}>
@@ -74,7 +68,7 @@ const Home = (props) => {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
+
     return {
         token: state.authentication.token,
         currentUserId: state.authentication.currentUserId,

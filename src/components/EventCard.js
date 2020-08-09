@@ -9,7 +9,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import JoinBtn from './JoinBtn'
-import EventPage from './EventPage';
 import '../index.css';
 const useStyles = makeStyles({
     card: {
@@ -24,7 +23,7 @@ const useStyles = makeStyles({
 
 const EventCard = (props) => {
     const classes = useStyles();
-    console.log(props)
+
     return (
         <Card className={classes.card}>
             <CardActionArea className={classes.actions}>
@@ -35,7 +34,7 @@ const EventCard = (props) => {
                     maxWidth="100%"
                     image={props.event.photoUrl}
                     title="Contemplative Reptile"
-                // onClick={() => { <EventPage /> }}
+
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">

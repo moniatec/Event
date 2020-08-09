@@ -4,7 +4,6 @@ import { Redirect } from "react-router-dom";
 import { login } from "../store/authentication";
 import "../css/loginForm.css";
 import Link from "@material-ui/core/Link";
-// import Home from "./Home";
 import '../index.css';
 
 class Login extends Component {

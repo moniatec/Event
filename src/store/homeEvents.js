@@ -170,8 +170,6 @@ export const updateEventReq = (eventId, description, token) => async (dispatch) 
 
 export const searchEvent = (eventSearch) => async (dispatch, getState) => {
     try {
-        console.log(eventSearch)
-
         const res = await fetch(`${apiBaseUrl}/events/search`, {
             method: "post",
             headers: { "Content-Type": "application/json" },

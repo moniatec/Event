@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
     },
     logout: {
-        // marginLeft: 80,
         width: "min-content",
     }
 }));
@@ -57,9 +56,7 @@ const NavBar = (props) => {
     const logOut = () => {
 
         const navMenu = document.querySelector(".mobile-nav-overlay");
-        // if (navMenu.style.visibility === "visible") {
-        //     toggleNav();
-        // }
+
         props.logout();
     }
 
@@ -177,10 +174,10 @@ const NavBar = (props) => {
         <div className={classes.root1}>
             <AppBar position="fixed" className={classes.root1}>
                 <Toolbar
-                // style={{ justifyContent: "center" }}
+
                 >
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" id="mobile-menu-icon">
-                        {/* <MenuIcon onClick={toggleNav} /> */}
+
                     </IconButton>
                     <NavLink
                         style={{ color: "white" }}
