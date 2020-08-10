@@ -8,7 +8,7 @@ import PaginationTest from './PaginationTest';
 import '../index.css';
 
 const useStyles = makeStyles((theme) => ({
-    root1: {
+    root: {
         marginTop: 100
     },
 
@@ -36,7 +36,7 @@ const Home = (props) => {
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
     return (
-        <div className={classes.root1}>
+        <div className={classes.root}>
             < Grid
                 container
                 spacing={10}

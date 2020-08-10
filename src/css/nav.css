@@ -20,11 +20,20 @@
     left: 16px;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 700px) {
     #navbar-items {
         display: flex;
     }
-    .mobile-home-btn {
-        display: none;
+    #navbar-items2 {
+        display: flex;
     }
+    /* .mobile-home-btn {
+        display: none;
+    } */
+    .mobile-home-btn {
+        position: fixed; 
+         /* right: 20px; */
+         left: 20px; 
+    }
+    
 }

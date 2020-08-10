@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import '../index.css';
 
 const useStyles = makeStyles((theme) => ({
-    root1: {
+    root: {
         marginTop: 100
     },
 
@@ -39,7 +39,7 @@ const MyEvents = (props) => {
     if (props.events.events) {
         const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
         return (
-            <div className={classes.root1}>
+            <div className={classes.root}>
                 < Grid
                     container
                     spacing={10}

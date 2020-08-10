@@ -15,7 +15,7 @@ import "../css/nav.css";
 
 
 const useStyles = makeStyles((theme) => ({
-    root1: {
+    root: {
         flexGrow: 1,
         backgroundImage: theme.gradientBackground,
         marginBottom: 64,
@@ -56,7 +56,9 @@ const NavBar = (props) => {
     const logOut = () => {
 
         const navMenu = document.querySelector(".mobile-nav-overlay");
-
+        // if (navMenu.style.visibility === "visible") {
+        //     toggleNav();
+        // }
         props.logout();
     }
 
@@ -64,10 +66,10 @@ const NavBar = (props) => {
 
         <Grid container spacing={3} id="navbar-items">
             <Grid item xs={10}>
-                <NavLink style={{ color: 'white', }} to="/home">
+                {/* <NavLink style={{ color: 'white', }} to="/home">
                     <Button color="inherit">Event-App</Button>
-                </NavLink>
-                <NavLink style={{ color: 'white', marginLeft: '50px' }} to="/my_events">
+                </NavLink> */}
+                <NavLink style={{ color: 'white', marginLeft: '150px' }} to="/my_events">
                     <Button color="inherit">MyEvents</Button>
                 </NavLink>
                 <NavLink style={{ color: 'white' }} to="/create">
@@ -94,8 +96,8 @@ const NavBar = (props) => {
 
         </Grid >
     ) : (
-            <>
-                <NavLink style={{ color: 'white' }} to="/signup">
+            <div id="navbar-items2">
+                <NavLink style={{ color: 'white', marginLeft: '150px' }} to="/signup">
                     <Button color="inherit">Register</Button>
                 </NavLink>
                 <NavLink style={{ color: 'white' }} to="/login">
@@ -113,7 +115,7 @@ const NavBar = (props) => {
                 <Link style={{ color: 'white', marginRight: '20px' }} href="https://github.com/moniatec/Event" target="_blank">
                     ABOUT
                 </Link>
-            </>
+            </div>
         )
 
 
@@ -171,9 +173,9 @@ const NavBar = (props) => {
 
 
     return (
-        <div className={classes.root1}>
-            <AppBar position="fixed" className={classes.root1}>
-                <Toolbar
+        <div>
+            <AppBar position="fixed" className={classes.root}>
+                <Toolbar style={{ justifyContent: "center" }}
 
                 >
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" id="mobile-menu-icon">
@@ -181,7 +183,7 @@ const NavBar = (props) => {
                     </IconButton>
                     <NavLink
                         style={{ color: "white" }}
-                        to="/home"
+                        to="/"
                         className="mobile-home-btn"
                     >
                         <Button color="inherit">Event-App</Button>

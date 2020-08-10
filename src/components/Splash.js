@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 
 
 const useStyles = makeStyles({
-    root1: {
+    root: {
         width: "100%",
         marginTop: 100,
         marginLeft: 60,
@@ -43,7 +43,7 @@ const Splash = () => {
             alignItems="flex-start"
         >
             <Grid item spacing={3} justify="center">
-                <div className={classes.root1}>
+                <div className={classes.root}>
                     <img
                         className='splash-image'
                         src={"images/splash_event.jpg"}

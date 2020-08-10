@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         },
         padding: theme.spacing(2),
     },
-    root1: {
+    root: {
         flexGrow: 1,
     },
 
@@ -70,7 +70,7 @@ const EventPage = (props) => {
             <div className={classes.paperEvent}>
 
                 <Paper elevation={3} >
-                    <div className={classes.root1}>
+                    <div className={classes.root}>
 
                         <Grid container spacing={2}>
 

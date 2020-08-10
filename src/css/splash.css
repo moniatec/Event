@@ -1,4 +1,7 @@
-/* .title1{
-background-image: url('/public/images/splash_event.jpg');
-background-size: cover;
-} */
+@media only screen and (min-width: 700px){
+.title1 {
+    display: block;
+    justify-content: space-around;
+    margin: 5% 10% 0 10%;
+}
+}

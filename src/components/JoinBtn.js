@@ -6,7 +6,7 @@ import { sendJoinReq } from "../store/homeEvents";
 import '../index.css';
 
 const useStyles = makeStyles((theme) => ({
-    root1: {
+    root: {
         '& > *': {
             margin: theme.spacing(1),
         },
@@ -46,7 +46,7 @@ const JoinBtn = (props) => {
     if (props) {
         return (
 
-            <div className={classes.root1}>
+            <div className={classes.root}>
 
                 <Button
                     size="small"
