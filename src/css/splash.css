@@ -1,7 +1,19 @@
 @media only screen and (min-width: 700px){
 .title1 {
     display: block;
-    justify-content: space-around;
-    margin: 5% 10% 0 10%;
+    /* justify-content: space-around; */
+    /* margin: 5% 10% 0 10%; */
+    align-items: center;
 }
 }
+
+@media screen and (max-width: 1100px) {
+    /* #text {
+      justify-content: center;
+    } */
+  
+    /* #splash {
+      margin-top: 100px;
+      display: inline;
+    } */
+  }
