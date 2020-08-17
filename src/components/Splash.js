@@ -36,24 +36,29 @@ const useStyles = makeStyles({
 const Splash = () => {
     const classes = useStyles();
     return (
-        <Grid
-            container
-            spacing={10}
-            direction="column"
-            justify="center"
-            alignItems="flex-start"
-        >
-            <Grid item spacing={3} justify="center">
+        <div>
+            <Grid
+                container
+                spacing={10}
+                direction="column"
+                justify="center"
+                alignItems="flex-start"
+            >
+                <Grid
+                    container
+                    item spacing={3}
+                    justify="center"
+                >
 
-                <div className={classes.title1} id='text' style={{ marginTop: '100px' }}>
-                    <Typography
-                        variant="h3"
-                        component="h3"
-                        gutterBottom
-                    >
-                        Welcome to <b className={classes.art}> Event-App </b>
-                    </Typography>
-                    {/* <Typography
+                    <div className={classes.title1} id='text' style={{ marginTop: '100px' }}>
+                        <Typography
+                            variant="h3"
+                            component="h3"
+                            gutterBottom
+                        >
+                            Welcome to <b className={classes.art}> Event-App </b>
+                        </Typography>
+                        {/* <Typography
                             className={classes.title2}
                             variant="h4" gutterBottom>
                             <p>Want check our awesome events,</p>
@@ -63,22 +68,23 @@ const Splash = () => {
                             <p>Join events you like,</p>
                             <p >And even host your own events!</p>
                         </Typography> */}
-                </div>
-                <div className={classes.root} id='splash' >
-                    <img
-                        className='splash-image'
-                        src={"images/splash_event.jpg"}
-                        style={{
-                            margin: "20 auto",
-                            borderRadius: "5px",
-                            maxWidth: "100%",
-                        }}
-                    />
-                </div>
+                    </div>
+                    <div className={classes.root} id='splash' >
+                        <img
+                            className='splash-image'
+                            src={"images/splash_event.jpg"}
+                            style={{
+                                margin: "20 auto",
+                                borderRadius: "5px",
+                                maxWidth: "100%",
+                            }}
+                        />
+                    </div>
+
+                </Grid>
 
             </Grid>
-
-        </Grid>
+        </div>
     );
 };
 
