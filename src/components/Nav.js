@@ -66,9 +66,9 @@ const NavBar = (props) => {
 
         <Grid container spacing={3} id="navbar-items">
             <Grid item xs={10}>
-                {/* <NavLink style={{ color: 'white', }} to="/home">
+                <NavLink style={{ color: 'white', }} to="/home">
                     <Button color="inherit">Event-App</Button>
-                </NavLink> */}
+                </NavLink>
                 <NavLink style={{ color: 'white', marginLeft: '150px' }} to="/my_events">
                     <Button color="inherit">MyEvents</Button>
                 </NavLink>

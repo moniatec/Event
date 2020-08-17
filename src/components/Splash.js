@@ -8,10 +8,11 @@ import { connect } from "react-redux";
 
 const useStyles = makeStyles({
     root: {
-        width: "100%",
+        // width: "100%",
         // marginTop: 100,
-        marginLeft: 60,
-        // display: 'flex',
+        // marginLeft: 60,
+        // marginLeft: 200,
+        display: 'flex',
 
     },
     container: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles({
         alignItems: 'center'
     },
     title1: {
-        marginLeft: 50,
+        // marginLeft: 50,
     },
     art: {
         color: "#eca1a6",
@@ -69,7 +70,17 @@ const Splash = () => {
                             <p >And even host your own events!</p>
                         </Typography> */}
                     </div>
-                    <div className={classes.root} id='splash' alt="" >
+                </Grid>
+                <Grid
+                    container
+                    item spacing={3}
+                    justify="center"
+                >
+                    <div
+                        className={classes.root}
+                        justify="center"
+                        // id='splash' 
+                        alt="" >
                         <img
                             className='splash-image'
                             src={"images/splash_event.jpg"}

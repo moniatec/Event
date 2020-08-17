@@ -27,12 +27,22 @@
     #navbar-items2 {
         display: flex;
     }
-    /* .mobile-home-btn {
+    .mobile-home-btn {
         display: none;
+    }
+    /* .mobile-home-btn {
+        position: fixed; 
+       
+         left: 20px; 
     } */
+    
+}
+
+@media only screen and (max-width: 700px) {
+  
     .mobile-home-btn {
         position: fixed; 
-         /* right: 20px; */
+       
          left: 20px; 
     }
     

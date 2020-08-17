@@ -37,7 +37,7 @@ function App(props) {
                 classNames='fade'
               >
                 <Switch>
-                  <Route exact path="/"
+                  <AuthRoute exact path="/"
                     component={Splash}
                   />
                   <Route exact path="/home"
