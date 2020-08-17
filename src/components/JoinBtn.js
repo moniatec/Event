@@ -23,9 +23,9 @@ const JoinBtn = (props) => {
     let eventsJoin = props.eventsJoin
     let eventId = props.eventId
     React.useEffect(() => {
-        let userId = parseInt(window.localStorage.getItem("currentUserId"));
+        // let userId = parseInt(window.localStorage.getItem("currentUserId"));
         for (let i = 0; i < eventsJoin.length; i++) {
-            if (eventsJoin[i].eventId == eventId) {
+            if (eventsJoin[i].eventId === eventId) {
                 setDisableBtn(true);
             }
         }

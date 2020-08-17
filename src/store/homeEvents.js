@@ -124,7 +124,7 @@ export const createEvent = (eventName, time, description, location, photoUrl) =>
 
 export const deleteEventReq = (eventId) => async (dispatch, getState) => {
     const {
-        authentication: { token, currentUserId },
+        authentication: { token },
     } = getState();
     try {
         const res = await fetch(`${apiBaseUrl}/events/${eventId}`, {

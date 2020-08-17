@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -69,7 +69,7 @@ const Splash = () => {
                             <p >And even host your own events!</p>
                         </Typography> */}
                     </div>
-                    <div className={classes.root} id='splash' >
+                    <div className={classes.root} id='splash' alt="" >
                         <img
                             className='splash-image'
                             src={"images/splash_event.jpg"}

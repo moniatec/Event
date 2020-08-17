@@ -15,7 +15,7 @@ import Theme from './Theme';
 import { loadToken } from "./store/authentication";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import { ProtectedRoute, AuthRoute } from "./authRoutes";
+import { AuthRoute } from "./authRoutes";
 import { CssBaseline, } from "@material-ui/core";
 
 function App(props) {
