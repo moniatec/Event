@@ -45,5 +45,8 @@
        
          left: 20px; 
     }
+    #navbar-items2{
+        display:none
+    }
     
 }

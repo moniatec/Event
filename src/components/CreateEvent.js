@@ -21,7 +21,7 @@ import 'date-fns';
 class CreateEvent extends Component {
     constructor(props) {
         super(props);
-        console.log(props)
+        // console.log(props)
         this.state = {
             eventName: "",
             time: new Date(),
@@ -93,7 +93,7 @@ class CreateEvent extends Component {
             return <Redirect to={`/events/${this.state.event.id}`} />;
         }
         const test = this.props.setEvent
-        console.log(test)
+        // console.log(test)
         return (
             <div>
                 {this.props.setEvent ?
@@ -179,9 +179,17 @@ class CreateEvent extends Component {
 
                                         <div className="createEvent">
                                             {this.state.submitEnabled ?
-                                                // <NavLink style={{ color: 'white' }} to={`/events/${this.props.event.id}`}>
-                                                <button type="submit" className="createEventBtn" >Submit</button>
-                                                // </NavLink>
+                                                <div>
+                                                    <button
+                                                        type="submit" className="createEventBtn"
+                                                    // onSubmit={<Redirect to={`/events/${this.state.event.id}`} />}
+                                                    // onClick={<EventPage />}
+                                                    >
+                                                        Submit
+                                                    </button>
+
+                                                    {/* <Redirect to={`/events/${this.state.event.id}`} /> */}
+                                                </div>
                                                 :
                                                 <button type="submit" disabled >Submit</button>
                                             }
@@ -203,7 +211,7 @@ class CreateEvent extends Component {
 
 const mapStateToProps = (state) => {
 
-    console.log(state)
+    // console.log(state)
     return {
 
         token: state.authentication.token,

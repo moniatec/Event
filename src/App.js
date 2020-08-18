@@ -15,7 +15,7 @@ import Theme from './Theme';
 import { loadToken } from "./store/authentication";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import { AuthRoute } from "./authRoutes";
+import { AuthRoute, ProtectedRoute } from "./authRoutes";
 import { CssBaseline, } from "@material-ui/core";
 
 function App(props) {
@@ -40,7 +40,7 @@ function App(props) {
                   <AuthRoute exact path="/"
                     component={Splash}
                   />
-                  <Route exact path="/home"
+                  <ProtectedRoute exact path="/home"
                     component={Home}
                     token={props.token}
                     currentUserId={props.currentUserId}

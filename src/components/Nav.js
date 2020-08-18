@@ -97,15 +97,21 @@ const NavBar = (props) => {
         </Grid >
     ) : (
             <div id="navbar-items2">
-                <NavLink style={{ color: 'white', marginLeft: '150px' }} to="/signup">
+                {/* // <Grid container spacing={3} id="navbar-items2"> */}
+                {/* <Grid item xs={10}> */}
+                <NavLink style={{ color: 'white', marginLeft: '50px' }} to="/signup">
                     <Button color="inherit">Register</Button>
                 </NavLink>
                 <NavLink style={{ color: 'white' }} to="/login">
                     <Button color="inherit">Login</Button>
                 </NavLink>
+                {/* </Grid> */}
+                {/* <Grid item xs={2} */}
+                {/* className={classes.logout} */}
+                {/* > */}
 
                 <Link
-                    style={{ color: 'white', marginRight: '20px', marginLeft: '1100px' }}
+                    style={{ color: 'white', marginRight: '20px', marginLeft: '1000px' }}
                     color="inherit"
                     href="https://github.com/moniatec"
                     target="_blank"
@@ -116,6 +122,8 @@ const NavBar = (props) => {
                     ABOUT
                 </Link>
             </div>
+            /* </Grid> */
+            /* </Grid> */
         )
 
 
@@ -178,16 +186,19 @@ const NavBar = (props) => {
                 <Toolbar style={{ justifyContent: "center" }}
 
                 >
+
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" id="mobile-menu-icon">
 
                     </IconButton>
+
                     <NavLink
                         style={{ color: "white" }}
-                        to="/"
+                        to="/home"
                         className="mobile-home-btn"
                     >
                         <Button color="inherit">Event-App</Button>
                     </NavLink>
+
                     {navigation}
                 </Toolbar>
             </AppBar>
