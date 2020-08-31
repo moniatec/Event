@@ -4,9 +4,6 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Grid from '@material-ui/core/Grid';
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import IconButton from "@material-ui/core/IconButton";
-import CardMedia from "@material-ui/core/CardMedia";
 import Button from '@material-ui/core/Button';
 import '../index.css';
 
@@ -25,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     media: {
         height: 500,
         width: 500,
-        paddingTop: "56.25%", // 16:9
+        paddingTop: "56.25%",
     },
 }));
 

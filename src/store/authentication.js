@@ -24,6 +24,7 @@ export const errorMessage = (messageType, message) => ({
     message,
 });
 
+//send post req to create new user(register for the app)
 export const register = (username, email, password) => async (dispatch) => {
     const res = await fetch(`${apiBaseUrl}/users`, {
         method: "post",
@@ -44,6 +45,7 @@ export const register = (username, email, password) => async (dispatch) => {
     }
 };
 
+//send post req to get user logged in based on the info he passed in
 export const login = (email, password) => async (dispatch) => {
     const res = await fetch(`${apiBaseUrl}/users/token`, {
         method: "post",
@@ -63,12 +65,14 @@ export const login = (email, password) => async (dispatch) => {
     }
 };
 
+//clear localStorage and logout user
 export const logout = () => async (dispatch, getState) => {
     window.localStorage.removeItem(TOKEN_KEY);
     window.localStorage.removeItem("currentUserId");
     dispatch(removeToken());
 };
 
+//send get req to get all events for a user(all events that the user if a member)
 export const getMyEvents = () => async (dispatch, getState) => {
     const {
         authentication: { token, currentUserId },

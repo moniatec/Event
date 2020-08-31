@@ -14,7 +14,6 @@ import MyEvents from './components/MyEvents'
 import Theme from './Theme';
 import { loadToken } from "./store/authentication";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-
 import { AuthRoute, ProtectedRoute } from "./authRoutes";
 import { CssBaseline, } from "@material-ui/core";
 

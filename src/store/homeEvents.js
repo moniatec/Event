@@ -17,11 +17,11 @@ export const getSearchEvent = (list1) => ({ type: GET_SEARCH_EVENT, list1 });
 export const deleteEvent = (eventId) => ({ type: DEL_EVENT, eventId, });
 export const updateEvent = (eventObj, eventId) => ({ type: UPDATE_EVENT, eventObj, eventId })
 
+//send get req to get all events 
 export const getHomeEvents = () => async (dispatch, getState) => {
     const {
         authentication: { token },
     } = getState();
-
     const res = await fetch(`${apiBaseUrl}/events`, {
         headers: {
             Authorization: `Bearer ${token}`,
@@ -30,12 +30,11 @@ export const getHomeEvents = () => async (dispatch, getState) => {
 
     if (res.ok) {
         const list = await res.json();
-
         dispatch(homeEvents(list.events))
-
     }
 }
 
+//send get req to get details of an event wiht eventId
 export const getOneEvent = (eventId) => async (dispatch, getState) => {
     const {
         authentication: { token },
@@ -75,14 +74,12 @@ export const getMembersForJoin = (userId) => async (dispatch, getState) => {
     });
 
     if (res.ok) {
-
         const list2 = await res.json();
-
         dispatch(getMembers(list2.members))
-
     }
 }
 
+//send post req to creat a new member relation for the logged in user with event(eventId)
 export const sendJoinReq = (userId, eventId) => async dispatch => {
     try {
         const res = await fetch(`${apiBaseUrl}/events/${eventId}/join`, {
@@ -90,13 +87,9 @@ export const sendJoinReq = (userId, eventId) => async dispatch => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 userId: userId,
-
             })
         });
-
         if (res.ok) {
-
-
             dispatch(sendJoin(userId, eventId));
         }
     } catch (err) {
@@ -104,8 +97,8 @@ export const sendJoinReq = (userId, eventId) => async dispatch => {
     }
 }
 
+//send post req to create new event wiht host==logged in user
 export const createEvent = (eventName, time, description, location, photoUrl) => async (dispatch, getState) => {
-
     const hostId = window.localStorage.getItem("currentUserId");
     const res = await fetch(`${apiBaseUrl}/events`, {
         method: "post",
@@ -122,6 +115,7 @@ export const createEvent = (eventName, time, description, location, photoUrl) =>
     }
 };
 
+//send delete req to cancel an event, option available only for the owner/host
 export const deleteEventReq = (eventId) => async (dispatch, getState) => {
     const {
         authentication: { token },
@@ -144,6 +138,7 @@ export const deleteEventReq = (eventId) => async (dispatch, getState) => {
     }
 }
 
+//send put req to edit description for an event, option available only for the owner/host
 export const updateEventReq = (eventId, description, token) => async (dispatch) => {
     try {
         const body = JSON.stringify({ eventId, description, token })
@@ -157,8 +152,6 @@ export const updateEventReq = (eventId, description, token) => async (dispatch) 
         });
         if (!res.ok) throw res;
         const eventObj = await res.json();
-
-
         dispatch(updateEvent(eventObj, eventId));
         window.location.href = window.location.href;
         return
@@ -167,7 +160,7 @@ export const updateEventReq = (eventId, description, token) => async (dispatch) 
     }
 };
 
-
+//send get req to get all events matching the name on the search bar
 export const searchEvent = (eventSearch) => async (dispatch, getState) => {
     try {
         const res = await fetch(`${apiBaseUrl}/events/search`, {
@@ -175,13 +168,9 @@ export const searchEvent = (eventSearch) => async (dispatch, getState) => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ eventSearch }),
         });
-
         if (res.ok) {
-
             const list1 = await res.json();
-
             dispatch(getSearchEvent(list1.events));
-
         }
     } catch (err) {
         console.error(err);

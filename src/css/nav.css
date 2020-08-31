@@ -4,7 +4,6 @@
 
 .mobile-nav-overlay {
     align-items: center;
-    /* background-color: #8A64C7; */
     display: flex;
     flex-flow: column;
     justify-content: space-around;
@@ -29,13 +28,7 @@
     }
     .mobile-home-btn {
         display: none;
-    }
-    /* .mobile-home-btn {
-        position: fixed; 
-       
-         left: 20px; 
-    } */
-    
+    }  
 }
 
 @media only screen and (max-width: 700px) {

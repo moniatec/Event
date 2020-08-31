@@ -1,19 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { createEvent, getOneEvent } from "../store/homeEvents";
+import { createEvent } from "../store/homeEvents";
 import Grid from '@material-ui/core/Grid';
 import "../css/loginForm.css";
-import { NavLink } from 'react-router-dom';
 import Upload from './Upload';
 import Paper from '@material-ui/core/Paper';
 import '../index.css';
-import EventPage from './EventPage';
-import Calendar from "react-calendar";
 import DateFnsUtils from '@date-io/date-fns';
 import {
     MuiPickersUtilsProvider,
-    KeyboardTimePicker,
     KeyboardDatePicker,
 } from '@material-ui/pickers';
 import 'date-fns';
@@ -21,7 +17,6 @@ import 'date-fns';
 class CreateEvent extends Component {
     constructor(props) {
         super(props);
-        // console.log(props)
         this.state = {
             eventName: "",
             time: new Date(),
@@ -29,7 +24,8 @@ class CreateEvent extends Component {
             location: "",
             photoUrl: "",
             event: null,
-            submitEnabled: false
+            submitEnabled: false,
+            test: false
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -87,20 +83,23 @@ class CreateEvent extends Component {
         this.checkSubmitButton()
     };
 
+
+
+    handleS = () => {
+        this.setState({ test: true });
+    }
+
     render() {
 
         if (this.props.event) {
             return <Redirect to={`/events/${this.state.event.id}`} />;
         }
-        const test = this.props.setEvent
-        // console.log(test)
+        // const test = this.props.setEvent
+        // console.log(this.test)
         return (
             <div>
-                {this.props.setEvent ?
-
-                    <EventPage
-                        props={this.props}
-                    />
+                {this.test ?
+                    <Redirect to={`/events/${this.state.event.id}`} />
                     :
                     <main className="centered middled">
                         <div className="wrapper">
@@ -182,8 +181,9 @@ class CreateEvent extends Component {
                                                 <div>
                                                     <button
                                                         type="submit" className="createEventBtn"
+                                                        onSubmit={this.handleS}
                                                     // onSubmit={<Redirect to={`/events/${this.state.event.id}`} />}
-                                                    // onClick={<EventPage />}
+                                                    // onClick={<EventPage props={this.props} />}
                                                     >
                                                         Submit
                                                     </button>
@@ -210,10 +210,7 @@ class CreateEvent extends Component {
 }
 
 const mapStateToProps = (state) => {
-
-    // console.log(state)
     return {
-
         token: state.authentication.token,
         currentUserId: state.authentication.currentUserId,
         event: state.homeEvents.event

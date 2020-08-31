@@ -10,12 +10,9 @@ const useStyles = makeStyles((theme) => ({
     root1: {
         marginTop: 100
     },
-
 }));
 const HomeSec = (props) => {
-    console.log(props)
     const classes = useStyles();
-
     React.useEffect(() => {
         props.getHomeEvents();
         let userId = window.localStorage.getItem("currentUserId");
@@ -37,20 +34,16 @@ const HomeSec = (props) => {
                             <EventCard
                                 key={event.id}
                                 event={event}
-
                             />
                         </Grid>
                     ))
                 }
             </Grid >
         </div>
-
     );
-
 }
 
 const mapStateToProps = state => {
-
     return {
         token: state.authentication.token,
         currentUserId: state.authentication.currentUserId,

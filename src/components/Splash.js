@@ -8,12 +8,7 @@ import { connect } from "react-redux";
 
 const useStyles = makeStyles({
     root: {
-        // width: "100%",
-        // marginTop: 100,
-        // marginLeft: 60,
-        // marginLeft: 200,
         display: 'flex',
-
     },
     container: {
         marginTop: 300,
@@ -28,10 +23,8 @@ const useStyles = makeStyles({
         color: "#eca1a6",
     },
     title2: {
-
         marginTop: 100,
     },
-
 });
 
 const Splash = () => {
@@ -50,7 +43,6 @@ const Splash = () => {
                     item spacing={3}
                     justify="center"
                 >
-
                     <div className={classes.title1} id='text' style={{ marginTop: '100px' }}>
                         <Typography
                             variant="h3"
@@ -59,16 +51,6 @@ const Splash = () => {
                         >
                             Welcome to <b className={classes.art}> Event-App </b>
                         </Typography>
-                        {/* <Typography
-                            className={classes.title2}
-                            variant="h4" gutterBottom>
-                            <p>Want check our awesome events,</p>
-                        </Typography>
-                        <Typography
-                            variant="h4" gutterBottom>
-                            <p>Join events you like,</p>
-                            <p >And even host your own events!</p>
-                        </Typography> */}
                     </div>
                 </Grid>
                 <Grid

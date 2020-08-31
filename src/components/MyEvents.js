@@ -12,16 +12,13 @@ const useStyles = makeStyles((theme) => ({
     root: {
         marginTop: 100
     },
-
 }));
 const MyEvents = (props) => {
-
     const classes = useStyles();
     React.useEffect(() => {
         props.getMyEvents();
         let userId = window.localStorage.getItem("currentUserId");
         props.getMembersForJoin(userId);
-
     }, [])
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -31,8 +28,6 @@ const MyEvents = (props) => {
     // Get current events
     const indexOfLastEvent = currentPage * eventsPerPage;
     const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
-
-
     // Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
@@ -54,9 +49,7 @@ const MyEvents = (props) => {
                                     key={event.id}
                                     event={event}
                                     eventsJoin={eventsJoin}
-
                                 />
-
                             </Grid>
                         ))
                     }
@@ -67,7 +60,6 @@ const MyEvents = (props) => {
                     paginate={paginate}
                 />
             </div>
-
         );
     }
     else {
@@ -75,7 +67,6 @@ const MyEvents = (props) => {
             <div>Loading</div>
         )
     }
-
 }
 
 const mapStateToProps = state => {

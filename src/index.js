@@ -5,11 +5,10 @@ import './index.css';
 import App from './App';
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
-import { persistStore, persistReducer } from "redux-persist";
-import { persistGate, PersistGate } from "redux-persist/integration/react";
+// import { persistStore } from "redux-persist";
 
 const store = configureStore();
-let persistor = persistStore(store)
+// let persistor = persistStore(store)
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

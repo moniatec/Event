@@ -16,11 +16,9 @@ const useStyles = makeStyles((theme) => ({
 const Home = (props) => {
     const classes = useStyles();
     React.useEffect(() => {
-
         props.getHomeEvents();
         let userId = window.localStorage.getItem("currentUserId");
         props.getMembersForJoin(userId);
-
     }, [])
     const [currentPage, setCurrentPage] = useState(1);
     const [eventsPerPage] = useState(6);
@@ -33,7 +31,9 @@ const Home = (props) => {
     const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
 
     // Change page
-    const paginate = pageNumber => setCurrentPage(pageNumber);
+    const paginate = pageNumber => {
+        setCurrentPage(pageNumber);
+    }
 
     return (
         <div className={classes.root}>
@@ -46,7 +46,9 @@ const Home = (props) => {
             >
                 {
                     currentEvents.map((event) => (
-                        <Grid item spacing={3}>
+                        <Grid
+                            // container
+                            item spacing={3}>
                             <EventCard
                                 key={event.id}
                                 event={event}
@@ -68,7 +70,6 @@ const Home = (props) => {
 }
 
 const mapStateToProps = state => {
-
     return {
         token: state.authentication.token,
         currentUserId: state.authentication.currentUserId,

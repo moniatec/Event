@@ -21,8 +21,6 @@ const useStyles = makeStyles((theme) => ({
             display: 'block',
         },
     },
-
-
     inputRoot: {
         color: 'inherit',
     },
@@ -36,23 +34,16 @@ const useStyles = makeStyles((theme) => ({
             width: '20ch',
         },
     },
-
-
     sear: {
-
         marginTop: 20,
         marginLeft: 'auto',
-
         width: '100%',
         marginBottom: 50
-
     }
-
 }));
 
 const SearchEvent = (props) => {
     const classes = useStyles();
-
     const handleSearch = (e) => {
         const eventSearch = e.target.value;
         props.searchEvent(eventSearch);
@@ -72,24 +63,16 @@ const SearchEvent = (props) => {
 
     return (
         <>
-
             <div >
-
                 <DebounceInput
                     minLength={2}
                     debounceTimeout={300}
-
                     id="sear-mobile"
                     placeholder="Search…"
-
                     className={classes.sear}
-
-
                     inputProps={{ 'aria-label': 'search' }}
                     onChange={handleSearch}
                 />
-
-
             </div>
             {props.events ?
                 <div className={classes.root}>
@@ -106,9 +89,7 @@ const SearchEvent = (props) => {
                                     <EventCard
                                         key={event.id}
                                         event={event}
-
                                     />
-
                                 </Grid>
                             ))
                         }
@@ -123,27 +104,20 @@ const SearchEvent = (props) => {
                 <div>loading</div>
             }
         </>
-
     );
-
 }
 
 const mapStateToProps = state => {
-
     return {
         token: state.authentication.token,
         currentUserId: state.authentication.currentUserId,
         events: state.homeEvents.list1,
-
-
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-
         searchEvent: (...args) => dispatch(searchEvent(...args)),
-
     };
 };
 

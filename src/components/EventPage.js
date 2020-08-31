@@ -38,15 +38,11 @@ const useStyles = makeStyles((theme) => ({
 
 
 const EventPage = (props) => {
-
     const [description, setDescription] = useState('')
     const classes = useStyles();
     React.useEffect(() => {
         let id = window.location.href.split("/")[4];
-
         props.getOneEvent(id);
-
-
     }, [])
 
     const handleDelete = () => {
@@ -61,24 +57,18 @@ const EventPage = (props) => {
     }
 
     const updateValue = cb => e => cb(e.target.value);
-
     if (props.event) {
         const event1 = props.event.event
         const members1 = props.event.members
-
         return (
             <div className={classes.paperEvent}>
-
                 <Paper elevation={3} >
                     <div className={classes.root}>
-
                         <Grid container spacing={2}>
-
                             <Grid item>
                                 <img
                                     component="img"
                                     alt="Contemplative Reptile"
-
                                     className={classes.img}
                                     src={event1.photoUrl}
                                     title="Contemplative Reptile"
@@ -105,19 +95,13 @@ const EventPage = (props) => {
                                         <Typography variant="body2" color="textSecondary" style={{ marginBottom: '50px', }} >
                                             {event1.description}
                                         </Typography>
-
-
-
-
                                     </Grid>
                                     <Grid>
-
                                         {event1.hostId === parseInt(props.currentUserId) ?
                                             <>
                                                 <MemberModal
                                                     members={members1.members}
                                                 />
-
                                                 <Grid item>
                                                     <div style={{ marginLeft: '100px' }} >Description:</div>
                                                     <TextField
@@ -125,7 +109,6 @@ const EventPage = (props) => {
                                                         variant="outlined"
                                                         type="caption"
                                                         onChange={updateValue(setDescription)}
-
                                                     />
                                                     <Button variant="contained" onClick={updateEvent} style={{ marginTop: '10px', marginLeft: '10px' }}>Edit</Button>
                                                 </Grid >
@@ -134,18 +117,14 @@ const EventPage = (props) => {
                                                         <Button variant="contained" onClick={handleDelete} style={{ marginBottom: '50px', marginLeft: '120px' }}>Cancel Event</Button>
                                                     </NavLink>
                                                 </Grid >
-
                                             </>
                                             :
                                             <div></div>
                                         }
-
                                     </Grid>
                                 </Grid>
-
                             </Grid>
                         </Grid>
-
                     </div>
                 </Paper>
             </div >
@@ -159,20 +138,16 @@ const EventPage = (props) => {
 
 
 const mapStateToProps = state => {
-
     if (state.homeEvents.resEvent)
         return {
             token: state.authentication.token,
             currentUserId: state.authentication.currentUserId,
             event: state.homeEvents.resEvent,
-
         };
-
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-
         getOneEvent: (...args) => dispatch(getOneEvent(...args)),
         deleteEvent: (...args) => dispatch(deleteEventReq(...args)),
         updateEventReq: (...args) => dispatch(updateEventReq(...args)),

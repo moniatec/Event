@@ -40,10 +40,8 @@ const useStyles = makeStyles((theme) => ({
 
 const NavBar = (props) => {
     const classes = useStyles();
-
     const toggleNav = () => {
         const navMenu = document.querySelector(".mobile-nav-overlay");
-
         if (navMenu.style.visibility === "hidden") {
             navMenu.style.visibility = "visible";
             navMenu.style.height = "20%";
@@ -54,7 +52,6 @@ const NavBar = (props) => {
     };
 
     const logOut = () => {
-
         const navMenu = document.querySelector(".mobile-nav-overlay");
         // if (navMenu.style.visibility === "visible") {
         //     toggleNav();
@@ -63,7 +60,6 @@ const NavBar = (props) => {
     }
 
     const navigation = props.token ? (
-
         <Grid container spacing={3} id="navbar-items">
             <Grid item xs={10}>
                 <NavLink style={{ color: 'white', }} to="/home">
@@ -78,12 +74,7 @@ const NavBar = (props) => {
                 <NavLink style={{ color: 'white' }} to="/search">
                     <Button color="inherit">Search</Button>
                 </NavLink>
-
-
-
             </Grid>
-
-
 
             <Grid item xs={2}>
                 <NavLink style={{ color: 'white' }} to="/login">
@@ -92,24 +83,15 @@ const NavBar = (props) => {
                     </div>
                 </NavLink>
             </Grid>
-
-
         </Grid >
     ) : (
             <div id="navbar-items2">
-                {/* // <Grid container spacing={3} id="navbar-items2"> */}
-                {/* <Grid item xs={10}> */}
                 <NavLink style={{ color: 'white', marginLeft: '50px' }} to="/signup">
                     <Button color="inherit">Register</Button>
                 </NavLink>
                 <NavLink style={{ color: 'white' }} to="/login">
                     <Button color="inherit">Login</Button>
                 </NavLink>
-                {/* </Grid> */}
-                {/* <Grid item xs={2} */}
-                {/* className={classes.logout} */}
-                {/* > */}
-
                 <Link
                     style={{ color: 'white', marginRight: '20px', marginLeft: '1000px' }}
                     color="inherit"
@@ -122,8 +104,6 @@ const NavBar = (props) => {
                     ABOUT
                 </Link>
             </div>
-            /* </Grid> */
-            /* </Grid> */
         )
 
 
@@ -184,9 +164,7 @@ const NavBar = (props) => {
         <div>
             <AppBar position="fixed" className={classes.root}>
                 <Toolbar style={{ justifyContent: "center" }}
-
                 >
-
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" id="mobile-menu-icon">
 
                     </IconButton>
