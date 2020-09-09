@@ -108,7 +108,7 @@ export const createEvent = (eventName, time, description, location, photoUrl) =>
 
     if (res.ok) {
         const { event } = await res.json();
-        window.location.href = window.location.href;
+        // window.location.href = window.location.href;
 
         dispatch(setEvent(event));
 

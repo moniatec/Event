@@ -55,7 +55,7 @@ class CreateEvent extends Component {
         );
 
         this.setState({ event: this.state.setEvent });
-        this.props.history.push("/my_events");
+        this.props.history.push("/home");
 
     }
 

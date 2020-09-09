@@ -39,7 +39,7 @@ function App(props) {
                   <AuthRoute exact path="/"
                     component={Splash}
                   />
-                  <ProtectedRoute exact path="/home"
+                  <Route exact path="/home"
                     component={Home}
                     token={props.token}
                     currentUserId={props.currentUserId}
