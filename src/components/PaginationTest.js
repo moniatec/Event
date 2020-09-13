@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const PaginationTest = ({ eventsPerPage, totalEvents, paginate }) => {
+const PaginationTest = ({ eventsPerPage, totalEvents, paginate, currentPage }) => {
     const pageNumbers = [];
     // const [activePage, setActivePage] = React.useState('green');
     const [spacing, setSpacing] = React.useState(2);
@@ -25,17 +25,23 @@ const PaginationTest = ({ eventsPerPage, totalEvents, paginate }) => {
         <nav>
             <Grid container justify="center" spacing={spacing} >
                 <div className='pagination' style={{ display: 'flex', marginTop: '40px', marginBottom: '40px' }} >
-                    {pageNumbers.map(number => (
-                        <Grid item >
-                            <div key={number} className='page-item'>
-                                <a onClick={() => { paginate(number) }} to='/home' className='page-link' style={{ cursor: 'pointer', margin: '20px', fontSize: '20px', }}>
-                                    <div className='pageActive'>
-                                        {number}
-                                    </div>
-                                </a>
-                            </div>
-                        </Grid>
-                    ))}
+                    {pageNumbers.map(number => {
+                        let activePage = null;
+                        if (currentPage === number) {
+                            activePage = { color: '#fdce09' };
+                        }
+                        return (
+                            <Grid item >
+                                <div key={number} className='page-item'>
+                                    <a onClick={() => { paginate(number) }} to='/home' className='page-link' style={{ cursor: 'pointer', margin: '20px', fontSize: '20px', }}>
+                                        <div className='pageActive'>
+                                            {number}
+                                        </div>
+                                    </a>
+                                </div>
+                            </Grid>
+                        )
+                    })}
                     {/* <Pagination count={pageNumbers} color="primary" page={page} onChange={handleChange} onClick={() => { paginate(page) }} to='/home' /> */}
                 </div>
             </Grid>

@@ -47,15 +47,15 @@ const EventCard = (props) => {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions >
+            <CardActions  >
 
                 <JoinBtn
                     eventId={props.event.id}
                     eventsJoin={props.eventsJoin}
                 />
 
-                <NavLink style={{ color: 'white' }} to={`/events/${props.event.id}`}>
-                    <Button size="small" color="primary">
+                <NavLink style={{ color: 'white' }} to={`/events/${props.event.id}`} >
+                    <Button size="small" color="primary" eventsJoin={props.eventsJoin}>
                         Learn More
                 </Button>
                 </NavLink>

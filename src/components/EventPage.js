@@ -6,6 +6,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { Button, TextField } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
+import JoinBtn from './JoinBtn'
 import { getOneEvent, deleteEventReq, updateEventReq } from "../store/homeEvents";
 import MemberModal from './MemberModal'
 import '../index.css';
@@ -38,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const EventPage = (props) => {
+    console.log(props)
     const [description, setDescription] = useState('')
     const classes = useStyles();
     React.useEffect(() => {
@@ -60,6 +62,7 @@ const EventPage = (props) => {
     if (props.event) {
         const event1 = props.event.event
         const members1 = props.event.members
+        const eventsJoin = props.event.members
         return (
             <div className={classes.paperEvent}>
                 <Paper elevation={3} >
@@ -119,7 +122,12 @@ const EventPage = (props) => {
                                                 </Grid >
                                             </>
                                             :
-                                            <div></div>
+                                            <div>
+                                                <JoinBtn
+                                                    eventId={event1.id}
+                                                    eventsJoin={eventsJoin}
+                                                />
+                                            </div>
                                         }
                                     </Grid>
                                 </Grid>

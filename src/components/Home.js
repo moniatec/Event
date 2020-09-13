@@ -62,6 +62,7 @@ const Home = (props) => {
                 eventsPerPage={eventsPerPage}
                 totalEvents={events.length}
                 paginate={paginate}
+                currentPage={currentPage}
             />
         </div>
 
