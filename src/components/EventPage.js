@@ -63,6 +63,14 @@ const EventPage = (props) => {
         const event1 = props.event.event
         const members1 = props.event.members
         const eventsJoin = props.event.members
+        const memb = members1.members
+        let test = false
+        for (let i = 0; i < (Object.values(memb)).length; i++) {
+            if ((Object.values(memb))[i].id == props.currentUserId) {
+                test = true
+                console.log(test)
+            }
+        }
         return (
             <div className={classes.paperEvent}>
                 <Paper elevation={3} >
@@ -98,6 +106,13 @@ const EventPage = (props) => {
                                         <Typography variant="body2" color="textSecondary" style={{ marginBottom: '50px', }} >
                                             {event1.description}
                                         </Typography>
+                                        {test === false ?
+                                            <JoinBtn
+                                                eventId={event1.id}
+                                                eventsJoin={eventsJoin}
+                                            />
+                                            : <div></div>
+                                        }
                                     </Grid>
                                     <Grid>
                                         {event1.hostId === parseInt(props.currentUserId) ?
@@ -123,10 +138,7 @@ const EventPage = (props) => {
                                             </>
                                             :
                                             <div>
-                                                <JoinBtn
-                                                    eventId={event1.id}
-                                                    eventsJoin={eventsJoin}
-                                                />
+
                                             </div>
                                         }
                                     </Grid>
