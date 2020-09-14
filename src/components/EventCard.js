@@ -26,15 +26,23 @@ const EventCard = (props) => {
     return (
         <Card className={classes.card}>
             <CardActionArea className={classes.actions}>
-                <CardMedia
-                    component="img"
-                    alt="Contemplative Reptile"
-                    height="280"
-                    maxWidth="100%"
-                    image={props.event.photoUrl}
-                    title="Contemplative Reptile"
+                <NavLink style={{ color: 'white' }} to={`/events/${props.event.id}`} eventsJoin={props.eventsJoin}>
+                    <CardMedia
+                        component="img"
+                        alt="Contemplative Reptile"
+                        height="280"
+                        maxWidth="100%"
+                        image={props.event.photoUrl}
+                        title="Contemplative Reptile"
 
-                />
+                    >
+                        {/* <NavLink style={{ color: 'white' }} to={`/events/${props.event.id}`} > */}
+                        {/* <Button size="small" color="primary" eventsJoin={props.eventsJoin}>
+                            Learn More
+                </Button> */}
+                        {/* </NavLink> */}
+                    </CardMedia>
+                </NavLink>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {props.event.eventName}

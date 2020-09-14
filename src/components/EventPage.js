@@ -64,11 +64,10 @@ const EventPage = (props) => {
         const members1 = props.event.members
         const eventsJoin = props.event.members
         const memb = members1.members
-        let test = false
+        let testJoin = false
         for (let i = 0; i < (Object.values(memb)).length; i++) {
             if ((Object.values(memb))[i].id == props.currentUserId) {
-                test = true
-                console.log(test)
+                testJoin = true
             }
         }
         return (
@@ -106,7 +105,7 @@ const EventPage = (props) => {
                                         <Typography variant="body2" color="textSecondary" style={{ marginBottom: '50px', }} >
                                             {event1.description}
                                         </Typography>
-                                        {test === false ?
+                                        {testJoin === false ?
                                             <JoinBtn
                                                 eventId={event1.id}
                                                 eventsJoin={eventsJoin}
