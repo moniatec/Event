@@ -36,11 +36,6 @@ const EventCard = (props) => {
                         title="Contemplative Reptile"
 
                     >
-                        {/* <NavLink style={{ color: 'white' }} to={`/events/${props.event.id}`} > */}
-                        {/* <Button size="small" color="primary" eventsJoin={props.eventsJoin}>
-                            Learn More
-                </Button> */}
-                        {/* </NavLink> */}
                     </CardMedia>
                 </NavLink>
                 <CardContent>

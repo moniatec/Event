@@ -86,24 +86,32 @@ const NavBar = (props) => {
         </Grid >
     ) : (
             <div id="navbar-items2">
-                <NavLink style={{ color: 'white', marginLeft: '50px' }} to="/signup">
-                    <Button color="inherit">Register</Button>
-                </NavLink>
-                <NavLink style={{ color: 'white' }} to="/login">
-                    <Button color="inherit">Login</Button>
-                </NavLink>
+                <Link style={{ color: 'white', marginLeft: '50px', marginRight: '20px' }} href="/signup">
+                    <Button color="inherit">
+                        Register
+                        </Button>
+                </Link>
+                <Link style={{ color: 'white' }} href="/login">
+                    <Button color="inherit">
+                        Login
+                        </Button>
+                </Link>
                 <Link
                     style={{ color: 'white', marginRight: '20px', marginLeft: '1000px' }}
                     color="inherit"
                     href="https://github.com/moniatec"
                     target="_blank"
                 >
-                    CONTACT
+                    <Button color="inherit">
+                        CONTACT
+                    </Button>
                 </Link>
-                <Link style={{ color: 'white', marginRight: '20px' }} href="https://github.com/moniatec/Event" target="_blank">
-                    ABOUT
+                <Link style={{ color: 'white', marginRight: '50px' }} href="https://github.com/moniatec/Event" target="_blank">
+                    <Button color="inherit">
+                        ABOUT
+                    </Button>
                 </Link>
-            </div>
+            </div >
         )
 
 
