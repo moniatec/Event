@@ -62,26 +62,26 @@ const NavBar = (props) => {
     const navigation = props.token ? (
         <Grid container spacing={3} id="navbar-items">
             <Grid item xs={10}>
-                <NavLink style={{ color: 'white', }} to="/home">
+                <Link style={{ color: 'white', }} href="/home">
                     <Button color="inherit">Event-App</Button>
-                </NavLink>
-                <NavLink style={{ color: 'white', marginLeft: '150px' }} to="/my_events">
+                </Link>
+                <Link style={{ color: 'white', marginLeft: '150px' }} href="/my_events">
                     <Button color="inherit">MyEvents</Button>
-                </NavLink>
-                <NavLink style={{ color: 'white' }} to="/create">
+                </Link>
+                <Link style={{ color: 'white' }} href="/create">
                     <Button color="inherit">Host an Event</Button>
-                </NavLink>
-                <NavLink style={{ color: 'white' }} to="/search">
+                </Link>
+                <Link style={{ color: 'white' }} href="/search">
                     <Button color="inherit">Search</Button>
-                </NavLink>
+                </Link>
             </Grid>
 
             <Grid item xs={2}>
-                <NavLink style={{ color: 'white' }} to="/login">
+                <Link style={{ color: 'white' }} href="/login">
                     <div className={classes.logout} style={{ color: 'white' }}>
                         <Button className={classes.logout} color="inherit" onClick={logOut}>Logout</Button>
                     </div>
-                </NavLink>
+                </Link>
             </Grid>
         </Grid >
     ) : (
@@ -120,15 +120,15 @@ const NavBar = (props) => {
             className="mobile-nav-overlay"
             style={{ height: "20%", visibility: "hidden" }}
         >
-            <NavLink style={{ color: 'white', marginLeft: '50px' }} to="/my_events" onClick={toggleNav}>
+            <Link style={{ color: 'white', marginLeft: '50px' }} href="/my_events" onClick={toggleNav}>
                 <Button color="inherit">MyEvents</Button>
-            </NavLink>
-            <NavLink style={{ color: 'white' }} to="/create" onClick={toggleNav}>
+            </Link>
+            <Link style={{ color: 'white' }} href="/create" onClick={toggleNav}>
                 <Button color="inherit">Host an Event</Button>
-            </NavLink>
-            <NavLink style={{ color: 'white' }} to="/search" onClick={toggleNav}>
+            </Link>
+            <Link style={{ color: 'white' }} href="/search" onClick={toggleNav}>
                 <Button color="inherit">Search</Button>
-            </NavLink>
+            </Link>
             <div className={classes.logout} style={{ color: "white" }}>
                 <Button className={classes.logout} color="inherit" onClick={logOut}>
                     Logout
@@ -144,12 +144,12 @@ const NavBar = (props) => {
                 }}
             >
 
-                <NavLink style={{ color: "white" }} to="/signup" onClick={toggleNav}>
+                <Link style={{ color: "white" }} href="/signup" onClick={toggleNav}>
                     <Button color="inherit">Register</Button>
-                </NavLink>
-                <NavLink style={{ color: "white" }} to="/login" onClick={toggleNav}>
+                </Link>
+                <Link style={{ color: "white" }} href="/login" onClick={toggleNav}>
                     <Button color="inherit">Login</Button>
-                </NavLink>
+                </Link>
                 <Link
                     style={{ color: 'white' }}
                     color="inherit"
@@ -177,13 +177,13 @@ const NavBar = (props) => {
 
                     </IconButton>
 
-                    <NavLink
-                        style={{ color: "white" }}
-                        to="/home"
+                    <Link
+                        style={{ color: "white", marginLeft: '50px' }}
+                        href="/home"
                         className="mobile-home-btn"
                     >
                         <Button color="inherit">Event-App</Button>
-                    </NavLink>
+                    </Link>
 
                     {navigation}
                 </Toolbar>

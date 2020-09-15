@@ -17,6 +17,7 @@ const useStyles = makeStyles({
     },
     actions: {
         height: 350,
+        // height: 500,
         marginBottom: 150
     }
 });
@@ -25,44 +26,47 @@ const EventCard = (props) => {
     const classes = useStyles();
     return (
         <Card className={classes.card}>
-            <CardActionArea className={classes.actions}>
-                <NavLink style={{ color: 'white' }} to={`/events/${props.event.id}`} eventsJoin={props.eventsJoin}>
-                    <CardMedia
-                        component="img"
-                        alt="Contemplative Reptile"
-                        height="280"
-                        maxWidth="100%"
-                        image={props.event.photoUrl}
-                        title="Contemplative Reptile"
+            <CardActionArea>
+                <div className={classes.actions}>
 
-                    >
-                    </CardMedia>
-                </NavLink>
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {props.event.eventName}
-                    </Typography>
-                    <Typography gutterBottom component="h4">
-                        {props.event.location}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {props.event.description}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-            <CardActions  >
+                    <NavLink style={{ color: 'white' }} to={`/events/${props.event.id}`} eventsJoin={props.eventsJoin}>
+                        <CardMedia
+                            component="img"
+                            alt="Contemplative Reptile"
+                            height="280"
+                            maxWidth="100%"
+                            image={props.event.photoUrl}
+                            title="Contemplative Reptile"
 
-                <JoinBtn
-                    eventId={props.event.id}
-                    eventsJoin={props.eventsJoin}
-                />
+                        >
+                        </CardMedia>
+                    </NavLink>
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {props.event.eventName}
+                        </Typography>
+                        <Typography gutterBottom component="h4">
+                            {props.event.location}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            {props.event.description}
+                        </Typography>
+                    </CardContent>
+                </div>
+                <CardActions  >
 
-                <NavLink style={{ color: 'white' }} to={`/events/${props.event.id}`} >
-                    <Button size="small" color="primary" eventsJoin={props.eventsJoin}>
-                        Learn More
+                    <JoinBtn
+                        eventId={props.event.id}
+                        eventsJoin={props.eventsJoin}
+                    />
+
+                    <NavLink style={{ color: 'white' }} to={`/events/${props.event.id}`} >
+                        <Button size="small" color="primary" eventsJoin={props.eventsJoin}>
+                            Learn More
                 </Button>
-                </NavLink>
-            </CardActions>
+                    </NavLink>
+                </CardActions>
+            </CardActionArea>
         </Card >
     );
 }
