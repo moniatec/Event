@@ -9,6 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import JoinBtn from './JoinBtn'
+import JoinBtnModal from './JoinBtnModal'
 import '../index.css';
 const useStyles = makeStyles({
     card: {
@@ -55,7 +56,11 @@ const EventCard = (props) => {
                 </div>
                 <CardActions  >
 
-                    <JoinBtn
+                    {/* <JoinBtn
+                        eventId={props.event.id}
+                        eventsJoin={props.eventsJoin}
+                    /> */}
+                    <JoinBtnModal
                         eventId={props.event.id}
                         eventsJoin={props.eventsJoin}
                     />
