@@ -35,9 +35,10 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     sear: {
-        marginTop: 20,
+        marginTop: 100,
         marginLeft: 'auto',
         width: '100%',
+        // width: '60%',
         marginBottom: 50
     }
 }));
@@ -52,6 +53,7 @@ const SearchEvent = (props) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [eventsPerPage] = useState(6);
     const events = props.events
+    const eventsJoin = props.members
 
     // Get current posts
     const indexOfLastEvent = currentPage * eventsPerPage;
@@ -89,6 +91,7 @@ const SearchEvent = (props) => {
                                     <EventCard
                                         key={event.id}
                                         event={event}
+                                        eventsJoin={eventsJoin}
                                     />
                                 </Grid>
                             ))
