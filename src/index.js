@@ -5,17 +5,18 @@ import './index.css';
 import App from './App';
 import { Provider } from "react-redux";
 import configureStore from "./store/configureStore";
-// import { persistStore } from "redux-persist";
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
 
 const store = configureStore();
-// let persistor = persistStore(store)
+let persistor = persistStore(store)
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        {/* <PersistGate loading={null} persistor={persistor}> */}
-        <App />
-        {/* </PersistGate> */}
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>,
