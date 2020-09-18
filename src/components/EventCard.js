@@ -38,7 +38,7 @@ const EventCard = (props) => {
                             maxWidth="100%"
                             image={props.event.photoUrl}
                             title="Contemplative Reptile"
-
+                            style={{ objectFit: 'contain' }}
                         >
                         </CardMedia>
                     </NavLink>
