@@ -41,9 +41,11 @@ const JoinBtn = (props) => {
     let eventsJoin = props.eventsJoin
     let eventId = props.eventId
     React.useEffect(() => {
-        for (let i = 0; i < eventsJoin.length; i++) {
-            if (eventsJoin[i].eventId === eventId) {
-                setDisableBtn(true);
+        if (eventsJoin) {
+            for (let i = 0; i < eventsJoin.length; i++) {
+                if (eventsJoin[i].eventId === eventId) {
+                    setDisableBtn(true);
+                }
             }
         }
     }, []);

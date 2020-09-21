@@ -23,7 +23,8 @@ const MyEvents = (props) => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [eventsPerPage] = useState(6);
-    const events = props.events.events
+    console.log(props)
+    // const events = props.events.events
     const eventsJoin = props.members
     // Get current events
     const indexOfLastEvent = currentPage * eventsPerPage;
@@ -31,7 +32,8 @@ const MyEvents = (props) => {
     // Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
-    if (props.events.events) {
+    if (props.events) {
+        const events = props.events.events
         const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
         return (
             <div className={classes.root}>
