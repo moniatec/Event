@@ -1,10 +1,14 @@
-/* @media (max-width: 700px) {
+@media (min-width: 700px) {
    
    #sear-mobile{
-        margin: auto;
+        /* margin: auto; */
+        /* margin-left: auto; */
+       
+        justify-content: center;
+        align-items: center;
         margin-top: 100;
-        width: 100%;
-      
+        width: 60%;
+        margin-bottom: 50;
         
       }
-  } */
+  }
