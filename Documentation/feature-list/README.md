@@ -16,7 +16,7 @@ By clicking on the 'Learn more' button on the event card, the user will be able 
 
 ![](/Documentation/images/eventPage.PNG)
 
-## Host an eventPage
+## Host an event
 The host an eventPage gives the user the opportunity to experience the magic of hosting an event.
 
 ![](/Documentation/images/hostEvent.PNG)
