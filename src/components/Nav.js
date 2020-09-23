@@ -51,11 +51,12 @@ const NavBar = (props) => {
         }
     };
 
-    const logOut = () => {
-        const navMenu = document.querySelector(".mobile-nav-overlay");
+    const logOut = (e) => {
+        // const navMenu = document.querySelector(".mobile-nav-overlay");
         // if (navMenu.style.visibility === "visible") {
         //     toggleNav();
         // }
+        e.preventDefault();
         props.logout();
     }
 
@@ -92,11 +93,11 @@ const NavBar = (props) => {
 
 
 
-                <Grid item xs={2}>
+                <Grid item spacing={3}>
                     <Link style={{ color: 'white' }} href="/login">
-                        <div className={classes.logout} style={{ color: 'white' }}>
-                            <Button className={classes.logout} color="inherit" onClick={logOut}>Logout</Button>
-                        </div>
+                        {/* <div className={classes.logout} style={{ color: 'white' }}> */}
+                        <Button color="inherit" onClick={logOut}>Logout</Button>
+                        {/* </div> */}
                     </Link>
                 </Grid>
             </Grid>
@@ -157,56 +158,56 @@ const NavBar = (props) => {
         )
 
 
-    const mobileNavigation = props.token ? (
-        <div
-            className="mobile-nav-overlay"
-            style={{ height: "20%", visibility: "hidden" }}
-        >
-            <Link style={{ color: 'white', marginLeft: '50px' }} href="/my_events" onClick={toggleNav}>
-                <Button color="inherit">MyEvents</Button>
-            </Link>
-            <Link style={{ color: 'white' }} href="/create" onClick={toggleNav}>
-                <Button color="inherit">Host an Event</Button>
-            </Link>
-            <Link style={{ color: 'white' }} href="/search" onClick={toggleNav}>
-                <Button color="inherit">Search</Button>
-            </Link>
-            <div className={classes.logout} style={{ color: "white" }}>
-                <Button className={classes.logout} color="inherit" onClick={logOut}>
-                    Logout
-                </Button>
-            </div>
-        </div>
-    ) : (
-            <div
-                className="mobile-nav-overlay"
-                style={{
-                    height: "20%",
-                    visibility: "hidden"
-                }}
-            >
+    // const mobileNavigation = props.token ? (
+    //     <div
+    //         className="mobile-nav-overlay"
+    //         style={{ height: "20%", visibility: "hidden" }}
+    //     >
+    //         <Link style={{ color: 'white', marginLeft: '50px' }} href="/my_events" onClick={toggleNav}>
+    //             <Button color="inherit">MyEvents</Button>
+    //         </Link>
+    //         <Link style={{ color: 'white' }} href="/create" onClick={toggleNav}>
+    //             <Button color="inherit">Host an Event</Button>
+    //         </Link>
+    //         <Link style={{ color: 'white' }} href="/search" onClick={toggleNav}>
+    //             <Button color="inherit">Search</Button>
+    //         </Link>
+    //         <div className={classes.logout} style={{ color: "white" }}>
+    //             <Button className={classes.logout} color="inherit" onClick={logOut}>
+    //                 Logout
+    //             </Button>
+    //         </div>
+    //     </div>
+    // ) : (
+    //         <div
+    //             className="mobile-nav-overlay"
+    //             style={{
+    //                 height: "20%",
+    //                 visibility: "hidden"
+    //             }}
+    //         >
 
-                <Link style={{ color: "white" }} href="/signup" onClick={toggleNav}>
-                    <Button color="inherit">Register</Button>
-                </Link>
-                <Link style={{ color: "white" }} href="/login" onClick={toggleNav}>
-                    <Button color="inherit">Login</Button>
-                </Link>
-                <Link
-                    style={{ color: 'white' }}
-                    color="inherit"
-                    href="https://github.com/moniatec"
-                    target="_blank"
-                    onClick={toggleNav}
+    //             <Link style={{ color: "white" }} href="/signup" onClick={toggleNav}>
+    //                 <Button color="inherit">Register</Button>
+    //             </Link>
+    //             <Link style={{ color: "white" }} href="/login" onClick={toggleNav}>
+    //                 <Button color="inherit">Login</Button>
+    //             </Link>
+    //             <Link
+    //                 style={{ color: 'white' }}
+    //                 color="inherit"
+    //                 href="https://github.com/moniatec"
+    //                 target="_blank"
+    //                 onClick={toggleNav}
 
-                >
-                    CONTACT
-                </Link>
-                <Link style={{ color: 'white' }} href="https://github.com/moniatec/Event" target="_blank" onClick={toggleNav}>
-                    ABOUT
-                </Link>
-            </div>
-        );
+    //             >
+    //                 CONTACT
+    //             </Link>
+    //             <Link style={{ color: 'white' }} href="https://github.com/moniatec/Event" target="_blank" onClick={toggleNav}>
+    //                 ABOUT
+    //             </Link>
+    //         </div>
+    //     );
 
 
 
