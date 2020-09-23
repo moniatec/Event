@@ -61,30 +61,47 @@ const NavBar = (props) => {
 
     const navigation = props.token ? (
         // <div className={classes.root}></div>
-        <Grid container spacing={3} id="navbar-items">
-            <Grid item xs={10}>
-                <Link style={{ color: 'white', }} href="/home">
-                    <Button color="inherit">Event-App</Button>
-                </Link>
-                <Link style={{ color: 'white', marginLeft: '150px' }} href="/my_events">
-                    <Button color="inherit">MyEvents</Button>
-                </Link>
-                <Link style={{ color: 'white' }} href="/create">
-                    <Button color="inherit">Host an Event</Button>
-                </Link>
-                <Link style={{ color: 'white' }} href="/search">
-                    <Button color="inherit">Search</Button>
-                </Link>
+        <div id="navbar-items">
+            < Grid
+                container
+                spacing={10}
+                direction="row"
+                justify="center"
+                alignItems="flex-start"
+            >
+                <Grid item spacing={3}>
+                    <Link style={{ color: 'white', }} href="/home">
+                        <Button color="inherit">Event-App</Button>
+                    </Link>
+                </Grid>
+                <Grid item spacing={3}>
+                    <Link style={{ color: 'white' }} href="/my_events">
+                        <Button color="inherit">MyEvents</Button>
+                    </Link>
+                </Grid>
+                <Grid item spacing={3}>
+                    <Link style={{ color: 'white' }} href="/create">
+                        <Button color="inherit">Host an Event</Button>
+                    </Link>
+                </Grid>
+                <Grid item spacing={3}>
+                    <Link style={{ color: 'white' }} href="/search">
+                        <Button color="inherit">Search</Button>
+                    </Link>
+                </Grid>
+
+
+
+                <Grid item xs={2}>
+                    <Link style={{ color: 'white' }} href="/login">
+                        <div className={classes.logout} style={{ color: 'white' }}>
+                            <Button className={classes.logout} color="inherit" onClick={logOut}>Logout</Button>
+                        </div>
+                    </Link>
+                </Grid>
             </Grid>
 
-            <Grid item xs={2}>
-                <Link style={{ color: 'white' }} href="/login">
-                    <div className={classes.logout} style={{ color: 'white' }}>
-                        <Button className={classes.logout} color="inherit" onClick={logOut}>Logout</Button>
-                    </div>
-                </Link>
-            </Grid>
-        </Grid >
+        </div >
     ) : (
             <div id="navbar-items2">
                 {/* <Grid container spacing={3} > */}
@@ -95,6 +112,11 @@ const NavBar = (props) => {
                     justify="center"
                     alignItems="flex-start"
                 >
+                    <Grid item spacing={3} >
+                        <Link style={{ color: 'white', }} href="/">
+                            <Button color="inherit">Event-App</Button>
+                        </Link>
+                    </Grid>
                     <Grid item spacing={3} >
                         <Link style={{ color: 'white' }} href="/signup">
                             <Button color="inherit">
