@@ -60,6 +60,7 @@ const NavBar = (props) => {
     }
 
     const navigation = props.token ? (
+        // <div className={classes.root}></div>
         <Grid container spacing={3} id="navbar-items">
             <Grid item xs={10}>
                 <Link style={{ color: 'white', }} href="/home">
@@ -86,32 +87,51 @@ const NavBar = (props) => {
         </Grid >
     ) : (
             <div id="navbar-items2">
-                <Link style={{ color: 'white', marginLeft: '50px', marginRight: '20px' }} href="/signup">
-                    <Button color="inherit">
-                        Register
-                        </Button>
-                </Link>
-                <Link style={{ color: 'white' }} href="/login">
-                    <Button color="inherit">
-                        Login
-                        </Button>
-                </Link>
-                <Link
-                    style={{ color: 'white', marginRight: '20px', marginLeft: '1000px' }}
-                    color="inherit"
-                    href="https://github.com/moniatec"
-                    target="_blank"
+                {/* <Grid container spacing={3} > */}
+                < Grid
+                    container
+                    spacing={10}
+                    direction="row"
+                    justify="center"
+                    alignItems="flex-start"
                 >
-                    <Button color="inherit">
-                        CONTACT
+                    <Grid item spacing={3} >
+                        <Link style={{ color: 'white' }} href="/signup">
+                            <Button color="inherit">
+                                Register
+                        </Button>
+                        </Link>
+                    </Grid>
+                    <Grid item spacing={3}>
+                        <Link style={{ color: 'white' }} href="/login">
+                            <Button color="inherit">
+                                Login
+                        </Button>
+                        </Link>
+
+                    </Grid>
+                    <Grid item spacing={3}>
+
+                        <Link
+                            style={{ color: 'white' }}
+                            color="inherit"
+                            href="https://github.com/moniatec"
+                            target="_blank"
+                        >
+                            <Button color="inherit">
+                                CONTACT
                     </Button>
-                </Link>
-                <Link style={{ color: 'white', marginRight: '50px' }} href="https://github.com/moniatec/Event" target="_blank">
-                    <Button color="inherit">
-                        ABOUT
+                        </Link>
+                    </Grid>
+                    <Grid item spacing={3}>
+                        <Link style={{ color: 'white' }} href="https://github.com/moniatec/Event" target="_blank">
+                            <Button color="inherit">
+                                ABOUT
                     </Button>
-                </Link>
-            </div >
+                        </Link>
+                    </Grid>
+                </Grid>
+            </div>
         )
 
 
