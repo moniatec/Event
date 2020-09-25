@@ -1,9 +1,9 @@
 #navbar-items {
     display: none;
 }
-#navbar-items2 {
+/* #navbar-items2 {
     display: none;
-}
+} */
 
 .mobile-nav-overlay {
     align-items: center;
@@ -22,7 +22,7 @@
     left: 16px;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 855px) {
     #navbar-items {
         display: flex;
     }
@@ -34,15 +34,15 @@
     }  
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 855px) {
   
     .mobile-home-btn {
         position: fixed; 
        
          left: 20px; 
     }
-    /* #navbar-items2{
-        display:none
-    } */
+    #navbar-items2{
+        display: none;
+    }
     
 }

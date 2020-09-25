@@ -45,7 +45,7 @@ function App(props) {
                     currentUserId={props.currentUserId}
                   />
 
-                  <Route
+                  <AuthRoute
                     exact
                     path="/login"
                     component={Login}

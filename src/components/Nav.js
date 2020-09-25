@@ -40,16 +40,16 @@ const useStyles = makeStyles((theme) => ({
 
 const NavBar = (props) => {
     const classes = useStyles();
-    const toggleNav = () => {
-        const navMenu = document.querySelector(".mobile-nav-overlay");
-        if (navMenu.style.visibility === "hidden") {
-            navMenu.style.visibility = "visible";
-            navMenu.style.height = "20%";
-        } else {
-            navMenu.style.visibility = "hidden";
-            navMenu.style.height = 0;
-        }
-    };
+    // const toggleNav = () => {
+    //     const navMenu = document.querySelector(".mobile-nav-overlay");
+    //     if (navMenu.style.visibility === "hidden") {
+    //         navMenu.style.visibility = "visible";
+    //         navMenu.style.height = "20%";
+    //     } else {
+    //         navMenu.style.visibility = "hidden";
+    //         navMenu.style.height = 0;
+    //     }
+    // };
 
     const logOut = (e) => {
         // const navMenu = document.querySelector(".mobile-nav-overlay");
@@ -93,39 +93,42 @@ const NavBar = (props) => {
 
 
 
-                <Grid item spacing={3}>
+                <Grid item >
                     <Link style={{ color: 'white' }} href="/login">
-                        {/* <div className={classes.logout} style={{ color: 'white' }}> */}
+
                         <Button color="inherit" onClick={logOut}>Logout</Button>
-                        {/* </div> */}
+
                     </Link>
                 </Grid>
             </Grid>
 
         </div >
     ) : (
-            <div id="navbar-items2">
-                {/* <Grid container spacing={3} > */}
+            <div
+                id="navbar-items2"
+            >
+
                 < Grid
                     container
                     spacing={10}
                     direction="row"
                     justify="center"
                     alignItems="flex-start"
+
                 >
-                    <Grid item spacing={3} >
+                    <Grid item  >
                         <Link style={{ color: 'white', }} href="/">
                             <Button color="inherit">Event-App</Button>
                         </Link>
                     </Grid>
-                    <Grid item spacing={3} >
+                    <Grid item >
                         <Link style={{ color: 'white' }} href="/signup">
                             <Button color="inherit">
                                 Register
                         </Button>
                         </Link>
                     </Grid>
-                    <Grid item spacing={3}>
+                    <Grid item >
                         <Link style={{ color: 'white' }} href="/login">
                             <Button color="inherit">
                                 Login
@@ -133,7 +136,7 @@ const NavBar = (props) => {
                         </Link>
 
                     </Grid>
-                    <Grid item spacing={3}>
+                    <Grid item >
 
                         <Link
                             style={{ color: 'white' }}
@@ -146,7 +149,7 @@ const NavBar = (props) => {
                     </Button>
                         </Link>
                     </Grid>
-                    <Grid item spacing={3}>
+                    <Grid item >
                         <Link style={{ color: 'white' }} href="https://github.com/moniatec/Event" target="_blank">
                             <Button color="inherit">
                                 ABOUT
@@ -156,59 +159,6 @@ const NavBar = (props) => {
                 </Grid>
             </div>
         )
-
-
-    // const mobileNavigation = props.token ? (
-    //     <div
-    //         className="mobile-nav-overlay"
-    //         style={{ height: "20%", visibility: "hidden" }}
-    //     >
-    //         <Link style={{ color: 'white', marginLeft: '50px' }} href="/my_events" onClick={toggleNav}>
-    //             <Button color="inherit">MyEvents</Button>
-    //         </Link>
-    //         <Link style={{ color: 'white' }} href="/create" onClick={toggleNav}>
-    //             <Button color="inherit">Host an Event</Button>
-    //         </Link>
-    //         <Link style={{ color: 'white' }} href="/search" onClick={toggleNav}>
-    //             <Button color="inherit">Search</Button>
-    //         </Link>
-    //         <div className={classes.logout} style={{ color: "white" }}>
-    //             <Button className={classes.logout} color="inherit" onClick={logOut}>
-    //                 Logout
-    //             </Button>
-    //         </div>
-    //     </div>
-    // ) : (
-    //         <div
-    //             className="mobile-nav-overlay"
-    //             style={{
-    //                 height: "20%",
-    //                 visibility: "hidden"
-    //             }}
-    //         >
-
-    //             <Link style={{ color: "white" }} href="/signup" onClick={toggleNav}>
-    //                 <Button color="inherit">Register</Button>
-    //             </Link>
-    //             <Link style={{ color: "white" }} href="/login" onClick={toggleNav}>
-    //                 <Button color="inherit">Login</Button>
-    //             </Link>
-    //             <Link
-    //                 style={{ color: 'white' }}
-    //                 color="inherit"
-    //                 href="https://github.com/moniatec"
-    //                 target="_blank"
-    //                 onClick={toggleNav}
-
-    //             >
-    //                 CONTACT
-    //             </Link>
-    //             <Link style={{ color: 'white' }} href="https://github.com/moniatec/Event" target="_blank" onClick={toggleNav}>
-    //                 ABOUT
-    //             </Link>
-    //         </div>
-    //     );
-
 
 
     return (

@@ -33,11 +33,11 @@ const EventCard = (props) => {
                     <NavLink style={{ color: 'white' }} to={`/events/${props.event.id}`} eventsJoin={props.eventsJoin}>
                         <CardMedia
                             component="img"
-                            alt="Contemplative Reptile"
+                            alt={props.event.eventName}
                             height="280"
                             maxWidth="100%"
                             image={props.event.photoUrl}
-                            title="Contemplative Reptile"
+                            title={props.event.eventName}
                             style={{ objectFit: 'contain' }}
                         >
                         </CardMedia>
