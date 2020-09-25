@@ -46,11 +46,11 @@ export const register = (username, email, password) => async (dispatch) => {
 };
 
 //send post req to get user logged in based on the info he passed in
-export const login = (email, password) => async (dispatch) => {
+export const login = (email, password, username) => async (dispatch) => {
     const res = await fetch(`${apiBaseUrl}/users/token`, {
         method: "post",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, username }),
     });
 
     if (res.ok) {

@@ -21,7 +21,7 @@ class Login extends Component {
 
     async handleSubmit(e) {
         e.preventDefault();
-        this.props.login(this.state.email, this.state.password);
+        this.props.login(this.state.email, this.state.password, this.state.username);
     }
 
     updateUserName = (e) => {
@@ -108,7 +108,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        login: (email, password) => dispatch(login(email, password)),
+        login: (email, password, username) => dispatch(login(email, password, username)),
     };
 };
 
