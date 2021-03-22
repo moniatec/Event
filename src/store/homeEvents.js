@@ -23,6 +23,7 @@ export const getHomeEvents = () => async (dispatch, getState) => {
         authentication: { token },
     } = getState();
     const res = await fetch(`${apiBaseUrl}/events`, {
+        mode: 'no-cors',
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -41,12 +42,14 @@ export const getOneEvent = (eventId) => async (dispatch, getState) => {
     } = getState();
 
     const res = await fetch(`${apiBaseUrl}/events/${eventId}`, {
+        mode: 'no-cors',
         headers: {
             Authorization: `Bearer ${token}`,
         },
     });
 
     const res2 = await fetch(`${apiBaseUrl}/events/${eventId}/members`, {
+        mode: 'no-cors',
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -164,6 +167,7 @@ export const updateEventReq = (eventId, description, token) => async (dispatch) 
 export const searchEvent = (eventSearch) => async (dispatch, getState) => {
     try {
         const res = await fetch(`${apiBaseUrl}/events/search`, {
+            mode: 'no-cors',
             method: "post",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ eventSearch }),
