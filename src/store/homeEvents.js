@@ -25,7 +25,7 @@ export const getHomeEvents = () => async (dispatch, getState) => {
     const res = await fetch(`${apiBaseUrl}/events`, {
         // mode: 'no-cors',
         headers: {
-            // Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
         },
     });
 
@@ -44,14 +44,14 @@ export const getOneEvent = (eventId) => async (dispatch, getState) => {
     const res = await fetch(`${apiBaseUrl}/events/${eventId}`, {
         // mode: 'no-cors',
         headers: {
-            // Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
         },
     });
 
     const res2 = await fetch(`${apiBaseUrl}/events/${eventId}/members`, {
         // mode: 'no-cors',
         headers: {
-            // Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
         },
     });
 
@@ -72,7 +72,7 @@ export const getMembersForJoin = (userId) => async (dispatch, getState) => {
 
     const res = await fetch(`${apiBaseUrl}/events/${userId}/join/members`, {
         headers: {
-            // Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
         },
     });
 
