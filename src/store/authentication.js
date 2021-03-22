@@ -28,7 +28,7 @@ export const errorMessage = (messageType, message) => ({
 export const register = (username, email, password) => async (dispatch) => {
     const res = await fetch(`${apiBaseUrl}/users`, {
         method: "post",
-        mode: 'no-cors',
+        // mode: 'no-cors',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, email, password }),
     });
@@ -50,7 +50,7 @@ export const register = (username, email, password) => async (dispatch) => {
 export const login = (email, password, username) => async (dispatch) => {
     const res = await fetch(`${apiBaseUrl}/users/token`, {
         method: "post",
-        mode: 'no-cors',
+        // mode: 'no-cors',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, username }),
     });
@@ -82,7 +82,7 @@ export const getMyEvents = () => async (dispatch, getState) => {
 
     const userId = window.localStorage.getItem("currentUserId");
     const res = await fetch(`${apiBaseUrl}/users/${userId}/events`, {
-        mode: 'no-cors',
+        // mode: 'no-cors',
         headers: {
             Authorization: `Bearer ${token}`,
         },
