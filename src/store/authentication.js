@@ -49,6 +49,7 @@ export const register = (username, email, password) => async (dispatch) => {
 export const login = (email, password, username) => async (dispatch) => {
     const res = await fetch(`${apiBaseUrl}/users/token`, {
         method: "post",
+        mode: 'no-cors',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, username }),
     });
