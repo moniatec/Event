@@ -25,7 +25,7 @@ const JoinBtn = (props) => {
                 setDisableBtn(true);
             }
         }
-    }, []);
+    }, [eventId, eventsJoin]);
 
     const handleJoin = async () => {
         props.sendJoinReq(userId, eventId);

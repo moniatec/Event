@@ -5,3 +5,8 @@ module.exports = {
     cloudinaryUrl: process.env.REACT_APP_CLOUDINARY_URL,
     cloudinaryPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET,
 }
+
+// export const demo = {
+//     email: "demo@demo.com",
+//     password: "demouser",
+//   };

@@ -64,6 +64,7 @@ const Splash = () => {
                         // id='splash' 
                         alt="" >
                         <img
+                            alt=''
                             className='splash-image'
                             src={"images/splash_event.jpg"}
                             style={{

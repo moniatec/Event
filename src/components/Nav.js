@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -104,61 +104,61 @@ const NavBar = (props) => {
 
         </div >
     ) : (
-            <div
-                id="navbar-items2"
+        <div
+            id="navbar-items2"
+        >
+
+            < Grid
+                container
+                spacing={10}
+                direction="row"
+                justify="center"
+                alignItems="flex-start"
+
             >
-
-                < Grid
-                    container
-                    spacing={10}
-                    direction="row"
-                    justify="center"
-                    alignItems="flex-start"
-
-                >
-                    <Grid item  >
-                        <Link style={{ color: 'white', }} href="/">
-                            <Button color="inherit">Event-App</Button>
-                        </Link>
-                    </Grid>
-                    <Grid item >
-                        <Link style={{ color: 'white' }} href="/signup">
-                            <Button color="inherit">
-                                Register
-                        </Button>
-                        </Link>
-                    </Grid>
-                    <Grid item >
-                        <Link style={{ color: 'white' }} href="/login">
-                            <Button color="inherit">
-                                Login
-                        </Button>
-                        </Link>
-
-                    </Grid>
-                    <Grid item >
-
-                        <Link
-                            style={{ color: 'white' }}
-                            color="inherit"
-                            href="https://github.com/moniatec"
-                            target="_blank"
-                        >
-                            <Button color="inherit">
-                                CONTACT
-                    </Button>
-                        </Link>
-                    </Grid>
-                    <Grid item >
-                        <Link style={{ color: 'white' }} href="https://github.com/moniatec/Event" target="_blank">
-                            <Button color="inherit">
-                                ABOUT
-                    </Button>
-                        </Link>
-                    </Grid>
+                <Grid item  >
+                    <Link style={{ color: 'white', }} href="/">
+                        <Button color="inherit">Event-App</Button>
+                    </Link>
                 </Grid>
-            </div>
-        )
+                <Grid item >
+                    <Link style={{ color: 'white' }} href="/signup">
+                        <Button color="inherit">
+                            Register
+                        </Button>
+                    </Link>
+                </Grid>
+                <Grid item >
+                    <Link style={{ color: 'white' }} href="/login">
+                        <Button color="inherit">
+                            Login
+                        </Button>
+                    </Link>
+
+                </Grid>
+                <Grid item >
+
+                    <Link
+                        style={{ color: 'white' }}
+                        color="inherit"
+                        href="https://github.com/moniatec"
+                        target="_blank"
+                    >
+                        <Button color="inherit">
+                            CONTACT
+                    </Button>
+                    </Link>
+                </Grid>
+                <Grid item >
+                    <Link style={{ color: 'white' }} href="https://github.com/moniatec/Event" target="_blank">
+                        <Button color="inherit">
+                            ABOUT
+                    </Button>
+                    </Link>
+                </Grid>
+            </Grid>
+        </div>
+    )
 
 
     return (

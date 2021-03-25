@@ -48,7 +48,7 @@ const JoinBtn = (props) => {
                 }
             }
         }
-    }, []);
+    }, [eventId, eventsJoin]);
 
     const handleJoin = async () => {
         props.sendJoinReq(userId, eventId);

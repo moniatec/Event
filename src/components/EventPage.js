@@ -66,7 +66,7 @@ const EventPage = (props) => {
         const memb = members1.members
         let testJoin = false
         for (let i = 0; i < (Object.values(memb)).length; i++) {
-            if ((Object.values(memb))[i].id == props.currentUserId) {
+            if ((Object.values(memb))[i].id === props.currentUserId) {
                 testJoin = true
             }
         }

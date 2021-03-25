@@ -80,7 +80,7 @@ export const getMyEvents = () => async (dispatch, getState) => {
         authentication: { token, currentUserId },
     } = getState();
 
-    const userId = window.localStorage.getItem("currentUserId");
+    const userId = window.localStorage.getItem(currentUserId);
     const res = await fetch(`${apiBaseUrl}/users/${userId}/events`, {
         // mode: 'no-cors',
         headers: {

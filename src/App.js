@@ -21,7 +21,7 @@ function App(props) {
   React.useEffect(() => {
     props.loadToken();
 
-  }, [])
+  }, [props])
   return (
     <>
       <CssBaseline />
