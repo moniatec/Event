@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         alignItems: 'center'
     },
     title1: {
-        // marginLeft: 50,
+
     },
     art: {
         color: "#eca1a6",
@@ -61,7 +61,7 @@ const Splash = () => {
                     <div
                         className={classes.root}
                         justify="center"
-                        // id='splash' 
+
                         alt="" >
                         <img
                             alt=''
