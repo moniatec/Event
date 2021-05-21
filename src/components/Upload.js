@@ -9,6 +9,9 @@ import '../index.css';
 const { cloudinaryUrl, cloudinaryPreset, } = require("../config");
 
 const useStyles = makeStyles((theme) => ({
+    pointer: {
+        cursor: 'pointer',
+    },
 
     img: {
         maxWidth: 100,
@@ -66,7 +69,7 @@ const Upload = (props) => {
     return (
         <Container className={classes.container}>
             <div className={classes.post} >
-                <InputLabel htmlFor="image-upload" style={{
+                <InputLabel className={classes.pointer} htmlFor="image-upload" style={{
                     margin: '20px', marginBottom: '10px', marginLeft: '80px', marginTop: '50px', fontFamily: 'apple-system', color: '#111',
                     fontWeight: 'lighter',
                 }} >Select Image</InputLabel>
