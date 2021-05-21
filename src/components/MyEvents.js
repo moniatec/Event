@@ -16,8 +16,10 @@ const useStyles = makeStyles((theme) => ({
 const MyEvents = (props) => {
     const classes = useStyles();
     React.useEffect(() => {
-        props.getMyEvents();
+        // props.getMyEvents();
         let userId = window.localStorage.getItem("currentUserId");
+        console.log(userId)
+        props.getMyEvents(userId);
         props.getMembersForJoin(userId);
     }, [])
 
@@ -82,7 +84,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        getMyEvents: () => dispatch(getMyEvents()),
+        getMyEvents: (...args) => dispatch(getMyEvents(...args)),
         getMembersForJoin: (...args) => dispatch(getMembersForJoin(...args)),
     };
 };

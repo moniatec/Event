@@ -75,17 +75,18 @@ export const logout = () => async (dispatch, getState) => {
 };
 
 //send get req to get all events for a user(all events that the user if a member)
-export const getMyEvents = () => async (dispatch, getState) => {
+export const getMyEvents = (userId) => async (dispatch, getState) => {
     const {
-        authentication: { token, currentUserId },
+        authentication: { token },
     } = getState();
 
-    const userId = window.localStorage.getItem(currentUserId);
+    // const userId = window.localStorage.getItem(currentUserId);
+    console.log(userId)
     const res = await fetch(`${apiBaseUrl}/users/${userId}/events`, {
         // mode: 'no-cors',
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
+        // headers: {
+        //     Authorization: `Bearer ${token}`,
+        // },
     });
     if (res.ok) {
         const list = await res.json();
